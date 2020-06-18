@@ -11,7 +11,7 @@ import UIKit
 class AdSuyiInterstitialViewController: UIViewController, ADSuyiSDKIntertitialAdDelegate {
     func adsy_interstitialAdSucced(toLoad interstitialAd: ADSuyiSDKIntertitialAd) {
         print(#function)
-        // 3、展示应用内通知广告
+        // 3、展示插屏广告
         self.interstitialAd?.loadData()
     }
     

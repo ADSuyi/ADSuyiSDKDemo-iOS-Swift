@@ -15,6 +15,7 @@ class AdSuyiFullScreenVodViewController: UIViewController, ADSuyiSDKFullScreenVo
     
     func adsy_fullScreenVodAdReady(toPlay fullScreenVodAd: ADSuyiSDKFullScreenVodAd) {
         print(#function)
+        // 3、展示全屏视频广告
         self.fullScreenVod?.show()
     }
     
@@ -66,12 +67,13 @@ class AdSuyiFullScreenVodViewController: UIViewController, ADSuyiSDKFullScreenVo
     }
     
     func loadFullScreenVodAd() {
+        // 1、初始化全屏视频
         self.fullScreenVod = ADSuyiSDKFullScreenVodAd.init()
         self.fullScreenVod?.delegate = self
         self.fullScreenVod?.controller = self
         self.fullScreenVod?.tolerateTimeout = 5
         self.fullScreenVod?.posId = "7206088624654025e7"
-        
+        // 2、加载全屏视频广告
         self.fullScreenVod?.loadData()
     }
     

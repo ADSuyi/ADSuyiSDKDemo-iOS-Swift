@@ -18,20 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
     func loadSplash() {
         // 1、初始化开屏广告对象
         splash = ADSuyiSDKSplashAd.init()
-        // 2、设置代理
         splash?.delegate = self
-        // 3、设置广告位id
-        splash?.posId = "d11c2ef29dcb7e6e62"
-        // 4、设置广告请求超时时间
         splash?.tolerateTimeout = 4
+        // 设置控制器，用于落地页弹出
+        splash?.controller = self.window?.rootViewController
+        // 2、设置广告位id
+        splash?.posId = "d11c2ef29dcb7e6e62"
         
-        // 5、设置广告背景颜色，推荐设置为启动图的平铺颜色
+        // 3、设置广告背景颜色，推荐设置为启动图的平铺颜色
         let bgImage = UIImage.init(named: "750x1334.png")
         splash?.backgroundColor = UIColor.adsy_get(with: bgImage!, withNewSize: UIScreen.main.bounds.size)
-        // 6、设置控制器，用于落地页弹出
-        splash?.controller = self.window?.rootViewController
         
-        // 7、初始化底部视图
+        // 4、初始化底部视图
         var bottomViewHeight:CGFloat = 0
         if isIPhoneXSeries() {
             bottomViewHeight = SCREEN_WIDTH * 0.25
@@ -46,9 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         logoImageView.frame = CGRect.init(x: (SCREEN_WIDTH - 135)/2, y: (bottomViewHeight - 46)/2, width: 135, height: 46)
         
         bottomView.addSubview(logoImageView)
-        // 7、加载全屏的开屏广告
+        // 5、加载全屏的开屏广告
         // splash?.loadAndShow(in: self.window! , withBottomView: nil)
-        // 7、加载带有底部视图的开屏广告
+        // 5、加载带有底部视图的开屏广告
         splash?.loadAndShow(in: self.window!, withBottomView: bottomView)
         
     }

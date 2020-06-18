@@ -42,6 +42,7 @@ class AdSuyiDrawVodViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func adsy_drawvodAdSuccess(toLoad drawvodAd: ADSuyiSDKDrawvodAd, drawvodAdArray drawvodAdViewArray: [ADSuyiAdapterDrawvodAdView]) {
+        // 3、广告视图渲染
         if drawvodAdViewArray.count > 0 {
             for adView:ADSuyiAdapterDrawvodAdView in drawvodAdViewArray {
                 adView.render()
@@ -54,6 +55,7 @@ class AdSuyiDrawVodViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func adsy_drawvodAdSuccess(toRender drawvodAd: ADSuyiSDKDrawvodAd, view drawvodAdView: ADSuyiAdapterDrawvodAdView) {
+        // 4、渲染完成之后再添加到数据源中
         self.dataArray.append(drawvodAdView)
         self.mainTableView?.reloadData()
     }
@@ -118,13 +120,14 @@ class AdSuyiDrawVodViewController: UIViewController, UITableViewDelegate, UITabl
     
     func loadDrawvodAd() {
         if drawvodAd == nil {
+            // 1、初始化沉浸式视频广告对象
             self.drawvodAd = ADSuyiSDKDrawvodAd.init(size: CGSize.init(width: self.view.frame.size.width, height: self.view.frame.size.height - statusBarHeight))
             self.drawvodAd?.posId = "16e160a112f019de2b"
             self.drawvodAd?.delegate = self
             self.drawvodAd?.controller = self
             self.drawvodAd?.tolerateTimeout = 4
         }
-        
+        // 2、加载沉浸式广告
         self.drawvodAd?.load(3)
         
     }

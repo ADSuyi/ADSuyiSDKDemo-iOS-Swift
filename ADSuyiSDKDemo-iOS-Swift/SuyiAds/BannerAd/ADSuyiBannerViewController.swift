@@ -107,16 +107,17 @@ class ADSuyiBannerViewController: UIViewController, ADSuyiSDKBannerAdViewDelegat
             self.bannerAdView?.removeFromSuperview()
             self.bannerAdView = nil
         }
-        
+        // 1、初始化banner广告视图，并传入期望的宽高
         let height = screensSize.width / rate
         bannerAdView = ADSuyiSDKBannerAdView.init(frame: CGRect.init(x: 0, y: 250, width: screensSize.width, height: height))
         bannerAdView?.delegate = self
         bannerAdView?.controller = self
+        // 2、传入广告位id
         bannerAdView?.posId = posid
         bannerAdView?.tolerateTimeout = 4
         bannerAdView?.refershTime = 30
         self.view.addSubview(bannerAdView!)
-        
+        // 3、加载banner广告
         bannerAdView?.loadAndShowWithError(nil)
     }
     

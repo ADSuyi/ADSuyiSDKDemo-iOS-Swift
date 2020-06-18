@@ -14,6 +14,7 @@ class AdSuyiRewardViewController: UIViewController, ADSuyiSDKRewardvodAdDelegate
     }
     
     func adsy_rewardvodAdReady(toPlay rewardvodAd: ADSuyiSDKRewardvodAd) {
+        // 3、展示激励视频广告
         if self.rewardAd?.rewardvodAdIsReady() ?? false {
             self.rewardAd?.show()
         }
