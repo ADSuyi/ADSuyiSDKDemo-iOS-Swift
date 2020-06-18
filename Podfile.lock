@@ -1,0 +1,71 @@
+PODS:
+  - ADMobGenDeviceInfo (1.6.9.05261):
+    - ADSuyiKit (~> 0.2.5)
+    - ADSuyiLocationManager (~> 0.1.2)
+    - ADSuyiNetwork (~> 0.1.2)
+  - ADMobileAdSDK (3.2.4.05281):
+    - ADMobGenDeviceInfo (~> 1.6.9)
+    - ADSuyiKit (~> 0.2.5)
+    - ADSuyiNetwork (~> 0.1.2)
+  - ADSuyiAdMobile (3.2.4.05281):
+    - ADMobileAdSDK (~> 3.2.4)
+    - ADSuyiSDK (~> 3.0.3)
+  - ADSuyiBU (2.9.0.1.05281):
+    - ADSuyiSDK (~> 3.0.4)
+    - Bytedance-UnionAD (= 2.9.0.1)
+  - ADSuyiGDT (4.11.7.05292):
+    - ADSuyiSDK (~> 3.0.3)
+    - GDTMobSDK (= 4.11.7)
+  - ADSuyiKit (0.2.5.05282)
+  - ADSuyiLocationManager (0.1.2.05261)
+  - ADSuyiNetwork (0.1.2.05261):
+    - ADSuyiKit (~> 0.2.5)
+  - ADSuyiSDK (3.0.4.05291):
+    - ADMobGenDeviceInfo (~> 1.6.9)
+    - ADSuyiKit (~> 0.2.5)
+    - ADSuyiNetwork (~> 0.1.2)
+  - Bytedance-UnionAD (2.9.0.1)
+  - GDTMobSDK (4.11.7):
+    - GDTMobSDK/GDTMobSDK (= 4.11.7)
+  - GDTMobSDK/GDTMobSDK (4.11.7)
+  - MJRefresh (3.4.3)
+
+DEPENDENCIES:
+  - ADSuyiAdMobile
+  - ADSuyiBU
+  - ADSuyiGDT
+  - ADSuyiSDK (~> 3.0.4)
+  - MJRefresh
+
+SPEC REPOS:
+  trunk:
+    - ADMobGenDeviceInfo
+    - ADMobileAdSDK
+    - ADSuyiAdMobile
+    - ADSuyiBU
+    - ADSuyiGDT
+    - ADSuyiKit
+    - ADSuyiLocationManager
+    - ADSuyiNetwork
+    - ADSuyiSDK
+    - Bytedance-UnionAD
+    - GDTMobSDK
+    - MJRefresh
+
+SPEC CHECKSUMS:
+  ADMobGenDeviceInfo: 8490af5470fc85d772879c8513259efed9f298ba
+  ADMobileAdSDK: ffcde117ac279584f79af18a2967fc09433eb1fb
+  ADSuyiAdMobile: 2266f4f0f28edaba833fd3eebc1bbfec2eb0128f
+  ADSuyiBU: 2c50f83f4b918e75099f1bb94f578a0077872a5f
+  ADSuyiGDT: 803da1944b35c9ea625da37f1e243f6f700c30ab
+  ADSuyiKit: 5828a774dfff3a928308aa0057c24c5a86f2bd06
+  ADSuyiLocationManager: 4986b8fba88412fbca5d31582bd69ebdce39e6f2
+  ADSuyiNetwork: c1143c8b73b57eaada87e4df372f17115cedb9c6
+  ADSuyiSDK: a7e019ef8f8639e099eda69dec083ba8bda366e4
+  Bytedance-UnionAD: e145f7e98e5a714332d7d31e764696e569483755
+  GDTMobSDK: edb52f3721c8c62b790b255833e423a00a3d2172
+  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+
+PODFILE CHECKSUM: 860e3c97b9e8368b2b519135cde7bd75f1dddea7
+
+COCOAPODS: 1.9.1
