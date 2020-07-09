@@ -57,7 +57,7 @@ class AdSuyiInterstitialViewController: UIViewController, ADSuyiSDKIntertitialAd
         self.interstitialAd?.delegate = self
         self.interstitialAd?.controller = self
         self.interstitialAd?.tolerateTimeout = 4
-        self.interstitialAd?.posId = "1fbfbb9778d168e5a7"
+        self.interstitialAd?.posId = "9535af29514e548fe0"
         // 2、加载插屏广告
         self.interstitialAd?.loadData()
     }

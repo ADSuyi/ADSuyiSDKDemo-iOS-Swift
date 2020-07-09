@@ -76,7 +76,7 @@ class AdSuyiRewardViewController: UIViewController, ADSuyiSDKRewardvodAdDelegate
         self.rewardAd?.controller = self
         self.rewardAd?.delegate = self
         self.rewardAd?.tolerateTimeout = 5
-        self.rewardAd?.posId = "e9e0f8d1fe21873695"
+        self.rewardAd?.posId = "47d196ffaaa92ae93c"
         // 2、加载激励视频广告
         self.rewardAd?.load()
     }

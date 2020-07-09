@@ -30,7 +30,7 @@ class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
         // 设置代理
         splash?.delegate = self
         // 2、设置广告位id
-        splash?.posId = "d11c2ef29dcb7e6e62"
+        splash?.posId = "73128265daffdd6a1d"
         // 设置广告请求超时时间
         splash?.tolerateTimeout = 4
         

@@ -37,7 +37,7 @@ class ADSuyiBannerViewController: UIViewController, ADSuyiSDKBannerAdViewDelegat
     var bannerAdView : ADSuyiSDKBannerAdView?
     let screensSize = UIScreen.main.bounds.size
     
-    lazy var dataArray : Array<ADSuyiBannerItem> = [ADSuyiBannerItem.init(rate: 640/100.0, posId: "ab9504bedaf913d801", title: "640*100"), ADSuyiBannerItem.init(rate: 600/150.0, posId: "7ea3318d9142feaf3e", title: "600*150"), ADSuyiBannerItem.init(rate: 600/260.0, posId: "a5d71106fbd568d697", title: "600*260"), ADSuyiBannerItem.init(rate: 600/300.0, posId: "05a7e889fd384b3592", title: "600*300"), ADSuyiBannerItem.init(rate: 690/388.0, posId: "47c48bba553fb59297", title: "690*388"), ADSuyiBannerItem.init(rate: 600/400.0, posId: "961266bc769ba034ee", title: "600*400"), ADSuyiBannerItem.init(rate: 600/500.0, posId: "087046582d2807092e", title: "600*500")]
+    lazy var dataArray : Array<ADSuyiBannerItem> = [ADSuyiBannerItem.init(rate: 640/100.0, posId: "9ca1e179e38ca5a35c", title: "640*100"), ADSuyiBannerItem.init(rate: 600/150.0, posId: "f75ccc39a18436f65c", title: "600*150"), ADSuyiBannerItem.init(rate: 600/260.0, posId: "ddf3dbdbef73a0e0b2", title: "600*260"), ADSuyiBannerItem.init(rate: 600/300.0, posId: "2a74467bee2eb3e31f", title: "600*300"), ADSuyiBannerItem.init(rate: 690/388.0, posId: "cf17c076d6d2b5f86f", title: "690*388"), ADSuyiBannerItem.init(rate: 600/400.0, posId: "1d54d4991ffd9273b7", title: "600*400"), ADSuyiBannerItem.init(rate: 600/500.0, posId: "2e5443fd293252ad30", title: "600*500")]
     
     var btnArray : Array<UIButton> = Array.init()
     

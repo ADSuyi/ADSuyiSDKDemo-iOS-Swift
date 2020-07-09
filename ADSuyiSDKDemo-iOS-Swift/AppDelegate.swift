@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         // 设置控制器，用于落地页弹出
         splash?.controller = self.window?.rootViewController
         // 2、设置广告位id
-        splash?.posId = "d11c2ef29dcb7e6e62"
+        splash?.posId = "73128265daffdd6a1d"
         
         // 3、设置广告背景颜色，推荐设置为启动图的平铺颜色
         let bgImage = UIImage.init(named: "750x1334.png")
@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         window?.makeKeyAndVisible()
         
         ADSuyiSDK.setLogLevel(ADSuyiKitLogLevel(rawValue: 1 << 3)!)
-        ADSuyiSDK.initWithAppId("3993370") { (error) in
+        ADSuyiSDK.initWithAppId("3437764") { (error) in
             if error != nil {
                 NSLog("SDK 初始化失败:%@",error?.localizedDescription ?? "")
             }

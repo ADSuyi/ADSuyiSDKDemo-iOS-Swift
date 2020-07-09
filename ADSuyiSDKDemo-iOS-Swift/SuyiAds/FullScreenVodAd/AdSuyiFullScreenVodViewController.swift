@@ -72,7 +72,7 @@ class AdSuyiFullScreenVodViewController: UIViewController, ADSuyiSDKFullScreenVo
         self.fullScreenVod?.delegate = self
         self.fullScreenVod?.controller = self
         self.fullScreenVod?.tolerateTimeout = 5
-        self.fullScreenVod?.posId = "7206088624654025e7"
+        self.fullScreenVod?.posId = "f3953777bc833957d8"
         // 2、加载全屏视频广告
         self.fullScreenVod?.loadData()
     }

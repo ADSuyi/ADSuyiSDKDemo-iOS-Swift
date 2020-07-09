@@ -122,7 +122,7 @@ class AdSuyiDrawVodViewController: UIViewController, UITableViewDelegate, UITabl
         if drawvodAd == nil {
             // 1、初始化沉浸式视频广告对象
             self.drawvodAd = ADSuyiSDKDrawvodAd.init(size: CGSize.init(width: self.view.frame.size.width, height: self.view.frame.size.height - statusBarHeight))
-            self.drawvodAd?.posId = "16e160a112f019de2b"
+            self.drawvodAd?.posId = "e60e6ad498e1be4906"
             self.drawvodAd?.delegate = self
             self.drawvodAd?.controller = self
             self.drawvodAd?.tolerateTimeout = 4

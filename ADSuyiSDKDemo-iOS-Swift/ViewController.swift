@@ -97,12 +97,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             break
         case 2:
             let nativeVC = AdSuyiNativeViewController.init()
-            nativeVC.posid = "01ab5a91baf16067cd"
+            nativeVC.posid = "d4366018478613f768"
             self.navigationController?.pushViewController(nativeVC, animated: true)
             break
         case 3:
             let nativeVC = AdSuyiNativeViewController.init()
-            nativeVC.posid = "2292f78269697e0e39"
+            nativeVC.posid = "26fe47d8b06658ace0"
             self.navigationController?.pushViewController(nativeVC, animated: true)
             break
         case 4:
