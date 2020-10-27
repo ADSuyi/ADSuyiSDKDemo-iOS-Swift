@@ -60,12 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
         
-        ADSuyiSDK.setLogLevel(ADSuyiKitLogLevel(rawValue: 1 << 3)!)
-        ADSuyiSDK.initWithAppId("3437764") { (error) in
-            if error != nil {
-                NSLog("SDK 初始化失败:%@",error?.localizedDescription ?? "")
-            }
-        }
+        self.setThirtyPartySdk()
         // 加载开屏
         loadSplash()
         
@@ -82,6 +77,65 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         splash = nil
     }
 
+    // MARK: private method
+    func showAgreePrivacy() {
+        let alertVc = UIAlertController.init(title: "温馨提示", message: "亲爱的用户，欢迎您信任并使用【】，我们依据相关法律制定了《用户协议》和《隐私协议》帮你你了解我们手机，使用，存储和共享个人信息情况，请你在点击之前仔细阅读并理解相关条款。\n1、在使用我们的产品和服务时，将会提供与具体功能有关的个法人信息（可能包括身份验证，位置信息，设备信息和操作日志等）\n2、我们会采用业界领先的安全技术来保护你的个人隐私，未经授权许可我们不会讲上述信息共享给任何第三方或用于未授权的其他用途。\n如你同意请点击同意按钮并继续。", preferredStyle: UIAlertController.Style.alert)
+        
+        let cancle = UIAlertAction.init(title: "不同意", style: UIAlertAction.Style.cancel) { [self] (action) in
+            let alert = UIAlertController.init(title: "", message: "点击同意才能使用该App服务", preferredStyle: UIAlertController.Style.alert)
+            let sure = UIAlertAction.init(title: "确定", style: UIAlertAction.Style.default) { [self] (action) in
+                window?.rootViewController?.present(alertVc, animated:true, completion: nil)
+            }
+            alert.addAction(sure)
+            window?.rootViewController?.present(alert, animated: true, completion: nil)
+            
+        }
+        let agree = UIAlertAction.init(title: "同意并继续", style: UIAlertAction.Style.default) { (action) in
+            // 记录是否第一次启动
+            self.writeAppLoad()
+            // 用户同意协议 初始化
+            self.initADSuyiSDK()
+        }
+        
+        alertVc.addAction(cancle)
+        alertVc.addAction(agree)
+        window?.rootViewController?.present(alertVc, animated: true, completion: nil)
+        
+    }
+    
+    func setThirtyPartySdk() {
+        if isFirstLoad() {
+            self.showAgreePrivacy()
+        }else{
+            self.initADSuyiSDK()
+        }
+    }
+    
+    func initADSuyiSDK() {
+        ADSuyiSDK.setLogLevel(ADSuyiKitLogLevel(rawValue: 1 << 3)!)
+        ADSuyiSDK.initWithAppId("3437764") { (error) in
+//            if error != nil {
+//                NSLog("SDK 初始化失败:%@",error?.localizedDescription ?? "")
+//            }
+        }
+    }
+    
+    // MARK: helper
+    
+    func writeAppLoad() {
+        let userDefault = UserDefaults.standard
+        userDefault.set("yes", forKey: "isFirstLoad")
+        userDefault.synchronize()
+    }
+    
+    func isFirstLoad() -> Bool {
+        let userDefault = UserDefaults.standard
+        if (userDefault.object(forKey: "isFirstLoad") != nil)  {
+            return false
+        }
+        return true
+    }
+    
     // MARK: UISceneSession Lifecycle
 
 //    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

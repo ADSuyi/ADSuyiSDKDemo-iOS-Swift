@@ -1,40 +1,40 @@
 PODS:
-  - ADMobGenDeviceInfo (1.8.3.08121):
-    - ADSuyiKit (~> 0.4.0)
-    - ADSuyiLocationManager (~> 0.1.4)
+  - ADMobGenDeviceInfo (1.8.4.10241):
+    - ADSuyiKit (~> 0.4.2)
+    - ADSuyiLocationManager (~> 0.1.6)
     - ADSuyiNetwork (~> 0.1.3)
-  - ADMobileAdSDK (3.2.6.08121):
-    - ADMobGenDeviceInfo (~> 1.8.3.0)
-    - ADSuyiKit (~> 0.4.0.0)
+  - ADMobileAdSDK (3.2.8.10241):
+    - ADMobGenDeviceInfo (~> 1.8.4.0)
+    - ADSuyiKit (~> 0.4.2.0)
     - ADSuyiNetwork (~> 0.1.3.0)
-  - ADSuyiAdMobile (3.2.6.08121):
-    - ADMobileAdSDK (~> 3.2.6.0)
-    - ADSuyiSDK (~> 3.0.6.0)
-  - ADSuyiBU (3.1.0.5.08121):
-    - ADSuyiSDK (~> 3.0.6.0)
+  - ADSuyiAdMobile (3.2.8.10241):
+    - ADMobileAdSDK (~> 3.2.8.0)
+    - ADSuyiSDK (~> 3.0.8.0)
+  - ADSuyiBU (3.1.0.5.10241):
+    - ADSuyiSDK (~> 3.0.8.0)
     - Bytedance-UnionAD (= 3.1.0.5)
-  - ADSuyiGDT (4.11.9.08121):
-    - ADSuyiSDK (~> 3.0.6.0)
-    - GDTMobSDK (= 4.11.9)
-  - ADSuyiKit (0.4.0.08121)
-  - ADSuyiLocationManager (0.1.4.08121)
-  - ADSuyiNetwork (0.1.3.08121):
-    - ADSuyiKit (~> 0.4.0)
-  - ADSuyiSDK (3.0.6.08121):
-    - ADMobGenDeviceInfo (~> 1.8.3.0)
-    - ADSuyiKit (~> 0.4.0.0)
+  - ADSuyiGDT (4.11.11.10241):
+    - ADSuyiSDK (~> 3.0.8.0)
+    - GDTMobSDK (= 4.11.11)
+  - ADSuyiKit (0.4.2.10241)
+  - ADSuyiLocationManager (0.1.6.10241)
+  - ADSuyiNetwork (0.1.3.10241):
+    - ADSuyiKit (~> 0.4.2)
+  - ADSuyiSDK (3.0.8.10241):
+    - ADMobGenDeviceInfo (~> 1.8.4.0)
+    - ADSuyiKit (~> 0.4.2.0)
     - ADSuyiNetwork (~> 0.1.3.0)
   - Bytedance-UnionAD (3.1.0.5)
-  - GDTMobSDK (4.11.9):
-    - GDTMobSDK/GDTMobSDK (= 4.11.9)
-  - GDTMobSDK/GDTMobSDK (4.11.9)
-  - MJRefresh (3.4.3)
+  - GDTMobSDK (4.11.11):
+    - GDTMobSDK/GDTMobSDK (= 4.11.11)
+  - GDTMobSDK/GDTMobSDK (4.11.11)
+  - MJRefresh (3.5.0)
 
 DEPENDENCIES:
   - ADSuyiAdMobile
   - ADSuyiBU
   - ADSuyiGDT
-  - ADSuyiSDK (~> 3.0.6)
+  - ADSuyiSDK (~> 3.0.8)
   - MJRefresh
 
 SPEC REPOS:
@@ -53,19 +53,19 @@ SPEC REPOS:
     - MJRefresh
 
 SPEC CHECKSUMS:
-  ADMobGenDeviceInfo: b513f1340c6b6bcc949e42bde539cc76f0dbdce5
-  ADMobileAdSDK: 772ad79abd6910580c2fa45ab55898aab331ce4c
-  ADSuyiAdMobile: bd7d14455fa26fa39978c024698317ec14f46b0b
-  ADSuyiBU: b25b3ad9a3ae4bea561e061ba8c10e88560091f1
-  ADSuyiGDT: 03b4339a276136dbc00c0490b143b8614bf75ab2
-  ADSuyiKit: a023202a302424d641962c7e097b4944b7ac8e26
-  ADSuyiLocationManager: 160cb570704b9a2f2eef10529f97d7a7bfcb52f3
-  ADSuyiNetwork: a0efd7ab80991268566813fd88161e9c81f84cf8
-  ADSuyiSDK: c7eabd0fed0607794b6cbb5884a3a601b6f24266
+  ADMobGenDeviceInfo: 2c6e11e169ea88a37cc70a54940f6af93f14fdaa
+  ADMobileAdSDK: 63535f2ab09aa453e7a1ca4afc94b5b31c001772
+  ADSuyiAdMobile: d11cae52912311013384b82a7715d3ad64de9efb
+  ADSuyiBU: 4a597c62941de8362cac00a5dba770976c5bb5a0
+  ADSuyiGDT: 7221fd4e9b27f1d78910140d99cf9491e9952463
+  ADSuyiKit: 771202efe983f55d071ba4db3885d9729f2c7a73
+  ADSuyiLocationManager: a4be313c465d150660252be286c38063172b69df
+  ADSuyiNetwork: 17ab0375079b7072a46c3bc3f16013e21d3a708e
+  ADSuyiSDK: ad51e26c8aef95a96b7ebdc6f4a6ebe8fbb90c8d
   Bytedance-UnionAD: 4768919f6de97eb29687b8e50cee65eef5e9f3a9
-  GDTMobSDK: b6427056bbca5ff7b654777604820133006507e5
-  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  GDTMobSDK: 5603f2ed5c565f798b9dd13d3dbfb582594ea93a
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
 
-PODFILE CHECKSUM: 045fdfb30173d2d935b6d6b6f648f2d783204d05
+PODFILE CHECKSUM: d11bf30ec1725e4f009512b19f1610d12f5f374b
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
