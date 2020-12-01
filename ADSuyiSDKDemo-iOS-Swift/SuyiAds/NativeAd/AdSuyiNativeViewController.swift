@@ -210,7 +210,7 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         adlabel.font = UIFont.adsy_PingFangLightFont(12)
         adlabel.text = "广告"
         adview.addSubview(adlabel)
-        adview.frame = CGRect.init(x: 17, y: height, width: 36, height: 18)
+        adlabel.frame = CGRect.init(x: 17, y: height, width: 36, height: 18)
         adlabel.textAlignment = NSTextAlignment.center
         
         let descLabel : UILabel = UILabel.init()
