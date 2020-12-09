@@ -13,7 +13,7 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         if adViewArray.count > 0{
             for item : UIView&ADSuyiAdapterNativeAdViewDelegate in adViewArray {
                 if item.renderType() == ADSuyiAdapterRenderType.native {
-                    
+                    setUpUnifiedNativeAdView(item)
                 }
                 item.adsy_registViews([item])
                 
