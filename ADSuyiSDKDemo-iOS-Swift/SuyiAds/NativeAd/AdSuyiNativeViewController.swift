@@ -13,7 +13,7 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         if adViewArray.count > 0{
             for item : UIView&ADSuyiAdapterNativeAdViewDelegate in adViewArray {
                 if item.renderType() == ADSuyiAdapterRenderType.native {
-                    
+                    setUpUnifiedNativeAdView(adview: item)
                 }
                 item.adsy_registViews([item])
                 
@@ -157,11 +157,37 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         self.nativeAd.load(1)
     }
     
+    @objc func clickCloseButton(btn:UIButton) {
+        let adView = btn.superview as! UIView & ADSuyiAdapterNativeAdViewDelegate
+        self.adsy_nativeAdClose(nativeAd, adView:adView);
+    }
+    
     func setUpUnifiedNativeAdView(adview : UIView & ADSuyiAdapterNativeAdViewDelegate) {
+        // 设计的adView实际大小，其中宽度和高度可以自己根据自己的需求设置
         let adWidth:CGFloat = self.view.bounds.size.width
         let adHeight:CGFloat = (adWidth - 34.0) / 16.0 * 9.0 + 67 + 38
         adview.frame = CGRect.init(x: 0, y: 0, width: adWidth, height: adHeight)
         
+        // 展示关闭按钮（必要）
+        let closeButton = UIButton()
+        adview.addSubview(closeButton)
+        closeButton.frame = CGRect(x:adWidth-44, y:0, width:44, height:44)
+        closeButton.setImage(UIImage(named: "close"), for: .normal)
+        closeButton.addTarget(adview, action: #selector(clickCloseButton), for: .touchUpInside)
+        
+        // 显示logo图片（必要）
+        let logoImage = UIImageView()
+        adview.addSubview(logoImage);
+        adview.adsy_platformLogoImageHasText(true) { (image) in
+            guard let image = image else {
+                return
+            }
+            let maxWidth: CGFloat = 80.0;
+            let logoHeight = maxWidth / image.size.width * image.size.height;
+            logoImage.frame = CGRect(x: adWidth - maxWidth, y: adHeight - logoHeight, width: maxWidth, height: logoHeight)
+        }
+
+        // 设置标题文字（可选，但强烈建议带上）
         let titleLabel = UILabel.init()
         adview.addSubview(titleLabel)
         titleLabel.font = UIFont.adsy_PingFangMediumFont(14)
@@ -173,8 +199,8 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         
         var height:CGFloat = size.height + 16 + 15
         
+        // 设置主图/视频（主图可选，但强烈建议带上,如果有视频试图，则必须带上）
         let mainFrame:CGRect = CGRect.init(x: 17, y: height, width: adWidth - 34.0, height: (adWidth - 34.0) / 16.0 * 9.0)
-        
         if adview.data?.shouldShowMediaView ?? false {
             let mediaView:UIView = adview.adsy_mediaView(forWidth: mainFrame.size.width) ?? UIView.init()
             mediaView.frame = mainFrame
@@ -204,15 +230,17 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         
         height = height + (adWidth - 34.0) / 16.0 * 9.0 + 9.0
         
+        // 设置广告标识（可选）
         let adlabel : UILabel = UILabel.init()
         adlabel.backgroundColor = UIColor.adsy_color(withHexString: "#CCCCCC")
         adlabel.textColor = UIColor.adsy_color(withHexString: "#FFFFFF")
         adlabel.font = UIFont.adsy_PingFangLightFont(12)
         adlabel.text = "广告"
         adview.addSubview(adlabel)
-        adview.frame = CGRect.init(x: 17, y: height, width: 36, height: 18)
+        adlabel.frame = CGRect.init(x: 17, y: height, width: 36, height: 18)
         adlabel.textAlignment = NSTextAlignment.center
         
+        // 设置广告描述(可选)
         let descLabel : UILabel = UILabel.init()
         descLabel.textColor = UIColor.adsy_color(withHexString: "#333333")
         descLabel.font = UIFont.adsy_PingFangLightFont(12)
