@@ -157,11 +157,6 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         self.nativeAd.load(1)
     }
     
-    @objc func clickCloseButton(btn:UIButton) {
-        let adView = btn.superview as! UIView & ADSuyiAdapterNativeAdViewDelegate
-        self.adsy_nativeAdClose(nativeAd, adView:adView);
-    }
-    
     func setUpUnifiedNativeAdView(adview : UIView & ADSuyiAdapterNativeAdViewDelegate) {
         // 设计的adView实际大小，其中宽度和高度可以自己根据自己的需求设置
         let adWidth:CGFloat = self.view.bounds.size.width
@@ -173,7 +168,7 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         adview.addSubview(closeButton)
         closeButton.frame = CGRect(x:adWidth-44, y:0, width:44, height:44)
         closeButton.setImage(UIImage(named: "close"), for: .normal)
-        closeButton.addTarget(adview, action: #selector(clickCloseButton), for: .touchUpInside)
+        closeButton.addTarget(adview, action: #selector(adsy_close), for: .touchUpInside)
         
         // 显示logo图片（必要）
         let logoImage = UIImageView()
