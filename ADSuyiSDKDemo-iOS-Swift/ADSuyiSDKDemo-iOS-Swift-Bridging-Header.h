@@ -3,7 +3,6 @@
 //
 
 #import <ADSuyiSDK/ADSuyiSDK.h>
-#import <ADSuyiSDK/ADSuyiSDKSplashAd.h>
 #import <ADSuyiKit/ADSuyiKitLogging.h>
 
 

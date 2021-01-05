@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
     
     
     func loadSplash() {
+        if splash != nil {
+            return
+        }
         // 1、初始化开屏广告对象
         splash = ADSuyiSDKSplashAd.init()
         splash?.delegate = self
@@ -65,6 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         loadSplash()
         
         return true
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // 热启动进入前台 加载广告
+        self.loadSplash()
     }
     
     func adsy_splashAdClosed(_ splashAd: ADSuyiSDKSplashAd) {
