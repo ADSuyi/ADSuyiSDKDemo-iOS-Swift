@@ -105,7 +105,6 @@ pod 'ADSuyiKS'
 ```
 
 
-
 ## 2.2 手动导入SDK方式
 
 [点击进入SDK下载地址](https://doc.admobile.top/iOSSDK/ADSuyi_SDK_iOS.zip)下载各SDK拖入到工程中
@@ -139,7 +138,6 @@ libc++.tbd
 libsqlite3.tbd
 ImageIO.framework
 ```
-
 
 
 ## 3.1 工程环境配置
@@ -177,7 +175,6 @@ NSLocationAlwaysAndWhenInUseUsageDeion
         <string>vipshop</string>
         <string>snssdk141</string>
         <string>ctrip</string>
-        <string>suning</string>
         <string>qunariphone</string>
         <string>QunarAlipay</string>
         <string>qunaraphone</string>
@@ -189,6 +186,7 @@ NSLocationAlwaysAndWhenInUseUsageDeion
         <string>taobao</string>
         <string>tmall</string>
         <string>openjd</string>
+        <string>jd</string>
         <string>jhs</string>
         <string>yhd</string>
         <string>wireless1688</string>
@@ -207,6 +205,7 @@ NSLocationAlwaysAndWhenInUseUsageDeion
         <string>gengmei</string>
         <string>airbnb</string>
         <string>alipays</string>
+        <string>alipay</string>
         <string>didicommon</string>
         <string>OneTravel</string>
         <string>farfetchCN</string>
@@ -219,7 +218,11 @@ NSLocationAlwaysAndWhenInUseUsageDeion
         <string>uclink</string>
         <string>app.soyoung</string>
         <string>qqmusic</string>
-    </array>
+        <string>kwai</string>
+        <string>ksnebula</string>
+        <string>taobaolite</string>
+        <string>lianjiabeike</string>
+     </array>
 ```
 
 <br>
@@ -370,7 +373,6 @@ SKAdNetwork 是接收iOS端营销推广活动归因数据的一种方法。
 ```
 
 
-
 ## 4.1 集合SDK的初始化
 
 `申请的appid必须与您的包名一一对应`
@@ -399,7 +401,6 @@ NSString *sdkVersion = [ADSuyiSDK getSDKVersion];
 ```
 
 <br>
-
 
 
 ## 4.2 开屏广告 - ADSuyiSDKSplashAd
