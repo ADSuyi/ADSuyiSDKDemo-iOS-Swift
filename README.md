@@ -199,6 +199,7 @@ NSLocationAlwaysAndWhenInUseUsageDeion
         <string>tbopen</string>
         <string>pddopen</string>
         <string>mogujie</string>
+        <string>ecook</string>
         <string>koubei</string>
         <string>eleme</string>
         <string>youku</string>
