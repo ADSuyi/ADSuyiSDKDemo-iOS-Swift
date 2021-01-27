@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     private var mainTable:UITableView!
-    private var dataArray: Array<String> = ["开屏广告 SplashAD","横幅广告 BannerAD","信息流广告(模板) NativeAD","信息流广告列表(自渲染) NativeAD","插屏广告 InterstitalAD","全屏视频 FullScreenVideoAD","沉浸式视频 DrawVideoAD","激励视频 RewardVideoAD","内容SDK Contain"]
+    private var dataArray: Array<String> = ["开屏广告 SplashAD","横幅广告 BannerAD","信息流广告(模板) NativeAD","信息流广告列表(自渲染) NativeAD","插屏广告 InterstitalAD","全屏视频 FullScreenVideoAD","沉浸式视频 DrawVideoAD","激励视频 RewardVideoAD","内容SDK Contain","组合广告 GroupAd"]
     private let tableViewCellID = "SimpleTableIdentifier"
     
     override func viewDidLoad() {
@@ -119,6 +119,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             break
         case 8:
             self.navigationController?.pushViewController(TableViewController.init(), animated: true)
+            break
+        case 9:
+            self.navigationController?.pushViewController(ADSuyiGroupAdViewController.init(), animated: true)
             break
         default:
             break

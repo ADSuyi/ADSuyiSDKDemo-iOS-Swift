@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		820EC824254AA6F1001C7C88 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EC823254AA6F1001C7C88 /* TableViewController.swift */; };
 		820EC828254AA703001C7C88 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EC827254AA703001C7C88 /* BlankViewController.swift */; };
+		824AD25F25C146D600BD1105 /* ADSuyiGroupAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AD25E25C146D600BD1105 /* ADSuyiGroupAdViewController.swift */; };
 		9C813F1823D9C9A989128545 /* libPods-ADSuyiSDKDemo-iOS-Swift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DADC030EA00FEB4358280F1 /* libPods-ADSuyiSDKDemo-iOS-Swift.a */; };
 		BF279CD8249B130E00C38704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF279CD7249B130E00C38704 /* LaunchScreen.storyboard */; };
 		BF3082D92499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3082D82499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift */; };
@@ -31,6 +32,7 @@
 		57C55753C99071DDCCAAE9C2 /* Pods-ADSuyiSDKDemo-iOS-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSuyiSDKDemo-iOS-Swift.debug.xcconfig"; path = "Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		820EC823254AA6F1001C7C88 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		820EC827254AA703001C7C88 /* BlankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankViewController.swift; sourceTree = "<group>"; };
+		824AD25E25C146D600BD1105 /* ADSuyiGroupAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSuyiGroupAdViewController.swift; sourceTree = "<group>"; };
 		8DADC030EA00FEB4358280F1 /* libPods-ADSuyiSDKDemo-iOS-Swift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ADSuyiSDKDemo-iOS-Swift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF279CD7249B130E00C38704 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF3082D82499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiInterstitialViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 			path = contain;
 			sourceTree = "<group>";
 		};
+		824AD25725C1456E00BD1105 /* GroupAd */ = {
+			isa = PBXGroup;
+			children = (
+				824AD25E25C146D600BD1105 /* ADSuyiGroupAdViewController.swift */,
+			);
+			path = GroupAd;
+			sourceTree = "<group>";
+		};
 		BF3082D72499A8C600FAC7A1 /* InterstitialAd */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		BFB4D4472498777100D51D77 /* SuyiAds */ = {
 			isa = PBXGroup;
 			children = (
+				824AD25725C1456E00BD1105 /* GroupAd */,
 				820EC822254AA66B001C7C88 /* contain */,
 				BF3082E0249A02A100FAC7A1 /* NativeAd */,
 				BF3082DD2499AE3E00FAC7A1 /* DrawVodAd */,
@@ -318,6 +329,7 @@
 			files = (
 				BFB4D44D249878B000D51D77 /* ADSuyiBannerViewController.swift in Sources */,
 				BFB4D4492498779C00D51D77 /* ADSuyiSplashViewController.swift in Sources */,
+				824AD25F25C146D600BD1105 /* ADSuyiGroupAdViewController.swift in Sources */,
 				BFB4D4502498D67900D51D77 /* AdSuyiRewardViewController.swift in Sources */,
 				820EC828254AA703001C7C88 /* BlankViewController.swift in Sources */,
 				BFEA08BC247E622B001815E3 /* ViewController.swift in Sources */,

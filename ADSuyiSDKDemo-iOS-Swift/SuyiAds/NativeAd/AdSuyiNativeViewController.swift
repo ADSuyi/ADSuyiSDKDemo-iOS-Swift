@@ -168,7 +168,7 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         adview.addSubview(closeButton)
         closeButton.frame = CGRect(x:adWidth-44, y:0, width:44, height:44)
         closeButton.setImage(UIImage(named: "close"), for: .normal)
-        closeButton.addTarget(adview, action: #selector(adsy_close), for: .touchUpInside)
+        closeButton.addTarget(adview, action: #selector(adview.adsy_close), for: .touchUpInside)
         
         // 显示logo图片（必要）
         let logoImage = UIImageView()
