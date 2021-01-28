@@ -10,12 +10,14 @@ import UIKit
 
 class ADSuyiGroupAdViewController: UIViewController,ADSuyiSDKNativeAdDelegate,ADSuyiSDKRewardvodAdDelegate {
     
-    var nativeAd:ADSuyiSDKNativeAd?
-    var rewardAd:ADSuyiSDKRewardvodAd?
+    var rewardAd: ADSuyiSDKRewardvodAd?;
+    
+    var nativeAd: ADSuyiSDKNativeAd?;
+    
+    open var nativePosid = ""
+    open var rewardPosid = ""
     
     var alertView:UIView?
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,20 +41,22 @@ class ADSuyiGroupAdViewController: UIViewController,ADSuyiSDKNativeAdDelegate,AD
     }
     
     @objc func requestNativeAd() {
-        nativeAd = ADSuyiSDKNativeAd.init(adSize: CGSize.init(width: 320, height: 180))
-        nativeAd?.posId = "26fe47d8b06658ace0"
-        nativeAd?.delegate = self
-        nativeAd?.controller = self
-        nativeAd?.load(1)
+        if nativeAd == nil {
+            nativeAd = ADSuyiSDKNativeAd.init(adSize: CGSize.init(width: 320, height: 180))
+            nativeAd!.posId = nativePosid
+            nativeAd!.delegate = self
+            nativeAd!.controller = self
+        }
+        nativeAd!.load(1)
     }
     
     @objc func requestRewardAd() {
         rewardAd = ADSuyiSDKRewardvodAd.init()
-        rewardAd?.delegate = self
-        rewardAd?.controller = self
-        rewardAd?.tolerateTimeout = 5
-        rewardAd?.posId = "47d196ffaaa92ae93c"
-        rewardAd?.load()
+        rewardAd!.delegate = self
+        rewardAd!.controller = self
+        rewardAd!.tolerateTimeout = 5
+        rewardAd!.posId = rewardPosid
+        rewardAd!.load()
     }
     
 //    MARK: ADSuyiNativeAdDelegate

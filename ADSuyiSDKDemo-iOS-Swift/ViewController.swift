@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     private var mainTable:UITableView!
-    private var dataArray: Array<String> = ["开屏广告 SplashAD","横幅广告 BannerAD","信息流广告(模板) NativeAD","信息流广告列表(自渲染) NativeAD","插屏广告 InterstitalAD","全屏视频 FullScreenVideoAD","沉浸式视频 DrawVideoAD","激励视频 RewardVideoAD","内容SDK Contain","组合广告 GroupAd"]
+    private var dataArray: Array<String> = ["开屏广告 SplashAD","横幅广告 BannerAD","信息流广告(模板) NativeAD","信息流广告列表(自渲染) NativeAD","插屏广告 InterstitalAD","全屏视频 FullScreenVideoAD","沉浸式视频 DrawVideoAD","激励视频 RewardVideoAD","内容SDK Contain","组合广告 GroupAd","组合广告失败切换 GroupAd"]
     private let tableViewCellID = "SimpleTableIdentifier"
     
     override func viewDidLoad() {
@@ -121,8 +121,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.navigationController?.pushViewController(TableViewController.init(), animated: true)
             break
         case 9:
-            self.navigationController?.pushViewController(ADSuyiGroupAdViewController.init(), animated: true)
+            let vc = ADSuyiGroupAdViewController()
+            vc.nativePosid = "26fe47d8b06658ace0"
+            vc.rewardPosid = "47d196ffaaa92ae93c"
+            self.navigationController?.pushViewController(vc, animated: true)
             break
+        case 10:
+            let vc = ADSuyiGroupAdViewController()
+            vc.nativePosid = ""
+            vc.rewardPosid = "47d196ffaaa92ae93c"
+            self.navigationController?.pushViewController(vc, animated: true)
+            break;
         default:
             break
         }
