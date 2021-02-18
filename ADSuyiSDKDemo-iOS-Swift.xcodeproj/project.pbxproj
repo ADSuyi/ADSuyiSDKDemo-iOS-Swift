@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13CC7B9325DE6FE400D77DE5 /* AdSuyiBaseContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CC7B9225DE6FE400D77DE5 /* AdSuyiBaseContentViewController.swift */; };
+		13CC7B9625DE72ED00D77DE5 /* AdSuyiContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CC7B9525DE72ED00D77DE5 /* AdSuyiContentViewController.swift */; };
 		820EC824254AA6F1001C7C88 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EC823254AA6F1001C7C88 /* TableViewController.swift */; };
 		820EC828254AA703001C7C88 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EC827254AA703001C7C88 /* BlankViewController.swift */; };
 		824AD25F25C146D600BD1105 /* ADSuyiGroupAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AD25E25C146D600BD1105 /* ADSuyiGroupAdViewController.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13CC7B9225DE6FE400D77DE5 /* AdSuyiBaseContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiBaseContentViewController.swift; sourceTree = "<group>"; };
+		13CC7B9525DE72ED00D77DE5 /* AdSuyiContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiContentViewController.swift; sourceTree = "<group>"; };
 		57C55753C99071DDCCAAE9C2 /* Pods-ADSuyiSDKDemo-iOS-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSuyiSDKDemo-iOS-Swift.debug.xcconfig"; path = "Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		820EC823254AA6F1001C7C88 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		820EC827254AA703001C7C88 /* BlankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13CC7B8B25DE6FBA00D77DE5 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				13CC7B9225DE6FE400D77DE5 /* AdSuyiBaseContentViewController.swift */,
+				13CC7B9525DE72ED00D77DE5 /* AdSuyiContentViewController.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
 		30E16EEBBCE2BA4B816B7DA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +140,7 @@
 		BFB4D4472498777100D51D77 /* SuyiAds */ = {
 			isa = PBXGroup;
 			children = (
+				13CC7B8B25DE6FBA00D77DE5 /* Content */,
 				824AD25725C1456E00BD1105 /* GroupAd */,
 				820EC822254AA66B001C7C88 /* contain */,
 				BF3082E0249A02A100FAC7A1 /* NativeAd */,
@@ -221,6 +235,7 @@
 				BFEA08B1247E622B001815E3 /* Frameworks */,
 				BFEA08B2247E622B001815E3 /* Resources */,
 				9ADE926E8F9BFED81717C067 /* [CP] Copy Pods Resources */,
+				65E9057C465675650EF07B1C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -281,6 +296,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		65E9057C465675650EF07B1C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8A75B423AA5C3761CEF0AEFB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,10 +365,12 @@
 				BFB4D4502498D67900D51D77 /* AdSuyiRewardViewController.swift in Sources */,
 				820EC828254AA703001C7C88 /* BlankViewController.swift in Sources */,
 				BFEA08BC247E622B001815E3 /* ViewController.swift in Sources */,
+				13CC7B9625DE72ED00D77DE5 /* AdSuyiContentViewController.swift in Sources */,
 				BF3082E2249A02B800FAC7A1 /* AdSuyiNativeViewController.swift in Sources */,
 				BF3082DC2499AC0500FAC7A1 /* AdSuyiFullScreenVodViewController.swift in Sources */,
 				820EC824254AA6F1001C7C88 /* TableViewController.swift in Sources */,
 				BFB4D4462498684100D51D77 /* ADSuyiSDKDemoTool.swift in Sources */,
+				13CC7B9325DE6FE400D77DE5 /* AdSuyiBaseContentViewController.swift in Sources */,
 				BF3082D92499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift in Sources */,
 				BFEA08B8247E622B001815E3 /* AppDelegate.swift in Sources */,
 				BF3082DF2499AE6300FAC7A1 /* AdSuyiDrawVodViewController.swift in Sources */,

@@ -215,7 +215,7 @@ class ADSuyiGroupAdViewController: UIViewController,ADSuyiSDKNativeAdDelegate,AD
         // 显示logo图片（必要）
         let logoImage = UIImageView()
         adview.addSubview(logoImage);
-        adview.adsy_platformLogoImageHasText(true) { (image) in
+        adview.adsy_platformLogoImageDarkMode(false) { (image) in
             guard let image = image else {
                 return
             }
