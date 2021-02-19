@@ -517,6 +517,7 @@
 				COPY_HEADERS_RUN_UNIFDEF = NO;
 				DEVELOPMENT_ASSET_PATHS = "ADSuyiSDKDemo-iOS-Swift/Assets.xcassets";
 				DEVELOPMENT_TEAM = Y8FBV7Y443;
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -561,6 +562,7 @@
 				COPY_HEADERS_RUN_UNIFDEF = NO;
 				DEVELOPMENT_ASSET_PATHS = "ADSuyiSDKDemo-iOS-Swift/Assets.xcassets";
 				DEVELOPMENT_TEAM = Y8FBV7Y443;
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",

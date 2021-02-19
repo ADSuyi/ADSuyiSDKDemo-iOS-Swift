@@ -12,8 +12,14 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
     func adsy_nativeAdSucess(toLoad nativeAd: ADSuyiSDKNativeAd, adViewArray: [UIView & ADSuyiAdapterNativeAdViewDelegate]) {
         if adViewArray.count > 0{
             for item : UIView&ADSuyiAdapterNativeAdViewDelegate in adViewArray {
+                // 判断信息流广告是否为自渲染类型（必须实现） 可仿照所示样式demo实现 如无所需样式则需自行实现
                 if item.renderType() == ADSuyiAdapterRenderType.native {
-                    setUpUnifiedNativeAdView(adview: item)
+                    //1、常规样式
+//                    setUpUnifiedNativeAdView(adview: item)
+                    //2、纯图
+//                    setUpUnifiedOnlyImageNativeAdView(adview: item)
+                    //3、上图下文
+                    setUpUnifiedTopImageNativeAdView(adview: item)
                 }
                 item.adsy_registViews([item])
                 
@@ -48,7 +54,7 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func adsy_nativeAdClose(_ nativeAd: ADSuyiSDKNativeAd, adView: UIView & ADSuyiAdapterNativeAdViewDelegate) {
-        for i in 0...self.dataArray.count {
+        for i in 0..<self.dataArray.count {
             let item = self.dataArray[i]
             if item as! NSObject == adView {
                 DispatchQueue.main.async {
@@ -156,7 +162,7 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         }
         self.nativeAd.load(1)
     }
-    
+    // 1、常规样式
     func setUpUnifiedNativeAdView(adview : UIView & ADSuyiAdapterNativeAdViewDelegate) {
         // 设计的adView实际大小，其中宽度和高度可以自己根据自己的需求设置
         let adWidth:CGFloat = self.view.bounds.size.width
@@ -171,15 +177,18 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         closeButton.addTarget(adview, action: #selector(adview.adsy_close), for: .touchUpInside)
         
         // 显示logo图片（必要）
-        let logoImage = UIImageView()
-        adview.addSubview(logoImage);
-        adview.adsy_platformLogoImageDarkMode(false) { (image) in
-            guard let image = image else {
-                return
+        //优量汇（广点通）会自带logo，不需要添加
+        if adview.adsy_platform() != ADSuyiAdapterPlatform.GDT {
+            let logoImage = UIImageView()
+            adview.addSubview(logoImage);
+            adview.adsy_platformLogoImageDarkMode(false) { (image) in
+                guard let image = image else {
+                    return
+                }
+                let maxWidth: CGFloat = 80.0;
+                let logoHeight = maxWidth / image.size.width * image.size.height;
+                logoImage.frame = CGRect(x: adWidth - maxWidth, y: adHeight - logoHeight, width: maxWidth, height: logoHeight)
             }
-            let maxWidth: CGFloat = 80.0;
-            let logoHeight = maxWidth / image.size.width * image.size.height;
-            logoImage.frame = CGRect(x: adWidth - maxWidth, y: adHeight - logoHeight, width: maxWidth, height: logoHeight)
         }
 
         // 设置标题文字（可选，但强烈建议带上）
@@ -243,6 +252,154 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         descLabel.text = adview.data?.desc
         adview.addSubview(descLabel)
         descLabel.frame = CGRect.init(x: 17 + 36 + 4, y: height, width: self.view.frame.size.width - 57 - 17 - 20, height: 18)
+    }
+    // 2、纯图
+    func setUpUnifiedOnlyImageNativeAdView(adview : UIView & ADSuyiAdapterNativeAdViewDelegate) {
+        // 设计的adView实际大小，其中宽度和高度可以自己根据自己的需求设置
+        let adWidth:CGFloat = self.view.bounds.size.width
+        let adHeight:CGFloat = adWidth / 16.0 * 9.0
+        adview.frame = CGRect.init(x: 0, y: 0, width: adWidth, height: adHeight)
+        
+        
+        // 设置主图/视频（主图可选，但强烈建议带上,如果有视频试图，则必须带上）
+        let mainFrame:CGRect = CGRect.init(x: 0, y: 0, width: adWidth , height: adHeight)
+        if adview.data?.shouldShowMediaView ?? false {
+            let mediaView:UIView = adview.adsy_mediaView(forWidth: mainFrame.size.width) ?? UIView.init()
+            mediaView.frame = mainFrame
+            adview.addSubview(mediaView)
+        } else {
+            let imageView:UIImageView = UIImageView.init()
+            imageView.backgroundColor = UIColor.adsy_color(withHexString: "#CCCCCC")
+            adview.addSubview(imageView)
+            imageView.frame = mainFrame
+            
+            let urlStr:String = adview.data?.imageUrl ?? ""
+            if urlStr.count > 0 {
+                DispatchQueue.global().async {
+                    let url = URL.init(string: urlStr)
+                    if url != nil {
+                        let data = NSData.init(contentsOf: url!)
+                        if data != nil {
+                            let image = UIImage.init(data: data! as Data)
+                            DispatchQueue.main.async {
+                                imageView.image = image
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        // 展示关闭按钮（必要）
+        let closeButton = UIButton()
+        adview.addSubview(closeButton)
+        closeButton.frame = CGRect(x:adWidth-44, y:0, width:44, height:44)
+        closeButton.setImage(UIImage(named: "close"), for: .normal)
+        closeButton.addTarget(adview, action: #selector(adview.adsy_close), for: .touchUpInside)
+        
+        // 显示logo图片（必要）
+        if adview.adsy_platform() != ADSuyiAdapterPlatform.GDT {
+            let logoImage = UIImageView()
+            adview.addSubview(logoImage);
+            adview.adsy_platformLogoImageDarkMode(false) { (image) in
+                guard let image = image else {
+                    return
+                }
+                let maxWidth: CGFloat = 80.0;
+                let logoHeight = maxWidth / image.size.width * image.size.height;
+                logoImage.frame = CGRect(x: adWidth - maxWidth, y: adHeight - logoHeight, width: maxWidth, height: logoHeight)
+            }
+        }
+
+    }
+    
+    // 3、上图下文
+    func setUpUnifiedTopImageNativeAdView(adview : UIView & ADSuyiAdapterNativeAdViewDelegate) {
+        // 设计的adView实际大小，其中宽度和高度可以自己根据自己的需求设置
+        let adWidth:CGFloat = self.view.bounds.size.width
+        let adHeight:CGFloat = (adWidth - 34.0) / 16.0 * 9.0 + 70
+        adview.frame = CGRect.init(x: 0, y: 0, width: adWidth, height: adHeight)
+        
+
+        // 显示logo图片（必要）
+        if adview.adsy_platform() != ADSuyiAdapterPlatform.GDT {
+            let logoImage = UIImageView()
+            adview.addSubview(logoImage);
+            adview.adsy_platformLogoImageDarkMode(false) { (image) in
+                guard let image = image else {
+                    return
+                }
+                let maxWidth: CGFloat = 80.0;
+                let logoHeight = maxWidth / image.size.width * image.size.height;
+                logoImage.frame = CGRect(x: adWidth - maxWidth, y: adHeight - logoHeight, width: maxWidth, height: logoHeight)
+            }
+        }
+        
+        // 设置主图/视频（主图可选，但强烈建议带上,如果有视频试图，则必须带上）
+        let mainFrame:CGRect = CGRect.init(x: 17, y: 0, width: adWidth - 34.0, height: (adWidth - 34.0) / 16.0 * 9.0)
+        if adview.data?.shouldShowMediaView ?? false {
+            let mediaView:UIView = adview.adsy_mediaView(forWidth: mainFrame.size.width) ?? UIView.init()
+            mediaView.frame = mainFrame
+            adview.addSubview(mediaView)
+        } else {
+            let imageView:UIImageView = UIImageView.init()
+            imageView.backgroundColor = UIColor.adsy_color(withHexString: "#CCCCCC")
+            adview.addSubview(imageView)
+            imageView.frame = mainFrame
+            
+            let urlStr:String = adview.data?.imageUrl ?? ""
+            if urlStr.count > 0 {
+                DispatchQueue.global().async {
+                    let url = URL.init(string: urlStr)
+                    if url != nil {
+                        let data = NSData.init(contentsOf: url!)
+                        if data != nil {
+                            let image = UIImage.init(data: data! as Data)
+                            DispatchQueue.main.async {
+                                imageView.image = image
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        // 设置广告标识（可选）
+        let adlabel : UILabel = UILabel.init()
+        adlabel.backgroundColor = UIColor.adsy_color(withHexString: "#CCCCCC")
+        adlabel.textColor = UIColor.adsy_color(withHexString: "#FFFFFF")
+        adlabel.font = UIFont.adsy_PingFangLightFont(12)
+        adlabel.text = "广告"
+        adview.addSubview(adlabel)
+        adlabel.frame = CGRect.init(x: 17, y: (adWidth - 17 * 2) / 16.0 * 9 + 9, width: 36, height: 18)
+        adlabel.textAlignment = NSTextAlignment.center
+        
+        // 设置广告描述(可选)
+        let descLabel : UILabel = UILabel.init()
+        descLabel.textColor = UIColor.adsy_color(withHexString: "#333333")
+        descLabel.font = UIFont.adsy_PingFangLightFont(12)
+        descLabel.textAlignment = NSTextAlignment.left
+        descLabel.text = adview.data?.desc
+        adview.addSubview(descLabel)
+        descLabel.frame = CGRect.init(x: 17 + 36 + 4, y: (adWidth - 17 * 2) / 16.0 * 9 + 9, width: self.view.frame.size.width - 57 - 17 - 20, height: 18)
+        
+        // 设置标题文字（可选，但强烈建议带上）
+        let titleLabel = UILabel.init()
+        adview.addSubview(titleLabel)
+        titleLabel.font = UIFont.adsy_PingFangMediumFont(14)
+        titleLabel.textColor = UIColor.adsy_color(withHexString: "#333333")
+        titleLabel.numberOfLines = 2
+        titleLabel.text = adview.data?.title
+        let size:CGSize = titleLabel.sizeThatFits(CGSize.init(width: adWidth - 34.0, height: 999))
+        titleLabel.frame = CGRect.init(x: 17, y: adHeight-size.height, width: adWidth - 34.0, height: size.height)
+        
+        // 展示关闭按钮（必要）
+        let closeButton = UIButton()
+        adview.addSubview(closeButton)
+        closeButton.frame = CGRect(x:adWidth-44, y:0, width:44, height:44)
+        closeButton.setImage(UIImage(named: "close"), for: .normal)
+        closeButton.addTarget(adview, action: #selector(adview.adsy_close), for: .touchUpInside)
+        
     }
     
     func cleanAllAd() {
