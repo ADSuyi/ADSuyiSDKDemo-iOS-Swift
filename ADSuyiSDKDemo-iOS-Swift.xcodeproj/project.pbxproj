@@ -235,7 +235,6 @@
 				BFEA08B1247E622B001815E3 /* Frameworks */,
 				BFEA08B2247E622B001815E3 /* Resources */,
 				9ADE926E8F9BFED81717C067 /* [CP] Copy Pods Resources */,
-				65E9057C465675650EF07B1C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,23 +295,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		65E9057C465675650EF07B1C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8A75B423AA5C3761CEF0AEFB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

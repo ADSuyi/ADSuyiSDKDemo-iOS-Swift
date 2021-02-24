@@ -10,9 +10,8 @@ target 'ADSuyiSDKDemo-iOS-Swift' do
   pod 'ADSuyiSDK', '~> 3.1.2.0'
   pod 'ADSuyiGDT'
   pod 'ADSuyiAdMobile'
-  pod 'ADSuyiKS'
   pod 'ADSuyiBU'
-#  pod 'ADSuyiStarRd'
+  pod 'ADSuyiStarRd'
   pod 'MJRefresh'
 
 end

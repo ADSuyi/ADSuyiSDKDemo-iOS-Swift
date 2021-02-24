@@ -73,6 +73,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
     func applicationWillEnterForeground(_ application: UIApplication) {
         // 热启动进入前台 加载广告
         self.loadSplash()
+        //   进入前台 小说控制事件结束
+        application.endReceivingRemoteControlEvents()
+    }
+    
+//    MARK:小说SDK后台播放控制
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        application.beginReceivingRemoteControlEvents()
+    }
+    
+    override func remoteControlReceived(with event: UIEvent?) {
+        switch event?.subtype {
+        case .remoteControlPlay:
+            ADSuyiSDKContainAd.replay()
+            break
+        case .remoteControlPause:
+            ADSuyiSDKContainAd.pause()
+            break
+        case .remoteControlPreviousTrack:
+            ADSuyiSDKContainAd.last()
+            break
+        case .remoteControlNextTrack:
+            ADSuyiSDKContainAd.next()
+            break
+        case .remoteControlTogglePlayPause:
+            ADSuyiSDKContainAd.smallWindowPause()
+            break
+        default:
+            break
+        }
     }
     
     func adsy_splashAdClosed(_ splashAd: ADSuyiSDKSplashAd) {
