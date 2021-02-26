@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AppTrackingTransparency
+import AdSupport
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate {
@@ -57,6 +59,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        获取idfa权限 建议获取idfa，否则会影响收益
+        if #available(iOS 14.0, *) {
+            ATTrackingManager.requestTrackingAuthorization { (status) in
+                
+            }
+        }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         let nav = UINavigationController(rootViewController: ViewController())
