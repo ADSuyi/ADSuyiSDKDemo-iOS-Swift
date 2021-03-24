@@ -331,6 +331,7 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
                 }
                 let maxWidth: CGFloat = 80.0;
                 let logoHeight = maxWidth / image.size.width * image.size.height;
+                logoImage.image = image
                 logoImage.frame = CGRect(x: adWidth - maxWidth, y: adHeight - logoHeight, width: maxWidth, height: logoHeight)
             }
         }
