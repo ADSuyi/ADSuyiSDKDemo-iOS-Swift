@@ -12,7 +12,7 @@ class AdSuyiInterstitialViewController: UIViewController, ADSuyiSDKIntertitialAd
     func adsy_interstitialAdSucced(toLoad interstitialAd: ADSuyiSDKIntertitialAd) {
         print(#function)
         // 3、展示插屏广告
-        self.interstitialAd?.loadData()
+        self.interstitialAd?.show()
     }
     
     func adsy_interstitialAdFailed(toLoad interstitialAd: ADSuyiSDKIntertitialAd, error: ADSuyiAdapterErrorDefine) {
