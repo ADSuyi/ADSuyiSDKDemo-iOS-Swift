@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     private var mainTable:UITableView!
-    private var dataArray: Array<String> = ["开屏广告 SplashAD","横幅广告 BannerAD","信息流广告(模板) NativeAD","信息流广告列表(自渲染) NativeAD","插屏广告 InterstitalAD","全屏视频 FullScreenVideoAD","沉浸式视频 DrawVideoAD","激励视频 RewardVideoAD","内容SDK Contain","组合广告 GroupAd","组合广告失败切换 GroupAd", "内容"]
+    private var dataArray: Array<String> = ["开屏广告","开屏V+广告","原生信息流广告","Banner横幅广告","激励视频","插屏广告","Draw视频","全屏视频","内容组件","组合广告 GroupAd", "快手内容"]
     private let tableViewCellID = "SimpleTableIdentifier"
     
     override func viewDidLoad() {
@@ -21,14 +21,29 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         self.view.backgroundColor = UIColor.white
         
+        let setBtn = UIButton.init()
+//        setBtn.setTitle("设置", for: .normal)
+        setBtn.setTitleColor(UIColor.white, for: .normal)
+        setBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        setBtn.setImage(UIImage.init(named: "set"), for: .normal)
+        setBtn.frame = CGRect.init(x: 0, y: 0, width: 20, height: 20)
+        setBtn.addTarget(self, action: #selector(setBtnClick), for: .touchUpInside)
+        
+        let rightItem = UIBarButtonItem.init(customView: setBtn)
+        self.navigationItem.rightBarButtonItem = rightItem;
         
         initTableView()
         // Do any additional setup after loading the view.
     }
     
+    @objc func setBtnClick()  {
+        self.navigationController?.pushViewController(SetTableViewController(), animated: true)
+    }
+    
     private func initTableView() {
         mainTable = UITableView.init(frame: self.view.bounds)
         mainTable.frame.origin.y = CGFloat(tabBarHeight)
+        mainTable.backgroundColor = UIColor.init(red: 225/255.0, green: 233/255.0, blue: 239/255.0, alpha: 1)
         self.view.addSubview(mainTable)
         mainTable.translatesAutoresizingMaskIntoConstraints = false
         
@@ -41,6 +56,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         mainTable.delegate = self
         mainTable.dataSource = self
+        mainTable.separatorStyle = .none;
         mainTable.reloadData()
         
     }
@@ -60,7 +76,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = UITableViewCell(style: .default, reuseIdentifier: tableViewCellID)
         let title = dataArray[indexPath.row]
-        
+        cell.contentView.backgroundColor = UIColor.init(red: 225/255.0, green: 233/255.0, blue: 239/255.0, alpha: 1)
         let view = cell.contentView.viewWithTag(999)
         if view != nil {
             view?.removeFromSuperview()
@@ -93,7 +109,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.navigationController?.pushViewController(ADSuyiSplashViewController.init(), animated: true)
             break
         case 1:
-            self.navigationController?.pushViewController(ADSuyiBannerViewController.init(), animated: true)
+            self.navigationController?.pushViewController(ADSuyiSplashVPlusViewController.init(), animated: true)
+            break
             break
         case 2:
             let nativeVC = AdSuyiNativeViewController.init()
@@ -101,24 +118,22 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.navigationController?.pushViewController(nativeVC, animated: true)
             break
         case 3:
-            let nativeVC = AdSuyiNativeViewController.init()
-            nativeVC.posid = "26fe47d8b06658ace0"
-            self.navigationController?.pushViewController(nativeVC, animated: true)
+            self.navigationController?.pushViewController(ADSuyiBannerViewController.init(), animated: true)
             break
         case 4:
-            self.navigationController?.pushViewController(AdSuyiInterstitialViewController.init(), animated: true)
+            self.navigationController?.pushViewController(AdSuyiRewardViewController.init(), animated: true)
             break
         case 5:
-            self.navigationController?.pushViewController(AdSuyiFullScreenVodViewController.init(), animated: true)
+            self.navigationController?.pushViewController(AdSuyiInterstitialViewController.init(), animated: true)
             break
         case 6:
             self.navigationController?.pushViewController(AdSuyiDrawVodViewController.init(), animated: true)
             break
         case 7:
-            self.navigationController?.pushViewController(AdSuyiRewardViewController.init(), animated: true)
+            self.navigationController?.pushViewController(AdSuyiFullScreenVodViewController.init(), animated: true)
             break
         case 8:
-            self.navigationController?.pushViewController(TableViewController.init(), animated: true)
+            self.navigationController?.pushViewController(AdSuyiContainViewController.init(), animated: true)
             break
         case 9:
             let vc = ADSuyiGroupAdViewController()
@@ -127,15 +142,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.navigationController?.pushViewController(vc, animated: true)
             break
         case 10:
-            let vc = ADSuyiGroupAdViewController()
-            vc.nativePosid = ""
-            vc.rewardPosid = "47d196ffaaa92ae93c"
-            self.navigationController?.pushViewController(vc, animated: true)
-            break;
-        case 11:
             let vc = AdSuyiContentViewController()
             self.navigationController?.pushViewController(vc, animated: true)
-            break;
+            break
         default:
             break
         }

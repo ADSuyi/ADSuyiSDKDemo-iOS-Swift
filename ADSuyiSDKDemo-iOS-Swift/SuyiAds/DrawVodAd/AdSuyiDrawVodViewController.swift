@@ -128,7 +128,7 @@ class AdSuyiDrawVodViewController: UIViewController, UITableViewDelegate, UITabl
             self.drawvodAd?.tolerateTimeout = 4
         }
         // 2、加载沉浸式广告
-        self.drawvodAd?.load(3)
+        self.drawvodAd?.load(SetConfigManager.shared().drawAdCount)
         
     }
     

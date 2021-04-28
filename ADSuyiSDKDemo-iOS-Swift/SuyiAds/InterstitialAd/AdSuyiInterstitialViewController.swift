@@ -12,7 +12,8 @@ class AdSuyiInterstitialViewController: UIViewController, ADSuyiSDKIntertitialAd
     func adsy_interstitialAdSucced(toLoad interstitialAd: ADSuyiSDKIntertitialAd) {
         print(#function)
         // 3、展示插屏广告
-        self.interstitialAd?.show()
+        isReady = true
+        self.view.makeToast("插屏广告准备完成")
     }
     
     func adsy_interstitialAdFailed(toLoad interstitialAd: ADSuyiSDKIntertitialAd, error: ADSuyiAdapterErrorDefine) {
@@ -42,24 +43,57 @@ class AdSuyiInterstitialViewController: UIViewController, ADSuyiSDKIntertitialAd
     }
     
     var interstitialAd : ADSuyiSDKIntertitialAd?
+    var isReady:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.white
+        
         // Do any additional setup after loading the view.
-        loadInterstitialAd()
+        self.view.backgroundColor = UIColor.init(red: 225/255.0, green: 233/255.0, blue: 239/255.0, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = UIColor.white;
+        
+        let loadBtn = UIButton.init()
+        loadBtn.layer.cornerRadius = 3;
+        loadBtn.clipsToBounds = true;
+        loadBtn.backgroundColor = UIColor.white
+        loadBtn.setTitle("加载激励视频", for: .normal)
+        loadBtn.setTitleColor(UIColor.black, for: .normal)
+        self.view.addSubview(loadBtn)
+        loadBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2-60, width: UIScreen.main.bounds.size.width-60, height: 40)
+        loadBtn.addTarget(self, action: #selector(loadInterstitialAd), for: .touchUpInside)
+        
+        let showBtn = UIButton.init()
+        showBtn.layer.cornerRadius = 3
+        showBtn.clipsToBounds = true
+        showBtn.backgroundColor = UIColor.white
+        showBtn.setTitle("展示激励视频", for: .normal)
+        showBtn.setTitleColor(UIColor.black, for: .normal)
+        self.view.addSubview(showBtn)
+        showBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2+20, width: UIScreen.main.bounds.size.width-60, height: 40)
+        showBtn.addTarget(self, action: #selector(showInterstitialAd), for: .touchUpInside)
     }
     
-    func loadInterstitialAd() {
+    @objc func loadInterstitialAd() {
         // 1、初始化插屏广告对象
         self.interstitialAd = ADSuyiSDKIntertitialAd.init()
         self.interstitialAd?.delegate = self
         self.interstitialAd?.controller = self
         self.interstitialAd?.tolerateTimeout = 4
         self.interstitialAd?.posId = "9535af29514e548fe0"
+        if SetConfigManager.shared().fullAdAdScenceId != "" {
+            self.interstitialAd?.scenesId = SetConfigManager.shared().fullAdAdScenceId
+        }
         // 2、加载插屏广告
         self.interstitialAd?.loadData()
+    }
+    
+    @objc func showInterstitialAd() {
+        if isReady  {
+            self.interstitialAd?.show()
+        }else {
+            self.view.makeToast("插屏广告未准备完成")
+        }
     }
     
 

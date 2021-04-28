@@ -1,16 +1,15 @@
 //
-//  ADSuyiSplashViewController.swift
+//  ADSuyiSplashVPlusViewController.swift
 //  ADSuyiSDKDemo-iOS-Swift
 //
-//  Created by 陈坤 on 2020/6/16.
-//  Copyright © 2020 陈坤. All rights reserved.
+//  Created by Erik on 2021/4/28.
+//  Copyright © 2021 陈坤. All rights reserved.
 //
 
 import UIKit
 
-class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
+class ADSuyiSplashVPlusViewController: UIViewController,ADSuyiSDKSplashAdDelegate,ADSuyiSDKSplashAdZoomOutViewDelegate {
 
-    
     var splash: ADSuyiSDKSplashAd?
     
     override func viewDidLoad() {
@@ -29,10 +28,13 @@ class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
         splash = ADSuyiSDKSplashAd.init()
         // 设置代理
         splash?.delegate = self
+        // 设置v+代理
+        splash?.zoomOutViewDelegate = self
         // 2、设置广告位id
         splash?.posId = "73128265daffdd6a1d"
         // 设置广告请求超时时间
         splash?.tolerateTimeout = 4
+        
         
         // 3、设置广告背景颜色，推荐设置为启动图的平铺颜色
         let bgImage = UIImage.init(named: "750x1334.png")
@@ -76,5 +78,20 @@ class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
         print(#function)
         splash = nil
     }
-
+    
+    func adsy_splashZoomOutViewDidClick(_ splashAd: ADSuyiSDKSplashAd, splashZoomOutView: UIView & ADSuyiSDKSplashAdZoomOutViewProtocol) {
+        
+    }
+    func adsy_splashZoomOutViewAdDidClose(_ splashAd: ADSuyiSDKSplashAd, splashZoomOutView: UIView & ADSuyiSDKSplashAdZoomOutViewProtocol) {
+        splash = nil
+    }
+    func adsy_splashZoomOutViewAdVideoFinished(_ splashAd: ADSuyiSDKSplashAd, splashZoomOutView: UIView & ADSuyiSDKSplashAdZoomOutViewProtocol) {
+        
+    }
+    func adsy_splashZoomOutViewAdDidPresentFullScreenModal(_ splashAd: ADSuyiSDKSplashAd, splashZoomOutView: UIView & ADSuyiSDKSplashAdZoomOutViewProtocol) {
+        
+    }
+    func adsy_splashZoomOutViewAdDidDismissFullScreenModal(_ splashAd: ADSuyiSDKSplashAd, splashZoomOutView: UIView & ADSuyiSDKSplashAdZoomOutViewProtocol) {
+        
+    }
 }

@@ -140,6 +140,38 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         
         self.mainTableView.mj_header?.beginRefreshing()
         
+        let setBtn = UIButton.init()
+        setBtn.setTitle("设置", for: .normal)
+        setBtn.setTitleColor(UIColor.white, for: .normal)
+        setBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        setBtn.frame = CGRect.init(x: 0, y: 0, width: 50, height: 20)
+        setBtn.addTarget(self, action: #selector(setBtnClick), for: .touchUpInside)
+        
+        let rightItem = UIBarButtonItem.init(customView: setBtn)
+        self.navigationItem.rightBarButtonItem = rightItem;
+
+        
+    }
+    
+    @objc func setBtnClick() {
+        let alertVc = UIAlertController.init(title: "", message: "选择广告类型", preferredStyle: .actionSheet)
+        let expressAction = UIAlertAction.init(title: "模板渲染", style: .default) { (action) in
+            self.cleanAllAd()
+            self.nativeAd.posId = "d4366018478613f768"
+            self.loadNativeAd()
+        }
+        let nativeAction = UIAlertAction.init(title: "自渲染", style: .default) { (action) in
+            self.cleanAllAd()
+            self.nativeAd.posId = "26fe47d8b06658ace0"
+            self.loadNativeAd()
+        }
+        let cancle = UIAlertAction.init(title: "取消", style: .cancel) { (action) in
+            
+        }
+        alertVc.addAction(expressAction)
+        alertVc.addAction(nativeAction)
+        alertVc.addAction(cancle)
+        self.present(alertVc, animated: true, completion: nil)
     }
     
     
@@ -159,8 +191,11 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
             self.nativeAd.delegate = self
             self.nativeAd.controller = self
             self.nativeAd.tolerateTimeout = 4
+            if SetConfigManager.shared().nativeAdScenceId != "" {
+                self.nativeAd.scenesId = SetConfigManager.shared().nativeAdScenceId
+            }
         }
-        self.nativeAd.load(1)
+        self.nativeAd.load(Int32(SetConfigManager.shared().nativeAdCount))
     }
     // 1、常规样式
     func setUpUnifiedNativeAdView(adview : UIView & ADSuyiAdapterNativeAdViewDelegate) {

@@ -9,15 +9,22 @@
 import UIKit
 
 class AdSuyiRewardViewController: UIViewController, ADSuyiSDKRewardvodAdDelegate {
+    func adsy_rewardvodAdServerDidSucceed(_ rewardvodAd: ADSuyiSDKRewardvodAd) {
+        
+    }
+    
+    func adsy_rewardvodAdServerDidFailed(_ rewardvodAd: ADSuyiSDKRewardvodAd, errorModel: ADSuyiAdapterErrorDefine) {
+        
+    }
+    
     func adsy_rewardvodAdLoadSuccess(_ rewardvodAd: ADSuyiSDKRewardvodAd) {
         
     }
     
     func adsy_rewardvodAdReady(toPlay rewardvodAd: ADSuyiSDKRewardvodAd) {
         // 3、展示激励视频广告
-        if self.rewardAd?.rewardvodAdIsReady() ?? false {
-            self.rewardAd?.show()
-        }
+        isReady = true
+        self.view.makeToast("激励视频准备完成")
     }
     
     func adsy_rewardvodAdVideoLoadSuccess(_ rewardvodAd: ADSuyiSDKRewardvodAd) {
@@ -58,19 +65,40 @@ class AdSuyiRewardViewController: UIViewController, ADSuyiSDKRewardvodAdDelegate
     
 
     var rewardAd : ADSuyiSDKRewardvodAd?
-    
+    var isReady : Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor.init(red: 225/255.0, green: 233/255.0, blue: 239/255.0, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = UIColor.white;
         
-        loadRewardAd()
+        let loadBtn = UIButton.init()
+        loadBtn.layer.cornerRadius = 3;
+        loadBtn.clipsToBounds = true;
+        loadBtn.backgroundColor = UIColor.white
+        loadBtn.setTitle("加载激励视频", for: .normal)
+        loadBtn.setTitleColor(UIColor.black, for: .normal)
+        self.view.addSubview(loadBtn)
+        loadBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2-60, width: UIScreen.main.bounds.size.width-60, height: 40)
+        loadBtn.addTarget(self, action: #selector(loadRewardAd), for: .touchUpInside)
+        
+        let showBtn = UIButton.init()
+        showBtn.layer.cornerRadius = 3
+        showBtn.clipsToBounds = true
+        showBtn.backgroundColor = UIColor.white
+        showBtn.setTitle("展示激励视频", for: .normal)
+        showBtn.setTitleColor(UIColor.black, for: .normal)
+        self.view.addSubview(showBtn)
+        showBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2+20, width: UIScreen.main.bounds.size.width-60, height: 40)
+        showBtn.addTarget(self, action: #selector(showRewardAd), for: .touchUpInside)
+        
+        
     }
     
     
-    func loadRewardAd() {
+    @objc func loadRewardAd() {
         // 1、初始化激励视频广告对象
         self.rewardAd = ADSuyiSDKRewardvodAd.init()
         self.rewardAd?.controller = self
@@ -79,6 +107,14 @@ class AdSuyiRewardViewController: UIViewController, ADSuyiSDKRewardvodAdDelegate
         self.rewardAd?.posId = "47d196ffaaa92ae93c"
         // 2、加载激励视频广告
         self.rewardAd?.load()
+    }
+    
+    @objc func showRewardAd() {
+        if isReady && self.rewardAd!.rewardvodAdIsReady() {
+            self.rewardAd?.show()
+        } else {
+            self.view.makeToast("激励视频未准备好")
+        }
     }
 
 }

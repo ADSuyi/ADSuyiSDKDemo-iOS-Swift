@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         }
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        let nav = UINavigationController(rootViewController: ViewController())
+        let nav = NavigationViewController(rootViewController: ViewController())
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
         

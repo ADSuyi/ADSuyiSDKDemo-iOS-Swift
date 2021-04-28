@@ -11,3 +11,7 @@
 
 #import <ADSuyiKit/UIFont+ADSuyiKit.h>
 #import <ADSuyiKit/UIColor+ADSuyiKit.h>
+#import "UIView+Toast.h"
+#import "SetTableViewController.h"
+#import "NavigationViewController.h"
+#import "SetConfigManager.h"

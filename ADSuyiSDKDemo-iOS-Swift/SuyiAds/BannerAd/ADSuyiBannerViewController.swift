@@ -115,7 +115,10 @@ class ADSuyiBannerViewController: UIViewController, ADSuyiSDKBannerAdViewDelegat
         // 2、传入广告位id
         bannerAdView?.posId = posid
         bannerAdView?.tolerateTimeout = 4
-        bannerAdView?.refershTime = 30
+        bannerAdView?.refershTime = SetConfigManager.shared().bannerAdInterval
+        if SetConfigManager.shared().bannerAdScenceId != "" {
+            bannerAdView?.scenesId = SetConfigManager.shared().bannerAdScenceId
+        }
         self.view.addSubview(bannerAdView!)
         // 3、加载banner广告
         bannerAdView?.loadAndShowWithError(nil)

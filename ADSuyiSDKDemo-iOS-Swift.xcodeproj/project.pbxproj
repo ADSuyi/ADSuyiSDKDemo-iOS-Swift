@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		033024692639044D00C379A2 /* ADSuyiSplashVPlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033024682639044D00C379A2 /* ADSuyiSplashVPlusViewController.swift */; };
+		03ED19C62637F48E00089CF2 /* SetConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ED19B62637F48E00089CF2 /* SetConfigManager.m */; };
+		03ED19C72637F48E00089CF2 /* NativeAdSetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ED19B72637F48E00089CF2 /* NativeAdSetTableViewController.m */; };
+		03ED19C82637F48E00089CF2 /* DrawAdSetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ED19BB2637F48E00089CF2 /* DrawAdSetTableViewController.m */; };
+		03ED19C92637F48E00089CF2 /* FullScreenAdSetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ED19BC2637F48E00089CF2 /* FullScreenAdSetTableViewController.m */; };
+		03ED19CA2637F48E00089CF2 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ED19BF2637F48E00089CF2 /* NavigationViewController.m */; };
+		03ED19CB2637F48E00089CF2 /* SetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ED19C02637F48E00089CF2 /* SetTableViewController.m */; };
+		03ED19CC2637F48E00089CF2 /* SplashSetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ED19C12637F48E00089CF2 /* SplashSetTableViewController.m */; };
+		03ED19CD2637F48E00089CF2 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ED19C22637F48E00089CF2 /* UIView+Toast.m */; };
+		03ED19CE2637F48E00089CF2 /* BannerAdSetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ED19C32637F48E00089CF2 /* BannerAdSetTableViewController.m */; };
+		03ED19CF2637F48E00089CF2 /* PlatformTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ED19C42637F48E00089CF2 /* PlatformTableViewController.m */; };
+		03ED19D02637F48E00089CF2 /* NotificationAdSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ED19C52637F48E00089CF2 /* NotificationAdSetViewController.m */; };
+		03ED1A1C263810B900089CF2 /* AdSuyiContainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED1A1B263810B900089CF2 /* AdSuyiContainViewController.swift */; };
 		13CC7B9325DE6FE400D77DE5 /* AdSuyiBaseContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CC7B9225DE6FE400D77DE5 /* AdSuyiBaseContentViewController.swift */; };
 		13CC7B9625DE72ED00D77DE5 /* AdSuyiContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CC7B9525DE72ED00D77DE5 /* AdSuyiContentViewController.swift */; };
 		82085D9725E894AF00FCE89F /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82085D9625E894AF00FCE89F /* AppTrackingTransparency.framework */; };
@@ -33,6 +46,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		033024682639044D00C379A2 /* ADSuyiSplashVPlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSuyiSplashVPlusViewController.swift; sourceTree = "<group>"; };
+		03ED19B02637F48E00089CF2 /* FullScreenAdSetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenAdSetTableViewController.h; sourceTree = "<group>"; };
+		03ED19B12637F48E00089CF2 /* DrawAdSetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawAdSetTableViewController.h; sourceTree = "<group>"; };
+		03ED19B22637F48E00089CF2 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		03ED19B32637F48E00089CF2 /* SplashSetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashSetTableViewController.h; sourceTree = "<group>"; };
+		03ED19B42637F48E00089CF2 /* SetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetTableViewController.h; sourceTree = "<group>"; };
+		03ED19B52637F48E00089CF2 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		03ED19B62637F48E00089CF2 /* SetConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetConfigManager.m; sourceTree = "<group>"; };
+		03ED19B72637F48E00089CF2 /* NativeAdSetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeAdSetTableViewController.m; sourceTree = "<group>"; };
+		03ED19B82637F48E00089CF2 /* NotificationAdSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationAdSetViewController.h; sourceTree = "<group>"; };
+		03ED19B92637F48E00089CF2 /* PlatformTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformTableViewController.h; sourceTree = "<group>"; };
+		03ED19BA2637F48E00089CF2 /* BannerAdSetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerAdSetTableViewController.h; sourceTree = "<group>"; };
+		03ED19BB2637F48E00089CF2 /* DrawAdSetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawAdSetTableViewController.m; sourceTree = "<group>"; };
+		03ED19BC2637F48E00089CF2 /* FullScreenAdSetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenAdSetTableViewController.m; sourceTree = "<group>"; };
+		03ED19BD2637F48E00089CF2 /* NativeAdSetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeAdSetTableViewController.h; sourceTree = "<group>"; };
+		03ED19BE2637F48E00089CF2 /* SetConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetConfigManager.h; sourceTree = "<group>"; };
+		03ED19BF2637F48E00089CF2 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		03ED19C02637F48E00089CF2 /* SetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetTableViewController.m; sourceTree = "<group>"; };
+		03ED19C12637F48E00089CF2 /* SplashSetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashSetTableViewController.m; sourceTree = "<group>"; };
+		03ED19C22637F48E00089CF2 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		03ED19C32637F48E00089CF2 /* BannerAdSetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerAdSetTableViewController.m; sourceTree = "<group>"; };
+		03ED19C42637F48E00089CF2 /* PlatformTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlatformTableViewController.m; sourceTree = "<group>"; };
+		03ED19C52637F48E00089CF2 /* NotificationAdSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationAdSetViewController.m; sourceTree = "<group>"; };
+		03ED1A1B263810B900089CF2 /* AdSuyiContainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiContainViewController.swift; sourceTree = "<group>"; };
 		13CC7B9225DE6FE400D77DE5 /* AdSuyiBaseContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiBaseContentViewController.swift; sourceTree = "<group>"; };
 		13CC7B9525DE72ED00D77DE5 /* AdSuyiContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiContentViewController.swift; sourceTree = "<group>"; };
 		57C55753C99071DDCCAAE9C2 /* Pods-ADSuyiSDKDemo-iOS-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSuyiSDKDemo-iOS-Swift.debug.xcconfig"; path = "Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +114,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03ED19AF2637F48E00089CF2 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				03ED19B02637F48E00089CF2 /* FullScreenAdSetTableViewController.h */,
+				03ED19B12637F48E00089CF2 /* DrawAdSetTableViewController.h */,
+				03ED19B22637F48E00089CF2 /* UIView+Toast.h */,
+				03ED19B32637F48E00089CF2 /* SplashSetTableViewController.h */,
+				03ED19B42637F48E00089CF2 /* SetTableViewController.h */,
+				03ED19B52637F48E00089CF2 /* NavigationViewController.h */,
+				03ED19B62637F48E00089CF2 /* SetConfigManager.m */,
+				03ED19B72637F48E00089CF2 /* NativeAdSetTableViewController.m */,
+				03ED19B82637F48E00089CF2 /* NotificationAdSetViewController.h */,
+				03ED19B92637F48E00089CF2 /* PlatformTableViewController.h */,
+				03ED19BA2637F48E00089CF2 /* BannerAdSetTableViewController.h */,
+				03ED19BB2637F48E00089CF2 /* DrawAdSetTableViewController.m */,
+				03ED19BC2637F48E00089CF2 /* FullScreenAdSetTableViewController.m */,
+				03ED19BD2637F48E00089CF2 /* NativeAdSetTableViewController.h */,
+				03ED19BE2637F48E00089CF2 /* SetConfigManager.h */,
+				03ED19BF2637F48E00089CF2 /* NavigationViewController.m */,
+				03ED19C02637F48E00089CF2 /* SetTableViewController.m */,
+				03ED19C12637F48E00089CF2 /* SplashSetTableViewController.m */,
+				03ED19C22637F48E00089CF2 /* UIView+Toast.m */,
+				03ED19C32637F48E00089CF2 /* BannerAdSetTableViewController.m */,
+				03ED19C42637F48E00089CF2 /* PlatformTableViewController.m */,
+				03ED19C52637F48E00089CF2 /* NotificationAdSetViewController.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		13CC7B8B25DE6FBA00D77DE5 /* Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +167,7 @@
 			children = (
 				820EC823254AA6F1001C7C88 /* TableViewController.swift */,
 				820EC827254AA703001C7C88 /* BlankViewController.swift */,
+				03ED1A1B263810B900089CF2 /* AdSuyiContainViewController.swift */,
 			);
 			path = contain;
 			sourceTree = "<group>";
@@ -166,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				BFB4D4482498779C00D51D77 /* ADSuyiSplashViewController.swift */,
+				033024682639044D00C379A2 /* ADSuyiSplashVPlusViewController.swift */,
 			);
 			path = SplashAd;
 			sourceTree = "<group>";
@@ -207,6 +275,7 @@
 		BFEA08B6247E622B001815E3 /* ADSuyiSDKDemo-iOS-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				03ED19AF2637F48E00089CF2 /* Config */,
 				BFB4D4472498777100D51D77 /* SuyiAds */,
 				BFB4D4452498684100D51D77 /* ADSuyiSDKDemoTool.swift */,
 				BFEA08CC247E8236001815E3 /* 750x1334.png */,
@@ -243,6 +312,7 @@
 				BFEA08B1247E622B001815E3 /* Frameworks */,
 				BFEA08B2247E622B001815E3 /* Resources */,
 				9ADE926E8F9BFED81717C067 /* [CP] Copy Pods Resources */,
+				7A123AD390A875378C2CD614 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,6 +373,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7A123AD390A875378C2CD614 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8A75B423AA5C3761CEF0AEFB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,15 +438,28 @@
 			files = (
 				BFB4D44D249878B000D51D77 /* ADSuyiBannerViewController.swift in Sources */,
 				BFB4D4492498779C00D51D77 /* ADSuyiSplashViewController.swift in Sources */,
+				03ED19C72637F48E00089CF2 /* NativeAdSetTableViewController.m in Sources */,
+				03ED19CF2637F48E00089CF2 /* PlatformTableViewController.m in Sources */,
 				824AD25F25C146D600BD1105 /* ADSuyiGroupAdViewController.swift in Sources */,
+				03ED19CB2637F48E00089CF2 /* SetTableViewController.m in Sources */,
+				03ED19C92637F48E00089CF2 /* FullScreenAdSetTableViewController.m in Sources */,
+				03ED19CD2637F48E00089CF2 /* UIView+Toast.m in Sources */,
 				BFB4D4502498D67900D51D77 /* AdSuyiRewardViewController.swift in Sources */,
+				03ED19C82637F48E00089CF2 /* DrawAdSetTableViewController.m in Sources */,
 				820EC828254AA703001C7C88 /* BlankViewController.swift in Sources */,
+				03ED19CE2637F48E00089CF2 /* BannerAdSetTableViewController.m in Sources */,
 				BFEA08BC247E622B001815E3 /* ViewController.swift in Sources */,
 				13CC7B9625DE72ED00D77DE5 /* AdSuyiContentViewController.swift in Sources */,
 				BF3082E2249A02B800FAC7A1 /* AdSuyiNativeViewController.swift in Sources */,
 				BF3082DC2499AC0500FAC7A1 /* AdSuyiFullScreenVodViewController.swift in Sources */,
+				03ED19CC2637F48E00089CF2 /* SplashSetTableViewController.m in Sources */,
+				03ED19CA2637F48E00089CF2 /* NavigationViewController.m in Sources */,
 				820EC824254AA6F1001C7C88 /* TableViewController.swift in Sources */,
+				033024692639044D00C379A2 /* ADSuyiSplashVPlusViewController.swift in Sources */,
+				03ED19D02637F48E00089CF2 /* NotificationAdSetViewController.m in Sources */,
+				03ED19C62637F48E00089CF2 /* SetConfigManager.m in Sources */,
 				BFB4D4462498684100D51D77 /* ADSuyiSDKDemoTool.swift in Sources */,
+				03ED1A1C263810B900089CF2 /* AdSuyiContainViewController.swift in Sources */,
 				13CC7B9325DE6FE400D77DE5 /* AdSuyiBaseContentViewController.swift in Sources */,
 				BF3082D92499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift in Sources */,
 				BFEA08B8247E622B001815E3 /* AppDelegate.swift in Sources */,
