@@ -8,6 +8,8 @@
 
 #import "NotificationAdSetViewController.h"
 #import "SetConfigManager.h"
+#import <ADSuyiSDK/ADSuyiSDK.h>
+#import <ADSuyiSDK/ADSuyiSDKStatusManager.h>
 @interface NotificationAdSetViewController ()
 
 @property (nonatomic, strong) UISwitch *switchBtn;
@@ -30,7 +32,12 @@
 }
 
 - (void)clickSaveButton {
-    [SetConfigManager sharedManager].showNotificationAd = self.switchBtn.on;
+    if (self.switchBtn.on) {
+        [ADSuyiSDKStatusManager notificationAdContinue];
+    } else {
+        [ADSuyiSDKStatusManager notificationAdPause];
+    }
+    
 }
 
 #pragma mark - Table view data source

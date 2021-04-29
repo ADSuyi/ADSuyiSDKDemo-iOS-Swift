@@ -157,12 +157,14 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         let alertVc = UIAlertController.init(title: "", message: "选择广告类型", preferredStyle: .actionSheet)
         let expressAction = UIAlertAction.init(title: "模板渲染", style: .default) { (action) in
             self.cleanAllAd()
-            self.nativeAd.posId = "d4366018478613f768"
+            self.nativeAd = nil
+            self.posid = "177a790a315eeb7053"
             self.loadNativeAd()
         }
         let nativeAction = UIAlertAction.init(title: "自渲染", style: .default) { (action) in
             self.cleanAllAd()
-            self.nativeAd.posId = "26fe47d8b06658ace0"
+            self.nativeAd = nil
+            self.posid = "e9eaffb6b9d97cd813"
             self.loadNativeAd()
         }
         let cancle = UIAlertAction.init(title: "取消", style: .cancel) { (action) in

@@ -17,7 +17,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         // [NSString stringWithFormat:@"ADSuyiSDK-Demo-v%@",[ADSuyiSDK getSDKVersion]]
-        self.title = NSString.init(format: "ADSuyiSDK-Demo-v%@", ADSuyiSDK.getVersion()) as String
+        self.title = NSString.init(format: "ADmobile 广告聚合SDK Demo") as String
         
         self.view.backgroundColor = UIColor.white
         
@@ -72,6 +72,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return 48
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let label = UILabel.init()
+        label.textAlignment = .center
+        label.text = ADSuyiSDK.getVersion()
+        label.textColor = UIColor.init(red: 36/255.0, green: 132/255.0, blue: 207/255.0, alpha: 1);
+        return label
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 45
+    }
+    
     //
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = UITableViewCell(style: .default, reuseIdentifier: tableViewCellID)
@@ -111,10 +123,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         case 1:
             self.navigationController?.pushViewController(ADSuyiSplashVPlusViewController.init(), animated: true)
             break
-            break
         case 2:
             let nativeVC = AdSuyiNativeViewController.init()
-            nativeVC.posid = "d4366018478613f768"
+            nativeVC.posid = "177a790a315eeb7053"
             self.navigationController?.pushViewController(nativeVC, animated: true)
             break
         case 3:
@@ -137,7 +148,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             break
         case 9:
             let vc = ADSuyiGroupAdViewController()
-            vc.nativePosid = "26fe47d8b06658ace0"
+            vc.nativePosid = "e9eaffb6b9d97cd813"
             vc.rewardPosid = "47d196ffaaa92ae93c"
             self.navigationController?.pushViewController(vc, animated: true)
             break

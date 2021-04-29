@@ -70,7 +70,8 @@ class ADSuyiGroupAdViewController: UIViewController,ADSuyiSDKNativeAdDelegate,AD
     }
     
     @objc func loadNormal() {
-        self.nativeAd?.posId = nativePosid
+        self.nativeAd = nil
+        nativePosid = "e9eaffb6b9d97cd813"
         self.requestNativeAd()
         logString = logString + "开始获取DL广告\n"
         textView.text = logString
@@ -78,7 +79,8 @@ class ADSuyiGroupAdViewController: UIViewController,ADSuyiSDKNativeAdDelegate,AD
     }
     
     @objc func loadError() {
-        self.nativeAd?.posId = ""
+        nativeAd = nil
+        nativePosid = ""
         self.requestNativeAd()
         logString = logString + "开始获取DL广告\n"
         self.textView.text = logString
