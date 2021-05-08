@@ -13,6 +13,9 @@ class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
     
     var splash: ADSuyiSDKSplashAd?
     
+    let normalView = ADSuyiSkipView.init()
+    let ringView = ADSuyiSkipRingView.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,8 +63,10 @@ class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
         // splash?.loadAndShow(in: self.window! , withBottomView: nil)
         // 5、加载带有底部视图的开屏广告
         if  SetConfigManager.shared().isCustomSkipView{
-            // TODO:
-//            splash?.skipView = UIView.init()
+            // 示例1 自定义跳过按钮
+            splash?.skipView = normalView
+            // 示例2 圆弧跳过
+//            splash?.skipView = ringView;
         }
         splash?.loadAndShow(in: UIApplication.shared.keyWindow!, withBottomView: bottomView)
         
