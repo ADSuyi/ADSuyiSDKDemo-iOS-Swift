@@ -29,7 +29,6 @@
 		820EC824254AA6F1001C7C88 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EC823254AA6F1001C7C88 /* TableViewController.swift */; };
 		820EC828254AA703001C7C88 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EC827254AA703001C7C88 /* BlankViewController.swift */; };
 		824AD25F25C146D600BD1105 /* ADSuyiGroupAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AD25E25C146D600BD1105 /* ADSuyiGroupAdViewController.swift */; };
-		9C813F1823D9C9A989128545 /* libPods-ADSuyiSDKDemo-iOS-Swift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DADC030EA00FEB4358280F1 /* libPods-ADSuyiSDKDemo-iOS-Swift.a */; };
 		BF279CD8249B130E00C38704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF279CD7249B130E00C38704 /* LaunchScreen.storyboard */; };
 		BF3082D92499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3082D82499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift */; };
 		BF3082DC2499AC0500FAC7A1 /* AdSuyiFullScreenVodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3082DB2499AC0500FAC7A1 /* AdSuyiFullScreenVodViewController.swift */; };
@@ -45,10 +44,25 @@
 		BFEA08C1247E622D001815E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFEA08C0247E622D001815E3 /* Assets.xcassets */; };
 		BFEA08CD247E8236001815E3 /* ADMob_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BFEA08CB247E8236001815E3 /* ADMob_Logo.png */; };
 		BFEA08CE247E8236001815E3 /* 750x1334.png in Resources */ = {isa = PBXBuildFile; fileRef = BFEA08CC247E8236001815E3 /* 750x1334.png */; };
+		CCF1F4684361848E810DD14B /* Pods_ADSuyiSDKDemo_iOS_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C88587B8736DFA4D54011F71 /* Pods_ADSuyiSDKDemo_iOS_Swift.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0347587B26675FEE00B41D56 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		033024682639044D00C379A2 /* ADSuyiSplashVPlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSuyiSplashVPlusViewController.swift; sourceTree = "<group>"; };
+		0347586B26675BDD00B41D56 /* ADSuyiKS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ADSuyiKS.xcframework; path = Pods/ADSuyiSDK/ADSuyiSDK/Classes/ks/ADSuyiKS.xcframework; sourceTree = "<group>"; };
 		03ED19B02637F48E00089CF2 /* FullScreenAdSetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenAdSetTableViewController.h; sourceTree = "<group>"; };
 		03ED19B12637F48E00089CF2 /* DrawAdSetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawAdSetTableViewController.h; sourceTree = "<group>"; };
 		03ED19B22637F48E00089CF2 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
@@ -82,7 +96,6 @@
 		820EC823254AA6F1001C7C88 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		820EC827254AA703001C7C88 /* BlankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankViewController.swift; sourceTree = "<group>"; };
 		824AD25E25C146D600BD1105 /* ADSuyiGroupAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSuyiGroupAdViewController.swift; sourceTree = "<group>"; };
-		8DADC030EA00FEB4358280F1 /* libPods-ADSuyiSDKDemo-iOS-Swift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ADSuyiSDKDemo-iOS-Swift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF279CD7249B130E00C38704 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF3082D82499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiInterstitialViewController.swift; sourceTree = "<group>"; };
 		BF3082DB2499AC0500FAC7A1 /* AdSuyiFullScreenVodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiFullScreenVodViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +114,7 @@
 		BFEA08C5247E622D001815E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFEA08CB247E8236001815E3 /* ADMob_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ADMob_Logo.png; sourceTree = "<group>"; };
 		BFEA08CC247E8236001815E3 /* 750x1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 750x1334.png; sourceTree = "<group>"; };
+		C88587B8736DFA4D54011F71 /* Pods_ADSuyiSDKDemo_iOS_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSuyiSDKDemo_iOS_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1BCF1554788C761F1339FED /* Pods-ADSuyiSDKDemo-iOS-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSuyiSDKDemo-iOS-Swift.release.xcconfig"; path = "Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,9 +123,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C813F1823D9C9A989128545 /* libPods-ADSuyiSDKDemo-iOS-Swift.a in Frameworks */,
 				82085D9725E894AF00FCE89F /* AppTrackingTransparency.framework in Frameworks */,
 				82085D9925E894BA00FCE89F /* AdSupport.framework in Frameworks */,
+				CCF1F4684361848E810DD14B /* Pods_ADSuyiSDKDemo_iOS_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,9 +182,10 @@
 		30E16EEBBCE2BA4B816B7DA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0347586B26675BDD00B41D56 /* ADSuyiKS.xcframework */,
 				82085D9825E894BA00FCE89F /* AdSupport.framework */,
 				82085D9625E894AF00FCE89F /* AppTrackingTransparency.framework */,
-				8DADC030EA00FEB4358280F1 /* libPods-ADSuyiSDKDemo-iOS-Swift.a */,
+				C88587B8736DFA4D54011F71 /* Pods_ADSuyiSDKDemo_iOS_Swift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -327,6 +342,7 @@
 				BFEA08B2247E622B001815E3 /* Resources */,
 				9ADE926E8F9BFED81717C067 /* [CP] Copy Pods Resources */,
 				7A123AD390A875378C2CD614 /* [CP] Embed Pods Frameworks */,
+				0347587B26675FEE00B41D56 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -344,7 +360,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "陈坤";
 				TargetAttributes = {
 					BFEA08B3247E622B001815E3 = {
@@ -523,6 +539,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -583,6 +600,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -622,8 +640,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_HEADERS_RUN_UNIFDEF = NO;
 				DEVELOPMENT_ASSET_PATHS = "ADSuyiSDKDemo-iOS-Swift/Assets.xcassets";
-				DEVELOPMENT_TEAM = Y8FBV7Y443;
+				DEVELOPMENT_TEAM = 5R8264RPHR;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ADSuyiSDKDemo-iOS-Swift",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -632,7 +654,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "ADSuyiSDKDemo-iOS-Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_GENERATE_MAP_FILE = NO;
 				LD_NO_PIE = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -653,6 +675,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -667,8 +690,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_HEADERS_RUN_UNIFDEF = NO;
 				DEVELOPMENT_ASSET_PATHS = "ADSuyiSDKDemo-iOS-Swift/Assets.xcassets";
-				DEVELOPMENT_TEAM = Y8FBV7Y443;
+				DEVELOPMENT_TEAM = 5R8264RPHR;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ADSuyiSDKDemo-iOS-Swift",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -677,7 +704,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "ADSuyiSDKDemo-iOS-Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_GENERATE_MAP_FILE = NO;
 				LD_NO_PIE = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -697,6 +724,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};

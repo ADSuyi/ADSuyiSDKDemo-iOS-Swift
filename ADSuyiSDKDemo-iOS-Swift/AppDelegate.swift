@@ -60,12 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        获取idfa权限 建议获取idfa，否则会影响收益
-        if #available(iOS 14.0, *) {
-            ATTrackingManager.requestTrackingAuthorization { (status) in
-                
-            }
-        }
+
         
         window = UIWindow(frame: UIScreen.main.bounds)
         let nav = NavigationViewController(rootViewController: ViewController())
@@ -144,6 +139,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         let agree = UIAlertAction.init(title: "同意并继续", style: UIAlertAction.Style.default) { (action) in
             // 记录是否第一次启动
             self.writeAppLoad()
+            //        获取idfa权限 建议获取idfa，否则会影响收益
+            if #available(iOS 14.0, *) {
+                ATTrackingManager.requestTrackingAuthorization { (status) in
+                    
+                }
+            }
             // 用户同意协议 初始化
             self.initADSuyiSDK()
         }
