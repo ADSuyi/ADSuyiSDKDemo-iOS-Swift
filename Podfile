@@ -7,7 +7,7 @@ target 'ADSuyiSDKDemo-iOS-Swift' do
 
   # Pods for ADSuyiSDKDemo-iOS-Swift
 
-  pod 'ADSuyiSDK', '~> 3.2.1.0'
+  pod 'ADSuyiSDK', '~> 3.2.2.0'
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/gdt'
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/admobile'
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/baidu'
@@ -16,6 +16,7 @@ target 'ADSuyiSDKDemo-iOS-Swift' do
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/inmobi'
 #  pod 'ADSuyiSDK/ADSuyiSDKPlatforms/ks'
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/unity'
+  pod 'ADSuyiSDK/ADSuyiSDKPlatforms/cloudcode'
 #  小说SDK
   #pod 'ADSuyiStarRd'
 
