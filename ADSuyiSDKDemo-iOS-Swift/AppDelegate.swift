@@ -68,8 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         window?.makeKeyAndVisible()
         
         self.setThirtyPartySdk()
-        // 加载开屏
-        loadSplash()
         
         return true
     }
@@ -170,6 +168,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
 //                NSLog("SDK 初始化失败:%@",error?.localizedDescription ?? "")
 //            }
         }
+        // 加载开屏
+        loadSplash()
     }
     
     // MARK: helper
