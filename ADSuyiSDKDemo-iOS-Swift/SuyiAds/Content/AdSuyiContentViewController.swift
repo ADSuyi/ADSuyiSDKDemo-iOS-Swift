@@ -18,6 +18,9 @@ class AdSuyiContentViewController: UIViewController, UITableViewDelegate, UITabl
     var items = Array<UIView&ADSuyiSDKContentAdViewProtocol>()
     var contentAd: ADSuyiSDKContentAd? = nil
     let contentView: (UIView&ADSuyiSDKContentAdViewProtocol)? = nil
+    
+    let customBtn = UIButton.init()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +41,24 @@ class AdSuyiContentViewController: UIViewController, UITableViewDelegate, UITabl
             self?.loadContentAd()
         })
         self.loadContentAd()
+        customBtn.setTitle("自定义视图进入内容视频页", for: .normal)
+        customBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        customBtn.backgroundColor = UIColor.lightGray
+        customBtn.layer.cornerRadius = 4
+        customBtn.addTarget(self, action: #selector(entryContentVc), for: .touchUpInside)
+        self.view.addSubview(customBtn)
+        customBtn.frame = CGRect.init(x: UIScreen.main.bounds.size.width/2 - 100, y: UIScreen.main.bounds.size.height - 80, width: 200, height: 50)
+        self.view.bringSubviewToFront(customBtn)
     }
-//
+// MARK:Action
+    
+    @objc func entryContentVc() {
+        if self.items.first == nil {
+            self.view.makeToast("内容视频加载失败")
+            return
+        }
+        contentAd?.clickContentPage(withContentView: self.items.first!)
+    }
     
     func loadContentAd() {
         if(contentAd == nil) {
