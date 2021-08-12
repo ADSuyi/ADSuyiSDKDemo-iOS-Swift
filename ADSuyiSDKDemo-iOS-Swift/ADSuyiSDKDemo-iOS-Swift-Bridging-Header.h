@@ -15,3 +15,4 @@
 #import "SetTableViewController.h"
 #import "NavigationViewController.h"
 #import "SetConfigManager.h"
+#import <ADSuyiSDK/ADSuyiSDK.h>

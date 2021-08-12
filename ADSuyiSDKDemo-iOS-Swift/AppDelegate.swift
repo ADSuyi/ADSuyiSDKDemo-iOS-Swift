@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         // 4、初始化底部视图
         var bottomViewHeight:CGFloat = 0
         if isIPhoneXSeries() {
-            bottomViewHeight = SCREEN_WIDTH * 0.25
+            bottomViewHeight = SCREEN_WIDTH * 0.15
         } else {
             bottomViewHeight = SCREEN_WIDTH - (SCREEN_WIDTH * 960 / 640)
         }

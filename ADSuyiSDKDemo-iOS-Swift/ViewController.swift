@@ -89,6 +89,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cell  = UITableViewCell(style: .default, reuseIdentifier: tableViewCellID)
         let title = dataArray[indexPath.row]
         cell.contentView.backgroundColor = UIColor.init(red: 225/255.0, green: 233/255.0, blue: 239/255.0, alpha: 1)
+        cell.backgroundColor = UIColor.init(red: 225/255.0, green: 233/255.0, blue: 239/255.0, alpha: 1)
+        cell.layer.cornerRadius = 6
+        cell.contentView.layer.cornerRadius = 6
+        cell.clipsToBounds = true
+        cell.contentView.clipsToBounds = true
         let view = cell.contentView.viewWithTag(999)
         if view != nil {
             view?.removeFromSuperview()
@@ -101,6 +106,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         labTitle.tag = 999
         labTitle.textColor = UIColor.adsy_color(withHexString: "#666666")
         labTitle.text = title
+        labTitle.clipsToBounds = true
         cell.contentView.addSubview(labTitle)
         labTitle.frame = CGRect.init(x: 16, y: 8, width: SCREEN_WIDTH - 32, height: 32)
         labTitle.layer.cornerRadius = 4
