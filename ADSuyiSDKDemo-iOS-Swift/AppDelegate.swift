@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         if isIPhoneXSeries() {
             bottomViewHeight = SCREEN_WIDTH * 0.15
         } else {
-            bottomViewHeight = SCREEN_WIDTH - (SCREEN_WIDTH * 960 / 640)
+            bottomViewHeight = SCREEN_HEIGHT - (SCREEN_WIDTH * 960 / 640)
         }
         
         let bottomView = UIView.init(frame: CGRect.init(x: 0, y: SCREEN_HEIGHT - bottomViewHeight, width: SCREEN_WIDTH, height: bottomViewHeight))
@@ -49,9 +49,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         logoImageView.frame = CGRect.init(x: (SCREEN_WIDTH - 135)/2, y: (bottomViewHeight - 46)/2, width: 135, height: 46)
         
         bottomView.addSubview(logoImageView)
-        // 5、加载全屏的开屏广告
+        // 5、设置开屏保底逻辑（可选）
+        /**
+         *功能说明：App在首次启动时，需要先请求获取广告位配置文件后，然后再去请求开屏广告，也就是首次加载开屏广告时需要两次串行网络请求，因此很容易因超时导致开屏广告展示失败。
+         *解决方案：为避免开屏超时问题，开放此设置给开发者，开发者可以根据实际需求选择一家广告平台，通过API接口将必需参数传递给Suyi聚合SDK。（该设置只能指定一家广告平台，并且首次启动时只会请求该平台的广告，但App首次开屏广告将不受ADmobile后台控制，包括下载提示，广告位关闭。）
+         *该设置仅会在首次加载开屏广告时，SDK会使用开发者传入的参数进行广告请求，同时获取后台配置文件的广告配置信息缓存到本地（首次请求广告平台广告和获取配置信息时并发进行），后续的开屏广告将按照缓存缓存的后台广告位配置顺序进行开屏广告请求。
+         *支持穿山甲、优量汇、快手、百度
+         */
+        splash?.setBottomSplashWithSuyiPosid("73128265daffdd6a1d", platformListId: "3827", platform: "ksad", appId: "90010", appKey: nil, platformPosid: "4000000041", renderType: .expressPro)
+        // 6、加载全屏的开屏广告
         // splash?.loadAndShow(in: self.window! , withBottomView: nil)
-        // 5、加载带有底部视图的开屏广告
+        // 6、加载带有底部视图的开屏广告
         splash?.loadAndShow(in: self.window!, withBottomView: bottomView)
         
     }

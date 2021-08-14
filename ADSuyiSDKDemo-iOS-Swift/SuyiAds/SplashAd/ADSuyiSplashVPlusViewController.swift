@@ -49,7 +49,7 @@ class ADSuyiSplashVPlusViewController: UIViewController,ADSuyiSDKSplashAdDelegat
         if isIPhoneXSeries() {
             bottomViewHeight = SCREEN_WIDTH * 0.15
         } else {
-            bottomViewHeight = SCREEN_WIDTH - (SCREEN_WIDTH * 960 / 640)
+            bottomViewHeight = SCREEN_HEIGHT - (SCREEN_WIDTH * 960 / 640)
         }
         
         let bottomView = UIView.init(frame: CGRect.init(x: 0, y: SCREEN_HEIGHT - bottomViewHeight, width: SCREEN_WIDTH, height: bottomViewHeight))
