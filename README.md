@@ -1,6 +1,6 @@
 
 
-# ADmobile ADSuyiSDK iOS接入文档 v3.3.1.08051
+# ADmobile ADSuyiSDK iOS接入文档 v3.3.2.08251
 
 
 
@@ -40,15 +40,6 @@
 
 | 文档版本 | 修订日期   | 修订说明                                                     |
 | -------- | ---------- | ------------------------------------------------------------ |
-| V3.0.4   | 2020-05-28 | 接入广点通、头条、百度、inmobi、汇量、快手、谷歌、Mopub、Unity广告平台，建立开屏、banner、信息流（自渲染和模板）、插屏、激励视频、全屏视频、沉浸式视频广告类型 |
-| v3.0.6   | 2020-08-12 | 支持浮窗广告，接入讯飞、芒果TV平台，修复已知问题             |
-| v3.0.7   | 2020-09-21 | 支持打底广告，修复已知问题                                   |
-| v3.0.8   | 2020-10-26 | 适配iOS14，修复已知问题                                      |
-| v3.0.9   | 2020-11-16 | 浮窗广告适配广点通                                           |
-| v3.1.0   | 2020-12-14 | 广告场景功能，开放开屏跳过按钮，错误码规范性整理，修复已知问题 |
-| v3.1.1   | 2020-12-23 | 信息流支持广点通模板2.0，自渲染信息流广告增加关闭按钮相关方法，修复已知问题 |
-| v3.1.2   | 2021-02-18 | 适配快手内容页;支持广点通v+开屏广告;升级第三方SDK（优量汇、穿山甲、快手联盟等） |
-| v3.1.3   | 2021-03-01 | 适配Vungle横幅广告，插屏广告，激励视频广告;升级第三方SDK（Google、穿山甲、汇量等） |
 | v3.1.5   | 2021-03-05 | 部分平台激励视频支持服务端验证;升级第三方SDK（优量汇、穿山甲等） |
 | v3.2.0   | 2021-03-31 | admobile支持模板信息流;支持优量汇模板2.0激励视频;支持穿山甲新版插屏;升级第三方SDK（穿山甲,汇量,Google,Unity等） |
 | v3.2.1   | 2021-04-22 | 升级第三方SDK（穿山甲，百度，优量汇，Google，汇量，vungle等），部分功能优化 |
@@ -56,17 +47,18 @@
 | v3.2.3   | 2021-06-18 | 适配Gromore平台;支持快手非内容版本;升级第三方SDK（穿山甲，优量汇，Google，汇量，百度，云码等）；部分功能优化 |
 | v3.3.0   | 2021-07-20 | 新增开屏保底（可选）(支持穿山甲，优量汇，快手，百度，汇量）; 浮窗广告支持百度，快手平台；升级第三方SDK（穿山甲，优量汇，Google，汇量，百度，快手等）；部分功能优化 |
 | v3.3.1   | 2021-08-31 | 升级第三方SDK（穿山甲，优量汇，Google，汇量，百度，快手等）；部分功能优化 |
+| v3.3.2   | 2021-09-23 |新增开屏热区及跳过按钮控制开关；升级第三方SDK（穿山甲，优量汇，Vungle，汇量，百度，快手等）；部分功能优化 |
 
 <div STYLE="page-break-after: always;"></div>
 
 
 ## 1.1 概述
 
-尊敬的开发者朋友，欢迎您使用ADmobile 苏伊士广告SDK。通过本文档，您可以在几分钟之内轻松完成广告的集成过程。
+尊敬的开发者朋友，yunxin
 
 操作系统： iOS 9.0 及以上版本
 
-运行设备：iPhone （iPad上可能部分广告正常展示，但是存在填充很低或者平台不支持等问题，建议不要在iPad上展示广告）
+运行设备：iPhone （iPad上可能部分广告正常展示，但是存在填充很低或者平台不支持等问题，建议不要在iPad上展示广告，穿山甲等平台开屏广告iPad端展示异常）
 
 - `ADSuyiSDK Objective-C Demo地址`[[ADSuyiSDK Objective-C Demo]](https://github.com/ADSuyi/ADSuyiSDKDemo-iOS)
 - `ADSuyiSDK Swift Demo地址`[[ADSuyiSDK Swift Demo]](https://github.com/ADSuyi/ADSuyiSDKDemo-iOS-Swift.git)
@@ -79,7 +71,7 @@
 
 ```ruby
 // 挑选在苏伊士托管的平台导入项目，请不要导入全部，如果不清楚需要哪些平台可以咨询媒介
-pod 'ADSuyiSDK', '~> 3.3.1.0'								# 主SDK  #必选
+pod 'ADSuyiSDK', '~> 3.3.2.0'								# 主SDK  #必选
 pod 'ADSuyiSDK/ADSuyiSDKPlatforms/admobile' # ADMobile  #必选
 pod 'ADSuyiSDK/ADSuyiSDKPlatforms/gdt'     	# 优量汇(广点通）
 pod 'ADSuyiSDK/ADSuyiSDKPlatforms/baidu'		# baidu
@@ -98,12 +90,10 @@ pod 'ADSuyiSDK/ADSuyiSDKPlatforms/gromore'  # gromore
 pod 'ADSuyiLocationManagerGPS'// 含有系统定位代码
 ```
 
-
-
 推荐使用导入命令
 
 ```ruby
-pod 'ADSuyiSDK', '~> 3.3.1.0'								# 主SDK  #必选	
+pod 'ADSuyiSDK', '~> 3.3.2.0'								# 主SDK  #必选	
 pod 'ADSuyiSDK/ADSuyiSDKPlatforms/admobile'	# ADMobile  #必选
 pod 'ADSuyiSDK/ADSuyiSDKPlatforms/gdt'			# 优量汇(广点通)
 pod 'ADSuyiSDK/ADSuyiSDKPlatforms/baidu'		# baidu
@@ -169,6 +159,8 @@ libc++abi.tbd
 <div STYLE="page-break-after: always;"></div>
 
 <div STYLE="page-break-after: always;"></div>
+
+
 
 
 ## 3.1 工程环境配置
