@@ -15,7 +15,7 @@ target 'ADSuyiSDKDemo-iOS-Swift' do
 #  pod 'ADSuyiSDK/ADSuyiSDKPlatforms/google'
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/inmobi'
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/ks'#快手简版
-  pod 'ADSuyiSDK/ADSuyiSDKPlatforms/ksfull'#快手内容版本
+# pod 'ADSuyiSDK/ADSuyiSDKPlatforms/ksfull'#快手内容版本
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/unity'
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/cloudcode'
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/gromore'
