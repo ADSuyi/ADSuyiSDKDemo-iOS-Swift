@@ -21,7 +21,7 @@
     self.title = @"广告平台选择";
     self.tableView.backgroundColor = [UIColor colorWithRed:225/255.0 green:233/255.0 blue:239/255.0 alpha:1];
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    self.platformArray = @[@"默认所有",@"admobile",@"优量汇",@"穿山甲",@"百度",@"汇量",@"快手",@"inmobi",@"芒果",@"讯飞",@"unity",@"vungle",@"yunma"];
+    self.platformArray = @[@"默认所有",@"admobile",@"优量汇",@"穿山甲",@"百度",@"汇量",@"快手",@"inmobi",@"云码"];
     self.platformDic = @{
         @"admobile" :@"admobile",
         @"广点通":@"gdt",
@@ -30,10 +30,7 @@
         @"汇量":@"mintegral",
         @"快手":@"ksad",
         @"inmobi":@"inmobi",
-        @"芒果":@"mgad",
-        @"讯飞":@"ifly",
-        @"unity":@"unity",
-        @"vungle":@"vungle"
+        @"云码":@"yunma"
     };
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -42,10 +39,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-//- (void)viewWillDisappear:(BOOL)animated {
-//    [super viewWillDisappear:animated];
-//    [SetConfigManager sharedManager].platform = self.platformArray[_selectIndex];
-//}
 
 #pragma mark - Table view data source
 
