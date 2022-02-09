@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032EE29027B34D8700BF58BE /* ADSuyiNativeSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EE28F27B34D8700BF58BE /* ADSuyiNativeSplashViewController.swift */; };
 		033024692639044D00C379A2 /* ADSuyiSplashVPlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033024682639044D00C379A2 /* ADSuyiSplashVPlusViewController.swift */; };
 		03ED19C62637F48E00089CF2 /* SetConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ED19B62637F48E00089CF2 /* SetConfigManager.m */; };
 		03ED19C72637F48E00089CF2 /* NativeAdSetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ED19B72637F48E00089CF2 /* NativeAdSetTableViewController.m */; };
@@ -61,6 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		032EE28F27B34D8700BF58BE /* ADSuyiNativeSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSuyiNativeSplashViewController.swift; sourceTree = "<group>"; };
 		033024682639044D00C379A2 /* ADSuyiSplashVPlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSuyiSplashVPlusViewController.swift; sourceTree = "<group>"; };
 		0347586B26675BDD00B41D56 /* ADSuyiKS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ADSuyiKS.xcframework; path = Pods/ADSuyiSDK/ADSuyiSDK/Classes/ks/ADSuyiKS.xcframework; sourceTree = "<group>"; };
 		03ED19B02637F48E00089CF2 /* FullScreenAdSetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenAdSetTableViewController.h; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		032EE28E27B34D8700BF58BE /* NativeSplash */ = {
+			isa = PBXGroup;
+			children = (
+				032EE28F27B34D8700BF58BE /* ADSuyiNativeSplashViewController.swift */,
+			);
+			path = NativeSplash;
+			sourceTree = "<group>";
+		};
 		03ED19AF2637F48E00089CF2 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +253,7 @@
 		BFB4D4472498777100D51D77 /* SuyiAds */ = {
 			isa = PBXGroup;
 			children = (
+				032EE28E27B34D8700BF58BE /* NativeSplash */,
 				13CC7B8B25DE6FBA00D77DE5 /* Content */,
 				824AD25725C1456E00BD1105 /* GroupAd */,
 				820EC822254AA66B001C7C88 /* contain */,
@@ -485,6 +496,7 @@
 				BF3082E2249A02B800FAC7A1 /* AdSuyiNativeViewController.swift in Sources */,
 				BF3082DC2499AC0500FAC7A1 /* AdSuyiFullScreenVodViewController.swift in Sources */,
 				03ED19CC2637F48E00089CF2 /* SplashSetTableViewController.m in Sources */,
+				032EE29027B34D8700BF58BE /* ADSuyiNativeSplashViewController.swift in Sources */,
 				03ED19CA2637F48E00089CF2 /* NavigationViewController.m in Sources */,
 				820EC824254AA6F1001C7C88 /* TableViewController.swift in Sources */,
 				033024692639044D00C379A2 /* ADSuyiSplashVPlusViewController.swift in Sources */,
