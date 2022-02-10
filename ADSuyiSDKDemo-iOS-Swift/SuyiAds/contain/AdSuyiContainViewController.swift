@@ -9,7 +9,10 @@
 import UIKit
 
 class AdSuyiContainViewController: UIViewController {
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "内容组件"
@@ -21,7 +24,7 @@ class AdSuyiContainViewController: UIViewController {
         ecookLabel.textColor = UIColor.gray
         ecookLabel.text = "菜谱"
         self.view.addSubview(ecookLabel)
-        ecookLabel.frame = CGRect.init(x: 30, y: 80, width: 100, height: 30)
+        ecookLabel.frame = CGRect.init(x: 30, y: 100, width: 100, height: 30)
         
         let ecookBtn = UIButton.init()
         ecookBtn.layer.cornerRadius = 3
@@ -30,8 +33,9 @@ class AdSuyiContainViewController: UIViewController {
         ecookBtn.setTitle("菜谱入口", for: .normal)
         ecookBtn.setTitleColor(UIColor.black, for: .normal)
         self.view.addSubview(ecookBtn)
-        ecookBtn.frame = CGRect.init(x: 30, y: 120, width: UIScreen.main.bounds.size.width-60, height: 40)
-//        ecookBtn .addTarget(self, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+        ecookBtn.frame = CGRect.init(x: 30, y: 140, width: UIScreen.main.bounds.size.width-60, height: 40)
+        //        ecookBtn .addTarget(self, action: #selector(ecookBtnClick), for: .touchUpInside)
+        ecookBtn.addTarget(self, action: #selector(ecookBtnClick), for: .touchUpInside)
         
         let ecookTabBtn = UIButton.init()
         ecookTabBtn.layer.cornerRadius = 3
@@ -40,8 +44,9 @@ class AdSuyiContainViewController: UIViewController {
         ecookTabBtn.setTitle("菜谱Tabbar", for: .normal)
         ecookTabBtn.setTitleColor(UIColor.black, for: .normal)
         self.view.addSubview(ecookTabBtn)
-        ecookTabBtn.frame = CGRect.init(x: 30, y: 180, width: UIScreen.main.bounds.size.width-60, height: 40)
-//        ecookBtn .addTarget(self, action: T##Selectorlet
+        ecookTabBtn.frame = CGRect.init(x: 30, y: 200, width: UIScreen.main.bounds.size.width-60, height: 40)
+        ecookTabBtn.addTarget(self, action: #selector(ecookTabbarClick), for: .touchUpInside)
+        
         
         let novelLabel = UILabel.init()
         novelLabel.textColor = UIColor.gray
@@ -69,16 +74,28 @@ class AdSuyiContainViewController: UIViewController {
         self.view.addSubview(novelTabBtn)
         novelTabBtn.frame = CGRect.init(x: 30, y: 380, width: UIScreen.main.bounds.size.width-60, height: 40)
         novelTabBtn.addTarget(self, action: #selector(novelTabbarBtnClick), for: .touchUpInside)
-//        ecookBtn .addTarget(self, action: <#T##Selector#>, for: <#T##UIControl.Event#>), for: <#T##UIControl.Event#>), for: <#T##UIControl.Event#>)
+        //        ecookBtn .addTarget(self, action: <#T##Selector#>, for: <#T##UIControl.Event#>), for: <#T##UIControl.Event#>), for: <#T##UIControl.Event#>)
         
     }
     
-    func ecookBtnClick() {
-        
+    @objc func ecookBtnClick() {
+        self.navigationController?.navigationBar.isHidden = true
+        let ecookVc = EcookHomeViewController.init();
+        ecookVc.showBackButton = true
+        self.navigationController?.pushViewController(ecookVc, animated: true)
     }
     
     @objc func ecookTabbarClick() {
-        
+        let tabBarVc = UITabBarController.init()
+        let ecookVc = EcookHomeViewController.init()
+        let testVc = UIViewController.init()
+        testVc.tabBarItem.title = "测试"
+        ecookVc.tabBarItem.title = "菜谱"
+        tabBarVc.addChild(ecookVc)
+        tabBarVc.addChild(testVc)
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(tabBarVc, animated: true)
+        //        }
     }
     
     @objc func novelBtnClick() {
@@ -128,15 +145,15 @@ class AdSuyiContainViewController: UIViewController {
     }
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

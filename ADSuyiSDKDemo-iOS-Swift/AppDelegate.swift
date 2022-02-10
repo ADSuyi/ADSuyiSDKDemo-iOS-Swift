@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
     var window: UIWindow?
     var splash: ADSuyiSDKSplashAd?
     
-    
     func loadSplash() {
         if splash != nil {
             return
@@ -178,6 +177,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         }
         // 加载开屏
         loadSplash()
+    }
+    func initEcookSDK(){
+        EcookSDKManager.initWithConfig(["appid" : "100602","appkey":"29e1eb7f0710e44be02694e66f4e9272"])
+        EcookSDKManager.intertitialAdPosId = "9535af29514e548fe0"
+        EcookSDKManager.nativeAdPosId = "e9eaffb6b9d97cd813"
+
     }
     
     // MARK: helper

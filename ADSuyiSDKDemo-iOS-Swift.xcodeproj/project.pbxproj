@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,7 @@
 		820EC824254AA6F1001C7C88 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EC823254AA6F1001C7C88 /* TableViewController.swift */; };
 		820EC828254AA703001C7C88 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EC827254AA703001C7C88 /* BlankViewController.swift */; };
 		824AD25F25C146D600BD1105 /* ADSuyiGroupAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AD25E25C146D600BD1105 /* ADSuyiGroupAdViewController.swift */; };
+		BAB1330B27B4BA400099BCED /* EcookSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB1330A27B4BA400099BCED /* EcookSDK.xcframework */; };
 		BF279CD8249B130E00C38704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF279CD7249B130E00C38704 /* LaunchScreen.storyboard */; };
 		BF3082D92499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3082D82499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift */; };
 		BF3082DC2499AC0500FAC7A1 /* AdSuyiFullScreenVodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3082DB2499AC0500FAC7A1 /* AdSuyiFullScreenVodViewController.swift */; };
@@ -47,19 +48,6 @@
 		BFEA08CE247E8236001815E3 /* 750x1334.png in Resources */ = {isa = PBXBuildFile; fileRef = BFEA08CC247E8236001815E3 /* 750x1334.png */; };
 		CCF1F4684361848E810DD14B /* Pods_ADSuyiSDKDemo_iOS_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C88587B8736DFA4D54011F71 /* Pods_ADSuyiSDKDemo_iOS_Swift.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		0347587B26675FEE00B41D56 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		032EE28F27B34D8700BF58BE /* ADSuyiNativeSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSuyiNativeSplashViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +86,7 @@
 		820EC823254AA6F1001C7C88 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		820EC827254AA703001C7C88 /* BlankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankViewController.swift; sourceTree = "<group>"; };
 		824AD25E25C146D600BD1105 /* ADSuyiGroupAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSuyiGroupAdViewController.swift; sourceTree = "<group>"; };
+		BAB1330A27B4BA400099BCED /* EcookSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = EcookSDK.xcframework; path = Pods/EcookSDK/EcookSDK/Classes/EcookSDK.xcframework; sourceTree = "<group>"; };
 		BF279CD7249B130E00C38704 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF3082D82499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiInterstitialViewController.swift; sourceTree = "<group>"; };
 		BF3082DB2499AC0500FAC7A1 /* AdSuyiFullScreenVodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiFullScreenVodViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +116,7 @@
 			files = (
 				82085D9725E894AF00FCE89F /* AppTrackingTransparency.framework in Frameworks */,
 				82085D9925E894BA00FCE89F /* AdSupport.framework in Frameworks */,
+				BAB1330B27B4BA400099BCED /* EcookSDK.xcframework in Frameworks */,
 				CCF1F4684361848E810DD14B /* Pods_ADSuyiSDKDemo_iOS_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +182,7 @@
 		30E16EEBBCE2BA4B816B7DA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAB1330A27B4BA400099BCED /* EcookSDK.xcframework */,
 				0347586B26675BDD00B41D56 /* ADSuyiKS.xcframework */,
 				82085D9825E894BA00FCE89F /* AdSupport.framework */,
 				82085D9625E894AF00FCE89F /* AppTrackingTransparency.framework */,
@@ -353,7 +344,6 @@
 				BFEA08B2247E622B001815E3 /* Resources */,
 				9ADE926E8F9BFED81717C067 /* [CP] Copy Pods Resources */,
 				7A123AD390A875378C2CD614 /* [CP] Embed Pods Frameworks */,
-				0347587B26675FEE00B41D56 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -666,7 +656,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "ADSuyiSDKDemo-iOS-Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_GENERATE_MAP_FILE = NO;
 				LD_NO_PIE = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -716,7 +706,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "ADSuyiSDKDemo-iOS-Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_GENERATE_MAP_FILE = NO;
 				LD_NO_PIE = NO;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -17,3 +17,6 @@
 #import "NavigationViewController.h"
 #import "SetConfigManager.h"
 #import <ADSuyiSDK/ADSuyiSDK.h>
+#import <EcookSDK/EcookSDKManager.h>
+#import <EcookSDK/EcookHomeViewController.h>
+
