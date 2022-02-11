@@ -31,6 +31,7 @@
 		820EC828254AA703001C7C88 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EC827254AA703001C7C88 /* BlankViewController.swift */; };
 		824AD25F25C146D600BD1105 /* ADSuyiGroupAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AD25E25C146D600BD1105 /* ADSuyiGroupAdViewController.swift */; };
 		BAB1330B27B4BA400099BCED /* EcookSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB1330A27B4BA400099BCED /* EcookSDK.xcframework */; };
+		BAB1331627B62AC50099BCED /* NativeInterstitialAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB1331527B62AC50099BCED /* NativeInterstitialAdViewController.swift */; };
 		BF279CD8249B130E00C38704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF279CD7249B130E00C38704 /* LaunchScreen.storyboard */; };
 		BF3082D92499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3082D82499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift */; };
 		BF3082DC2499AC0500FAC7A1 /* AdSuyiFullScreenVodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3082DB2499AC0500FAC7A1 /* AdSuyiFullScreenVodViewController.swift */; };
@@ -87,6 +88,7 @@
 		820EC827254AA703001C7C88 /* BlankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankViewController.swift; sourceTree = "<group>"; };
 		824AD25E25C146D600BD1105 /* ADSuyiGroupAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSuyiGroupAdViewController.swift; sourceTree = "<group>"; };
 		BAB1330A27B4BA400099BCED /* EcookSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = EcookSDK.xcframework; path = Pods/EcookSDK/EcookSDK/Classes/EcookSDK.xcframework; sourceTree = "<group>"; };
+		BAB1331527B62AC50099BCED /* NativeInterstitialAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeInterstitialAdViewController.swift; sourceTree = "<group>"; };
 		BF279CD7249B130E00C38704 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF3082D82499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiInterstitialViewController.swift; sourceTree = "<group>"; };
 		BF3082DB2499AC0500FAC7A1 /* AdSuyiFullScreenVodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiFullScreenVodViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,14 @@
 			path = GroupAd;
 			sourceTree = "<group>";
 		};
+		BAB1331427B62A5B0099BCED /* NativeInterstitialAd */ = {
+			isa = PBXGroup;
+			children = (
+				BAB1331527B62AC50099BCED /* NativeInterstitialAdViewController.swift */,
+			);
+			path = NativeInterstitialAd;
+			sourceTree = "<group>";
+		};
 		BF3082D72499A8C600FAC7A1 /* InterstitialAd */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +254,7 @@
 		BFB4D4472498777100D51D77 /* SuyiAds */ = {
 			isa = PBXGroup;
 			children = (
+				BAB1331427B62A5B0099BCED /* NativeInterstitialAd */,
 				032EE28E27B34D8700BF58BE /* NativeSplash */,
 				13CC7B8B25DE6FBA00D77DE5 /* Content */,
 				824AD25725C1456E00BD1105 /* GroupAd */,
@@ -496,6 +507,7 @@
 				03ED1A1C263810B900089CF2 /* AdSuyiContainViewController.swift in Sources */,
 				13CC7B9325DE6FE400D77DE5 /* AdSuyiBaseContentViewController.swift in Sources */,
 				BF3082D92499A8FD00FAC7A1 /* AdSuyiInterstitialViewController.swift in Sources */,
+				BAB1331627B62AC50099BCED /* NativeInterstitialAdViewController.swift in Sources */,
 				BFEA08B8247E622B001815E3 /* AppDelegate.swift in Sources */,
 				BF3082DF2499AE6300FAC7A1 /* AdSuyiDrawVodViewController.swift in Sources */,
 			);
