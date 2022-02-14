@@ -97,6 +97,18 @@ class ADSuyiNativeSplashViewController: UIViewController, ADSuyiSDKNativeAdDeleg
                 if item.renderType() == ADSuyiAdapterRenderType.native {
                     //1、常规样式
                     setUpUnifiedNativeSplashAdView(adview: item)
+                } else {
+                    self.backgroundView.addSubview(item)
+                    item.frame = CGRect.init(x: self.view.bounds.size.width/2 - item.bounds.size.width/2, y: self.view.bounds.size.height/2 - item.bounds.size.height/2, width: item.bounds.size.width, height: item.bounds.size.height)
+                    self.backgroundView.addSubview(self.skipLabel)
+                    self.skipLabel.isUserInteractionEnabled = true
+                    self.skipLabel.frame = CGRect.init(x: self.view.bounds.size.width - self.skipLabel.bounds.size.width - 30, y: 44, width: self.skipLabel.bounds.size.width, height: self.skipLabel.bounds.size.height)
+                    self.skipLabel.text = "跳过 | \(skipCount)"
+                    let tap = UITapGestureRecognizer.init(target: item, action: #selector(item.adsy_close))
+                    self.skipLabel.addGestureRecognizer(tap)
+                    
+                    self.backgroundView.addSubview(self.customClickLabel)
+                    self.customClickLabel.frame = CGRect.init(x:self.view.bounds.size.width/2 - 150, y:self.view.bounds.size.height - 50 - 50, width: 300, height: 40);
                 }
                 item.adsy_registViews([item])
                 
