@@ -28,10 +28,21 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
         
     }()
     
+//    lazy var WhiteView = {() -> UIView in
+//        var view = UIView()
+//        view.backgroundColor = UIColor.white
+//        view.isUserInteractionEnabled = true
+//        return view
+//    }()
+    
     var backgroundView : UIView!
     var closeButton : UIButton!
+    var adBgView : UIView!
 
    @objc func closeAd() {
+       if self.adBgView != nil{
+           self.adBgView.removeFromSuperview()
+       }
         self.backgroundView.removeFromSuperview()
     }
     
@@ -41,13 +52,13 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
         self.backgroundView = BackgroundView;
         self.closeButton = CloseBtn;
         let loadBtn = UIButton.init()
-        loadBtn.layer.cornerRadius = 3;
+        loadBtn.layer.cornerRadius = 10;
         loadBtn.clipsToBounds = true;
         loadBtn.backgroundColor = UIColor.white
         loadBtn.setTitle("加载信息流插屏", for: .normal)
         loadBtn.setTitleColor(UIColor.black, for: .normal)
         self.view.addSubview(loadBtn)
-        loadBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2-60, width: UIScreen.main.bounds.size.width-60, height: 40)
+        loadBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2-60, width: UIScreen.main.bounds.size.width-60, height: 55)
         loadBtn.addTarget(self, action: #selector(loadNativeAd), for: .touchUpInside)
     }
     
@@ -72,6 +83,16 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
                 if item.renderType() == ADSuyiAdapterRenderType.native {
                     //1、常规样式
                     setUpUnifiedNativeSplashAdView(adview: item)
+                }else{
+                    self.adBgView = UIView.init()
+                    self.adBgView.isUserInteractionEnabled = true
+                    self.adBgView.layer.cornerRadius = 5
+                    self.adBgView.backgroundColor = UIColor.clear
+                    self.adBgView.clipsToBounds = true
+                    self.adBgView.frame = CGRect.init(x: (self.backgroundView.frame.size.width - item.frame.size.width)/2, y: (self.backgroundView.frame.size.height - item.frame.size.height)/2, width: item.frame.size.width, height: item.frame.size.height)
+                    item.frame = CGRect.init(x: 0, y: 0, width: item.frame.size.width, height: item.frame.size.height)
+                    self.adBgView.addSubview(item)
+                    self.backgroundView.addSubview(self.adBgView)
                 }
                 item.adsy_registViews([item])
                 
@@ -106,31 +127,26 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
     
     // 自渲染信息流开屏广告样式
     func setUpUnifiedNativeSplashAdView(adview : UIView & ADSuyiAdapterNativeAdViewDelegate) {
+        self.adBgView = UIView.init()
+        self.adBgView.isUserInteractionEnabled = true
+        self.adBgView.layer.cornerRadius = 5
+        self.adBgView.backgroundColor = UIColor.white
+        self.adBgView.clipsToBounds = true
+        
         self.backgroundView.addSubview(adview)
         // 设计的adView实际大小，其中宽度和高度可以自己根据自己的需求设置
-        let adWidth:CGFloat = self.view.bounds.size.width
-        let adHeight:CGFloat = self.view.bounds.size.height
-        
+        let adWidth:CGFloat = self.backgroundView.frame.size.width - 17 * 2
+        let adHeight:CGFloat = adWidth / 16.0 * 9
+        let adBgViewHeight:CGFloat = adHeight + 130
+
         self.backgroundView.addSubview(self.closeButton)
         
         adview.frame = CGRect.init(x: 0, y: 0, width: adWidth, height: adHeight)
         
        let adViewY = adHeight/2 - (adWidth - 17 * 2) / 16.0 * 9/2 - 8 - 8;
-
-        // 设置标题文字（可选，但强烈建议带上）
-        let titleLabel = UILabel.init()
-        adview.addSubview(titleLabel)
-        titleLabel.font = UIFont.adsy_PingFangMediumFont(14)
-        titleLabel.textColor = UIColor.adsy_color(withHexString: "#FFFFFF")
-        titleLabel.numberOfLines = 2
-        titleLabel.text = adview.data?.title
-        let size:CGSize = titleLabel.sizeThatFits(CGSize.init(width: adWidth - 34.0, height: 999))
-        titleLabel.frame = CGRect.init(x: 17, y: adViewY, width: adWidth - 34.0, height: size.height)
-        
-        var height:CGFloat = size.height + adViewY + 15
         
         // 设置主图/视频（主图可选，但强烈建议带上,如果有视频试图，则必须带上）
-        let mainFrame:CGRect = CGRect.init(x: 17, y: height, width: adWidth - 34.0, height: (adWidth - 34.0) / 16.0 * 9.0)
+        let mainFrame:CGRect = CGRect.init(x: 0, y: 0, width: adWidth, height: adHeight)
         if adview.data?.shouldShowMediaView ?? false {
             let mediaView:UIView = adview.adsy_mediaView(forWidth: mainFrame.size.width) ?? UIView.init()
             mediaView.frame = mainFrame
@@ -167,34 +183,32 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
                 guard let image = image else {
                     return
                 }
-                let maxWidth: CGFloat = 40.0;
+                let maxWidth: CGFloat = 30.0;
                 let logoHeight = maxWidth / image.size.width * image.size.height;
-                logoImage.frame = CGRect(x: adWidth - maxWidth - 20, y: mainFrame.maxY - logoHeight - 5, width: maxWidth, height: logoHeight)
+                logoImage.frame = CGRect(x: adWidth - maxWidth, y: adHeight - logoHeight - 5, width: maxWidth, height: logoHeight)
                 logoImage.image = image
             }
         }
-        
-        
-        height = height + (adWidth - 34.0) / 16.0 * 9.0 + 9.0
-        
-        // 设置广告标识（可选）
-        let adlabel : UILabel = UILabel.init()
-        adlabel.backgroundColor = UIColor.adsy_color(withHexString: "#CCCCCC")
-        adlabel.textColor = UIColor.adsy_color(withHexString: "#FFFFFF")
-        adlabel.font = UIFont.adsy_PingFangLightFont(12)
-        adlabel.text = "广告"
-        adview.addSubview(adlabel)
-        adlabel.frame = CGRect.init(x: 17, y: height, width: 36, height: 18)
-        adlabel.textAlignment = NSTextAlignment.center
-        
+                        
         // 设置广告描述(可选)
         let descLabel : UILabel = UILabel.init()
-        descLabel.textColor = UIColor.adsy_color(withHexString: "#FFFFFF")
-        descLabel.font = UIFont.adsy_PingFangLightFont(12)
-        descLabel.textAlignment = NSTextAlignment.left
-        descLabel.text = adview.data?.desc
-        adview.addSubview(descLabel)
-        descLabel.frame = CGRect.init(x: 17 + 36 + 4, y: height, width: self.view.frame.size.width - 57 - 17 - 20, height: 18)
+        descLabel.textColor = UIColor.adsy_color(withHexString: "#333333")
+        descLabel.font = UIFont.adsy_PingFangLightFont(18)
+        descLabel.textAlignment = NSTextAlignment.center
+        descLabel.numberOfLines = 2
+        descLabel.text = "这里是信息流自渲染适配插屏，需要开发者自行设计样式"
+        adBgView.addSubview(descLabel)
+        descLabel.frame = CGRect.init(x: 0, y: adHeight + 15, width: adWidth, height: 60)
+        
+        self.adBgView.frame = CGRect.init(x: 17, y: (self.backgroundView.frame.size.height - adBgViewHeight)/2, width: adWidth, height: adBgViewHeight)
+        adBgView.addSubview(adview)
+        self.backgroundView.addSubview(self.adBgView)
+        
+        let closeBtnWidth:CGFloat = 40
+        let closeBtnHeight:CGFloat = closeBtnWidth
+        self.closeButton.frame = CGRect.init(x: (adWidth - closeBtnWidth)/2, y: self.adBgView.frame.size.height - closeBtnHeight, width: closeBtnWidth, height: closeBtnHeight)
+        self.adBgView.addSubview(self.closeButton)
+
     }
 
 }

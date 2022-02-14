@@ -54,23 +54,23 @@ class AdSuyiInterstitialViewController: UIViewController, ADSuyiSDKIntertitialAd
         self.navigationController?.navigationBar.tintColor = UIColor.white;
         
         let loadBtn = UIButton.init()
-        loadBtn.layer.cornerRadius = 3;
+        loadBtn.layer.cornerRadius = 10;
         loadBtn.clipsToBounds = true;
         loadBtn.backgroundColor = UIColor.white
         loadBtn.setTitle("加载激励视频", for: .normal)
         loadBtn.setTitleColor(UIColor.black, for: .normal)
         self.view.addSubview(loadBtn)
-        loadBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2-60, width: UIScreen.main.bounds.size.width-60, height: 40)
+        loadBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2-60, width: UIScreen.main.bounds.size.width-60, height: 55)
         loadBtn.addTarget(self, action: #selector(loadInterstitialAd), for: .touchUpInside)
         
         let showBtn = UIButton.init()
-        showBtn.layer.cornerRadius = 3
+        showBtn.layer.cornerRadius = 10
         showBtn.clipsToBounds = true
         showBtn.backgroundColor = UIColor.white
         showBtn.setTitle("展示激励视频", for: .normal)
         showBtn.setTitleColor(UIColor.black, for: .normal)
         self.view.addSubview(showBtn)
-        showBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2+20, width: UIScreen.main.bounds.size.width-60, height: 40)
+        showBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2+20, width: UIScreen.main.bounds.size.width-60, height: 55)
         showBtn.addTarget(self, action: #selector(showInterstitialAd), for: .touchUpInside)
     }
     

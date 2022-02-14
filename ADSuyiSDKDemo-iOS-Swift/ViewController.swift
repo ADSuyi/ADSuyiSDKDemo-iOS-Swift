@@ -69,7 +69,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 48
+        return 63
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -100,7 +100,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         
         let labTitle = UILabel.init()
-        labTitle.font = UIFont.adsy_PingFangRegularFont(14)
+        labTitle.font = UIFont.adsy_PingFangRegularFont(18)
         labTitle.backgroundColor = UIColor.white
         labTitle.textAlignment = NSTextAlignment.center
         labTitle.tag = 999
@@ -108,8 +108,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         labTitle.text = title
         labTitle.clipsToBounds = true
         cell.contentView.addSubview(labTitle)
-        labTitle.frame = CGRect.init(x: 16, y: 8, width: SCREEN_WIDTH - 32, height: 32)
-        labTitle.layer.cornerRadius = 4
+        labTitle.frame = CGRect.init(x: 16, y: 8, width: SCREEN_WIDTH - 32, height: 55)
+        labTitle.layer.cornerRadius = 10
         labTitle.layer.borderWidth = 1
         labTitle.layer.borderColor = UIColor.adsy_color(withHexString: "#E5E5EA")?.cgColor
         labTitle.layer.shadowColor = UIColor.adsy_color(withHexString: "#000000", alphaComponent: 0.1)?.cgColor
