@@ -11,7 +11,7 @@ import UIKit
 class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDelegate {
 
     var nativeAd : ADSuyiSDKNativeAd!
-    
+    var presentVC : UIViewController!
     lazy var BackgroundView = {() -> UIView in
         var view = UIView()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
@@ -27,43 +27,50 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
         return button
         
     }()
-    
-//    lazy var WhiteView = {() -> UIView in
-//        var view = UIView()
-//        view.backgroundColor = UIColor.white
-//        view.isUserInteractionEnabled = true
-//        return view
-//    }()
-    
+    lazy var AdBgView = {() -> UIView in
+        var view = UIView()
+        view.backgroundColor = UIColor.clear
+        view.isUserInteractionEnabled = true
+        view.layer.cornerRadius = 5
+        view.clipsToBounds = true
+        return view
+    }()
     var backgroundView : UIView!
     var closeButton : UIButton!
     var adBgView : UIView!
-
+    @objc func removeAllSubviewsFromeSuperView(view : UIView){
+        let subvuewsArray = view.subviews;
+        for tempview : UIView in subvuewsArray {
+            tempview.removeFromSuperview()
+        }
+    }
    @objc func closeAd() {
-       if self.adBgView != nil{
-           self.adBgView.removeFromSuperview()
+       self.presentVC.dismiss(animated: true) {
+           
        }
-        self.backgroundView.removeFromSuperview()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.init(red: 225/255.0, green: 233/255.0, blue: 239/255.0, alpha: 1)
-        self.backgroundView = BackgroundView;
-        self.closeButton = CloseBtn;
+        self.backgroundView = BackgroundView
+        self.closeButton = CloseBtn
+        self.adBgView = AdBgView
         let loadBtn = UIButton.init()
-        loadBtn.layer.cornerRadius = 10;
+        loadBtn.layer.cornerRadius = 3;
         loadBtn.clipsToBounds = true;
         loadBtn.backgroundColor = UIColor.white
         loadBtn.setTitle("加载信息流插屏", for: .normal)
         loadBtn.setTitleColor(UIColor.black, for: .normal)
         self.view.addSubview(loadBtn)
-        loadBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2-60, width: UIScreen.main.bounds.size.width-60, height: 55)
+        loadBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2-60, width: UIScreen.main.bounds.size.width-60, height: 40)
         loadBtn.addTarget(self, action: #selector(loadNativeAd), for: .touchUpInside)
     }
     
    @objc func loadNativeAd() {
-        if nativeAd == nil {
+       self.removeAllSubviewsFromeSuperView(view: self.adBgView)
+       self.removeAllSubviewsFromeSuperView(view: self.backgroundView)
+       if nativeAd == nil {
             self.nativeAd = ADSuyiSDKNativeAd.init(adSize: CGSize.init(width: self.view.bounds.size.width, height: 10))
             self.nativeAd.posId = "e9eaffb6b9d97cd813"
             self.nativeAd.delegate = self
@@ -84,15 +91,9 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
                     //1、常规样式
                     setUpUnifiedNativeSplashAdView(adview: item)
                 }else{
-                    self.adBgView = UIView.init()
-                    self.adBgView.isUserInteractionEnabled = true
-                    self.adBgView.layer.cornerRadius = 5
-                    self.adBgView.backgroundColor = UIColor.clear
-                    self.adBgView.clipsToBounds = true
-                    self.adBgView.frame = CGRect.init(x: (self.backgroundView.frame.size.width - item.frame.size.width)/2, y: (self.backgroundView.frame.size.height - item.frame.size.height)/2, width: item.frame.size.width, height: item.frame.size.height)
-                    item.frame = CGRect.init(x: 0, y: 0, width: item.frame.size.width, height: item.frame.size.height)
-                    self.adBgView.addSubview(item)
-                    self.backgroundView.addSubview(self.adBgView)
+                    item.frame = CGRect.init(x: (self.backgroundView.frame.size.width - item.frame.size.width)/2, y: (self.backgroundView.frame.size.height - item.frame.size.height)/2, width: item.frame.size.width, height: item.frame.size.height)
+                    self.removeAllSubviewsFromeSuperView(view: self.backgroundView)
+                    self.backgroundView.addSubview(item)
                 }
                 item.adsy_registViews([item])
                 
@@ -105,7 +106,14 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
     }
     
     func adsy_nativeAdViewRenderOrRegistSuccess(_ adView: UIView & ADSuyiAdapterNativeAdViewDelegate) {
-        UIApplication.shared.keyWindow!.addSubview(self.backgroundView)
+        self.presentVC = UIViewController.init()
+        self.presentVC.view.addSubview(self.backgroundView)
+        self.presentVC.view.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        self.presentVC.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        self.present(self.presentVC, animated: true) {
+            
+        }
+//        UIApplication.shared.keyWindow!.addSubview(self.backgroundView)
     }
     
     func adsy_nativeAdViewRenderOrRegistFail(_ adView: UIView & ADSuyiAdapterNativeAdViewDelegate) {
@@ -127,23 +135,15 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
     
     // 自渲染信息流开屏广告样式
     func setUpUnifiedNativeSplashAdView(adview : UIView & ADSuyiAdapterNativeAdViewDelegate) {
-        self.adBgView = UIView.init()
-        self.adBgView.isUserInteractionEnabled = true
-        self.adBgView.layer.cornerRadius = 5
-        self.adBgView.backgroundColor = UIColor.white
-        self.adBgView.clipsToBounds = true
         
-        self.backgroundView.addSubview(adview)
+        
+//        self.backgroundView.addSubview(adview)
         // 设计的adView实际大小，其中宽度和高度可以自己根据自己的需求设置
         let adWidth:CGFloat = self.backgroundView.frame.size.width - 17 * 2
         let adHeight:CGFloat = adWidth / 16.0 * 9
         let adBgViewHeight:CGFloat = adHeight + 130
 
-        self.backgroundView.addSubview(self.closeButton)
-        
         adview.frame = CGRect.init(x: 0, y: 0, width: adWidth, height: adHeight)
-        
-       let adViewY = adHeight/2 - (adWidth - 17 * 2) / 16.0 * 9/2 - 8 - 8;
         
         // 设置主图/视频（主图可选，但强烈建议带上,如果有视频试图，则必须带上）
         let mainFrame:CGRect = CGRect.init(x: 0, y: 0, width: adWidth, height: adHeight)
@@ -185,30 +185,30 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
                 }
                 let maxWidth: CGFloat = 30.0;
                 let logoHeight = maxWidth / image.size.width * image.size.height;
-                logoImage.frame = CGRect(x: adWidth - maxWidth, y: adHeight - logoHeight - 5, width: maxWidth, height: logoHeight)
+                logoImage.frame = CGRect(x: adWidth - maxWidth, y:  adHeight - logoHeight - 5, width: maxWidth, height: logoHeight)
                 logoImage.image = image
             }
         }
-                        
+
         // 设置广告描述(可选)
         let descLabel : UILabel = UILabel.init()
         descLabel.textColor = UIColor.adsy_color(withHexString: "#333333")
         descLabel.font = UIFont.adsy_PingFangLightFont(18)
         descLabel.textAlignment = NSTextAlignment.center
-        descLabel.numberOfLines = 2
         descLabel.text = "这里是信息流自渲染适配插屏，需要开发者自行设计样式"
-        adBgView.addSubview(descLabel)
+        self.adBgView.addSubview(descLabel)
         descLabel.frame = CGRect.init(x: 0, y: adHeight + 15, width: adWidth, height: 60)
         
         self.adBgView.frame = CGRect.init(x: 17, y: (self.backgroundView.frame.size.height - adBgViewHeight)/2, width: adWidth, height: adBgViewHeight)
-        adBgView.addSubview(adview)
+        self.adBgView.addSubview(adview)
         self.backgroundView.addSubview(self.adBgView)
         
+        //设置关闭按钮
         let closeBtnWidth:CGFloat = 40
         let closeBtnHeight:CGFloat = closeBtnWidth
-        self.closeButton.frame = CGRect.init(x: (adWidth - closeBtnWidth)/2, y: self.adBgView.frame.size.height - closeBtnHeight, width: closeBtnWidth, height: closeBtnHeight)
-        self.adBgView.addSubview(self.closeButton)
 
+        self.closeButton.frame = CGRect.init(x: (adWidth - closeBtnWidth)/2, y: self.adBgView.frame.size.height - closeBtnHeight, width: closeBtnWidth, height: closeBtnHeight)
+        self.adBgView.addSubview(self.CloseBtn)
     }
 
 }

@@ -30,6 +30,7 @@
 		820EC824254AA6F1001C7C88 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EC823254AA6F1001C7C88 /* TableViewController.swift */; };
 		820EC828254AA703001C7C88 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EC827254AA703001C7C88 /* BlankViewController.swift */; };
 		824AD25F25C146D600BD1105 /* ADSuyiGroupAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AD25E25C146D600BD1105 /* ADSuyiGroupAdViewController.swift */; };
+		BA099AD327BB92ED00E2DA15 /* AdSuyiNativeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA099AD227BB92ED00E2DA15 /* AdSuyiNativeMainViewController.swift */; };
 		BAB1330B27B4BA400099BCED /* EcookSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB1330A27B4BA400099BCED /* EcookSDK.xcframework */; };
 		BAB1331627B62AC50099BCED /* NativeInterstitialAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB1331527B62AC50099BCED /* NativeInterstitialAdViewController.swift */; };
 		BF279CD8249B130E00C38704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF279CD7249B130E00C38704 /* LaunchScreen.storyboard */; };
@@ -87,6 +88,7 @@
 		820EC823254AA6F1001C7C88 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		820EC827254AA703001C7C88 /* BlankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankViewController.swift; sourceTree = "<group>"; };
 		824AD25E25C146D600BD1105 /* ADSuyiGroupAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSuyiGroupAdViewController.swift; sourceTree = "<group>"; };
+		BA099AD227BB92ED00E2DA15 /* AdSuyiNativeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiNativeMainViewController.swift; sourceTree = "<group>"; };
 		BAB1330A27B4BA400099BCED /* EcookSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = EcookSDK.xcframework; path = Pods/EcookSDK/EcookSDK/Classes/EcookSDK.xcframework; sourceTree = "<group>"; };
 		BAB1331527B62AC50099BCED /* NativeInterstitialAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeInterstitialAdViewController.swift; sourceTree = "<group>"; };
 		BF279CD7249B130E00C38704 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3082E1249A02B800FAC7A1 /* AdSuyiNativeViewController.swift */,
+				BA099AD227BB92ED00E2DA15 /* AdSuyiNativeMainViewController.swift */,
 			);
 			path = NativeAd;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				BFB4D44D249878B000D51D77 /* ADSuyiBannerViewController.swift in Sources */,
 				BFB4D4492498779C00D51D77 /* ADSuyiSplashViewController.swift in Sources */,
 				03ED19C72637F48E00089CF2 /* NativeAdSetTableViewController.m in Sources */,
+				BA099AD327BB92ED00E2DA15 /* AdSuyiNativeMainViewController.swift in Sources */,
 				03ED19CF2637F48E00089CF2 /* PlatformTableViewController.m in Sources */,
 				824AD25F25C146D600BD1105 /* ADSuyiGroupAdViewController.swift in Sources */,
 				03ED19CB2637F48E00089CF2 /* SetTableViewController.m in Sources */,

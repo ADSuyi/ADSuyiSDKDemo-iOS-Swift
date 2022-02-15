@@ -57,7 +57,7 @@ class AdSuyiInterstitialViewController: UIViewController, ADSuyiSDKIntertitialAd
         loadBtn.layer.cornerRadius = 10;
         loadBtn.clipsToBounds = true;
         loadBtn.backgroundColor = UIColor.white
-        loadBtn.setTitle("加载激励视频", for: .normal)
+        loadBtn.setTitle("加载插屏广告", for: .normal)
         loadBtn.setTitleColor(UIColor.black, for: .normal)
         self.view.addSubview(loadBtn)
         loadBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2-60, width: UIScreen.main.bounds.size.width-60, height: 55)
@@ -67,7 +67,7 @@ class AdSuyiInterstitialViewController: UIViewController, ADSuyiSDKIntertitialAd
         showBtn.layer.cornerRadius = 10
         showBtn.clipsToBounds = true
         showBtn.backgroundColor = UIColor.white
-        showBtn.setTitle("展示激励视频", for: .normal)
+        showBtn.setTitle("展示插屏广告", for: .normal)
         showBtn.setTitleColor(UIColor.black, for: .normal)
         self.view.addSubview(showBtn)
         showBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2+20, width: UIScreen.main.bounds.size.width-60, height: 55)

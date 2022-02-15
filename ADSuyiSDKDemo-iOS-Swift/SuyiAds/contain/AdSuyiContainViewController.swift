@@ -27,24 +27,24 @@ class AdSuyiContainViewController: UIViewController {
         ecookLabel.frame = CGRect.init(x: 30, y: 100, width: 100, height: 30)
         
         let ecookBtn = UIButton.init()
-        ecookBtn.layer.cornerRadius = 3
+        ecookBtn.layer.cornerRadius = 10
         ecookBtn.clipsToBounds = true
         ecookBtn.backgroundColor = UIColor.white
         ecookBtn.setTitle("菜谱入口", for: .normal)
         ecookBtn.setTitleColor(UIColor.black, for: .normal)
         self.view.addSubview(ecookBtn)
-        ecookBtn.frame = CGRect.init(x: 30, y: 140, width: UIScreen.main.bounds.size.width-60, height: 40)
+        ecookBtn.frame = CGRect.init(x: 30, y: 140, width: UIScreen.main.bounds.size.width-60, height: 55)
         //        ecookBtn .addTarget(self, action: #selector(ecookBtnClick), for: .touchUpInside)
         ecookBtn.addTarget(self, action: #selector(ecookBtnClick), for: .touchUpInside)
         
         let ecookTabBtn = UIButton.init()
-        ecookTabBtn.layer.cornerRadius = 3
+        ecookTabBtn.layer.cornerRadius = 10
         ecookTabBtn.clipsToBounds = true
         ecookTabBtn.backgroundColor = UIColor.white
         ecookTabBtn.setTitle("菜谱Tabbar", for: .normal)
         ecookTabBtn.setTitleColor(UIColor.black, for: .normal)
         self.view.addSubview(ecookTabBtn)
-        ecookTabBtn.frame = CGRect.init(x: 30, y: 200, width: UIScreen.main.bounds.size.width-60, height: 40)
+        ecookTabBtn.frame = CGRect.init(x: 30, y: 215, width: UIScreen.main.bounds.size.width-60, height: 55)
         ecookTabBtn.addTarget(self, action: #selector(ecookTabbarClick), for: .touchUpInside)
         
         
@@ -52,27 +52,27 @@ class AdSuyiContainViewController: UIViewController {
         novelLabel.textColor = UIColor.gray
         novelLabel.text = "小说"
         self.view.addSubview(novelLabel)
-        novelLabel.frame = CGRect.init(x: 30, y: 280, width: 100, height: 30)
+        novelLabel.frame = CGRect.init(x: 30, y: 295, width: 100, height: 30)
         
         let novelBtn = UIButton.init()
-        novelBtn.layer.cornerRadius = 3
+        novelBtn.layer.cornerRadius = 10
         novelBtn.clipsToBounds = true
         novelBtn.backgroundColor = UIColor.white
         novelBtn.setTitle("小说入口", for: .normal)
         novelBtn.setTitleColor(UIColor.black, for: .normal)
         self.view.addSubview(novelBtn)
-        novelBtn.frame = CGRect.init(x: 30, y: 320, width: UIScreen.main.bounds.size.width-60, height: 40)
+        novelBtn.frame = CGRect.init(x: 30, y: 335, width: UIScreen.main.bounds.size.width-60, height: 55)
         novelBtn.addTarget(self, action: #selector(novelBtnClick), for: .touchUpInside)
         
         
         let novelTabBtn = UIButton.init()
-        novelTabBtn.layer.cornerRadius = 3
+        novelTabBtn.layer.cornerRadius = 10
         novelTabBtn.clipsToBounds = true
         novelTabBtn.backgroundColor = UIColor.white
         novelTabBtn.setTitle("小说tabbar", for: .normal)
         novelTabBtn.setTitleColor(UIColor.black, for: .normal)
         self.view.addSubview(novelTabBtn)
-        novelTabBtn.frame = CGRect.init(x: 30, y: 380, width: UIScreen.main.bounds.size.width-60, height: 40)
+        novelTabBtn.frame = CGRect.init(x: 30, y: 410, width: UIScreen.main.bounds.size.width-60, height: 55)
         novelTabBtn.addTarget(self, action: #selector(novelTabbarBtnClick), for: .touchUpInside)
         //        ecookBtn .addTarget(self, action: <#T##Selector#>, for: <#T##UIControl.Event#>), for: <#T##UIControl.Event#>), for: <#T##UIControl.Event#>)
         

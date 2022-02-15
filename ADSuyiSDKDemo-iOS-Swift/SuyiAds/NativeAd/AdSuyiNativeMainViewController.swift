@@ -1,43 +1,26 @@
 //
-//  ViewController.swift
+//  AdSuyiNativeMainViewController.swift
 //  ADSuyiSDKDemo-iOS-Swift
 //
-//  Created by 陈坤 on 2020/5/27.
-//  Copyright © 2020 陈坤. All rights reserved.
+//  Created by 技术2 on 2022/2/15.
+//  Copyright © 2022 陈坤. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class AdSuyiNativeMainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     private var mainTable:UITableView!
-    private var dataArray: Array<String> = ["开屏广告","开屏V+广告","信息流广告","Banner横幅广告","激励视频","插屏广告","Draw视频","全屏视频","内容组件","组合广告 GroupAd", "快手内容"]
+    private var dataArray: Array<String> = ["原生信息流广告","信息流开屏广告","信息流插屏广告"]
     private let tableViewCellID = "SimpleTableIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // [NSString stringWithFormat:@"ADSuyiSDK-Demo-v%@",[ADSuyiSDK getSDKVersion]]
-        self.title = NSString.init(format: "ADmobile 广告聚合SDK Demo") as String
+        self.title = NSString.init(format: "信息流广告") as String
         
         self.view.backgroundColor = UIColor.white
         
-        let setBtn = UIButton.init()
-//        setBtn.setTitle("设置", for: .normal)
-        setBtn.setTitleColor(UIColor.white, for: .normal)
-        setBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        setBtn.setImage(UIImage.init(named: "set"), for: .normal)
-        setBtn.frame = CGRect.init(x: 0, y: 0, width: 20, height: 20)
-        setBtn.addTarget(self, action: #selector(setBtnClick), for: .touchUpInside)
-        
-        let rightItem = UIBarButtonItem.init(customView: setBtn)
-        self.navigationItem.rightBarButtonItem = rightItem;
-        
         initTableView()
-        // Do any additional setup after loading the view.
-    }
-    
-    @objc func setBtnClick()  {
-        self.navigationController?.pushViewController(SetTableViewController(), animated: true)
     }
     
     private func initTableView() {
@@ -70,14 +53,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 63
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let label = UILabel.init()
-        label.textAlignment = .center
-        label.text = ADSuyiSDK.getVersion()
-        label.textColor = UIColor.init(red: 36/255.0, green: 132/255.0, blue: 207/255.0, alpha: 1);
-        return label
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -124,41 +99,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         switch indexPath.row {
         case 0:
-            self.navigationController?.pushViewController(ADSuyiSplashViewController.init(), animated: true)
+            let nativeVC = AdSuyiNativeViewController.init()
+            nativeVC.posid = "177a790a315eeb7053"
+            self.navigationController?.pushViewController(nativeVC, animated: true)
             break
         case 1:
-            self.navigationController?.pushViewController(ADSuyiSplashVPlusViewController.init(), animated: true)
+            let nativeVC = ADSuyiNativeSplashViewController.init()
+            self.navigationController?.pushViewController(nativeVC, animated: true)
             break
         case 2:
-            self.navigationController?.pushViewController(AdSuyiNativeMainViewController.init(), animated: true)
-            break
-        case 3:
-            self.navigationController?.pushViewController(ADSuyiBannerViewController.init(), animated: true)
-            break
-        case 4:
-            self.navigationController?.pushViewController(AdSuyiRewardViewController.init(), animated: true)
-            break
-        case 5:
-            self.navigationController?.pushViewController(AdSuyiInterstitialViewController.init(), animated: true)
-            break
-        case 6:
-            self.navigationController?.pushViewController(AdSuyiDrawVodViewController.init(), animated: true)
-            break
-        case 7:
-            self.navigationController?.pushViewController(AdSuyiFullScreenVodViewController.init(), animated: true)
-            break
-        case 8:
-            self.navigationController?.pushViewController(AdSuyiContainViewController.init(), animated: true)
-            break
-        case 9:
-            let vc = ADSuyiGroupAdViewController()
-            vc.nativePosid = "e9eaffb6b9d97cd813"
-            vc.rewardPosid = "47d196ffaaa92ae93c"
-            self.navigationController?.pushViewController(vc, animated: true)
-            break
-        case 10:
-            let vc = AdSuyiContentViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.pushViewController(NativeInterstitialAdViewController.init(), animated: true)
             break
         default:
             break

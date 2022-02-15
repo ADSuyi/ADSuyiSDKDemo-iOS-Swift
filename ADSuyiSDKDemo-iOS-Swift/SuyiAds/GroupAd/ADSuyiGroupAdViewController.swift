@@ -44,26 +44,26 @@ class ADSuyiGroupAdViewController: UIViewController,ADSuyiSDKNativeAdDelegate,AD
         normalBtn.setTitle("组合广告正常路径示例", for: .normal)
         normalBtn.setTitleColor(UIColor.black, for: .normal)
         normalBtn.backgroundColor = UIColor.white
-        normalBtn.layer.cornerRadius = 3
+        normalBtn.layer.cornerRadius = 10
         normalBtn.clipsToBounds = true
         self.view.addSubview(normalBtn)
-        normalBtn.frame = CGRect.init(x: 30, y: 100, width: UIScreen.main.bounds.size.width-60, height: 40)
+        normalBtn.frame = CGRect.init(x: 30, y: 100, width: UIScreen.main.bounds.size.width-60, height: 55)
         normalBtn.addTarget(self, action: #selector(loadNormal), for: .touchUpInside)
         
         let errorBtn = UIButton.init()
         errorBtn.setTitle("组合广告异常切换示例", for: .normal)
         errorBtn.setTitleColor(UIColor.black, for: .normal)
         errorBtn.backgroundColor = UIColor.white
-        errorBtn.layer.cornerRadius = 3
+        errorBtn.layer.cornerRadius = 10
         errorBtn.clipsToBounds = true
         self.view.addSubview(errorBtn)
-        errorBtn.frame = CGRect.init(x: 30, y: 160, width: UIScreen.main.bounds.size.width-60, height: 40)
+        errorBtn.frame = CGRect.init(x: 30, y: 180, width: UIScreen.main.bounds.size.width-60, height: 55)
         errorBtn.addTarget(self, action: #selector(loadError), for: .touchUpInside)
         
         self.textView = UITextView.init()
         self.textView.textColor = UIColor.gray
         self.textView.backgroundColor = UIColor.init(red: 242/255.0, green: 242/255.0, blue: 242/255.0, alpha: 1)
-        self.textView.frame = CGRect.init(x: 30, y: 240, width: UIScreen.main.bounds.size.width-60, height: 250)
+        self.textView.frame = CGRect.init(x: 30, y: 260, width: UIScreen.main.bounds.size.width-60, height: 250)
         self.textView.isEditable = false
         self.view.addSubview(self.textView)
         
