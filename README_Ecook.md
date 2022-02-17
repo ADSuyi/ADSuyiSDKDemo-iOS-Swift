@@ -61,6 +61,15 @@ EcookSDKManager.intertitialAdPosId = @"9535af29514e548fe0";//插屏广告位
 EcookSDKManager.bannerAdPosId = @"9ca1e179e38ca5a35c";//横幅广告位
 EcookSDKManager.nativeAdPosId = @"e9eaffb6b9d97cd813";//原生信息流广告位
 ```
+```swift
+// EcookSDK初始化
+EcookSDKManager.initWithConfig(["appid" : "100602","appkey":"29e1eb7f0710e44be02694e66f4e9272"])
+
+// 设置菜谱SDK内广告位id（仅支持插屏，横幅，信息流广告）
+EcookSDKManager.intertitialAdPosId = "9535af29514e548fe0"//插屏广告位
+EcookSDKManager.nativeAdPosId = "e9eaffb6b9d97cd813"//原生信息流广告位
+EcookSDKManager.bannerAdPosId = "9ca1e179e38ca5a35c"//横幅广告位
+```
 
 注意：初次初始化SDK 可能因网络权限获取等原因导致SDK初始化失败，SDK初始化失败，接入菜谱内容控制器将无法显示数据。**建议在接入时对SDK初始化状态做判断。**
 
@@ -135,7 +144,37 @@ tc.viewControllers = @[fvc, nvc];
         
 ```
 
+``swift
+//1、以present方式推出
+let ecookVc = EcookHomeViewController.init();
+// 首页是否展示返回按钮
+ecookVc.showBackButton = true
+let nav = UINavigationController.init(rootViewController: ecookVc)
+nav.isNavigationBarHidden = true
+nav.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+self.present(nav, animated: true) {
 
+}
+
+// 2、以push方式推出
+self.navigationController?.navigationBar.isHidden = true
+let ecookVc = EcookHomeViewController.init();
+ecookVc.showBackButton = true
+self.navigationController?.pushViewController(ecookVc, animated: true)
+
+// 3、作为tabbar子控制器
+let tabBarVc = UITabBarController.init()
+let ecookVc = EcookHomeViewController.init()
+let testVc = UIViewController.init()
+testVc.tabBarItem.title = "测试"
+ecookVc.tabBarItem.title = "菜谱"
+tabBarVc.addChild(ecookVc)
+tabBarVc.addChild(testVc)
+self.navigationController?.navigationBar.isHidden = true
+self.navigationController?.pushViewController(tabBarVc, animated: true)
+
+        
+```
 
 
 
