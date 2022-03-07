@@ -23,6 +23,7 @@ class ADSuyiNativeSplashViewController: UIViewController, ADSuyiSDKNativeAdDeleg
         var view = UIView()
         view.backgroundColor = UIColor.white
         view.frame = UIScreen.main.bounds
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -95,7 +96,7 @@ class ADSuyiNativeSplashViewController: UIViewController, ADSuyiSDKNativeAdDeleg
             self.nativeAd = ADSuyiSDKNativeAd.init(adSize: CGSize.init(width: self.view.bounds.size.width, height: 10))
             self.nativeAd.posId = "e9eaffb6b9d97cd813"
             self.nativeAd.delegate = self
-            self.nativeAd.controller = self
+            self.nativeAd.controller = self.presentVC
             self.nativeAd.tolerateTimeout = 4
         }
         self.nativeAd.load(1)
