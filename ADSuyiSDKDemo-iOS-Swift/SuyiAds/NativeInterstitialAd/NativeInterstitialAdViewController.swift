@@ -7,7 +7,6 @@
 //
 import UIKit
 
-
 class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDelegate {
 
     var nativeAd : ADSuyiSDKNativeAd!
@@ -35,6 +34,12 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
         view.clipsToBounds = true
         return view
     }()
+    lazy var PresentVC = {() -> UIViewController in
+        var vc = UIViewController.init()
+        vc.view.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        vc.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        return vc
+    }()
     var backgroundView : UIView!
     var closeButton : UIButton!
     var adBgView : UIView!
@@ -56,6 +61,7 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
         self.backgroundView = BackgroundView
         self.closeButton = CloseBtn
         self.adBgView = AdBgView
+        self.presentVC = PresentVC
         let loadBtn = UIButton.init()
         loadBtn.layer.cornerRadius = 3;
         loadBtn.clipsToBounds = true;
@@ -74,7 +80,7 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
             self.nativeAd = ADSuyiSDKNativeAd.init(adSize: CGSize.init(width: self.view.bounds.size.width, height: 10))
             self.nativeAd.posId = "e9eaffb6b9d97cd813"
             self.nativeAd.delegate = self
-            self.nativeAd.controller = self
+           self.nativeAd.controller = self.presentVC
             self.nativeAd.tolerateTimeout = 4
         }
         self.nativeAd.load(1)
@@ -106,14 +112,9 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
     }
     
     func adsy_nativeAdViewRenderOrRegistSuccess(_ adView: UIView & ADSuyiAdapterNativeAdViewDelegate) {
-        self.presentVC = UIViewController.init()
         self.presentVC.view.addSubview(self.backgroundView)
-        self.presentVC.view.backgroundColor = UIColor.white.withAlphaComponent(0.1)
-        self.presentVC.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
         self.present(self.presentVC, animated: true) {
-            
         }
-//        UIApplication.shared.keyWindow!.addSubview(self.backgroundView)
     }
     
     func adsy_nativeAdViewRenderOrRegistFail(_ adView: UIView & ADSuyiAdapterNativeAdViewDelegate) {
@@ -135,9 +136,6 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
     
     // 自渲染信息流开屏广告样式
     func setUpUnifiedNativeSplashAdView(adview : UIView & ADSuyiAdapterNativeAdViewDelegate) {
-        
-        
-//        self.backgroundView.addSubview(adview)
         // 设计的adView实际大小，其中宽度和高度可以自己根据自己的需求设置
         let adWidth:CGFloat = self.backgroundView.frame.size.width - 17 * 2
         let adHeight:CGFloat = adWidth / 16.0 * 9
@@ -201,6 +199,8 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
         
         self.adBgView.frame = CGRect.init(x: 17, y: (self.backgroundView.frame.size.height - adBgViewHeight)/2, width: adWidth, height: adBgViewHeight)
         self.adBgView.addSubview(adview)
+        self.adBgView.isUserInteractionEnabled = true
+        self.backgroundView.isUserInteractionEnabled = true
         self.backgroundView.addSubview(self.adBgView)
         
         //设置关闭按钮

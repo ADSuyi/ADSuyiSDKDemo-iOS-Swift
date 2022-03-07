@@ -10,8 +10,10 @@ import UIKit
 
 
 class ADSuyiNativeSplashViewController: UIViewController, ADSuyiSDKNativeAdDelegate {
-
+    
     var nativeAd : ADSuyiSDKNativeAd!
+    
+    var presentVC : UIViewController!
     
     var timer : ADSuyiKitTimer!
     
@@ -49,21 +51,32 @@ class ADSuyiNativeSplashViewController: UIViewController, ADSuyiSDKNativeAdDeleg
         return label
     }()
     
+    lazy var PresentVC = {() -> UIViewController in
+        var vc = UIViewController.init()
+        vc.view.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        vc.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        return vc
+    }()
+    
     var backgroundView : UIView!
     var skipLabel : UILabel!
     var customClickLabel:UILabel!
     
     @objc func timerAction(timer:ADSuyiKitTimer) -> Void {
         skipCount-=1;
+        skipCount = skipCount < 0 ? 0 : skipCount
         self.skipLabel.text = "跳过 | \(skipCount)"
-        if skipCount == 0 {
+        if skipCount == 0 && UIViewController.jsd_top() == self.presentVC {
             closeAd()
         }
-            
+        
     }
     
     func closeAd() {
-        self.backgroundView.removeFromSuperview()
+        //        self.backgroundView.removeFromSuperview()
+        self.presentVC.dismiss(animated: true) {
+            
+        }
     }
     
     override func viewDidLoad() {
@@ -72,6 +85,7 @@ class ADSuyiNativeSplashViewController: UIViewController, ADSuyiSDKNativeAdDeleg
         self.backgroundView = BackgroundView;
         self.skipLabel = SkipLabel;
         self.customClickLabel = CustomClickLabel;
+        self.presentVC = PresentVC
         loadNativeAd()
         // Do any additional setup after loading the view.
     }
@@ -121,7 +135,10 @@ class ADSuyiNativeSplashViewController: UIViewController, ADSuyiSDKNativeAdDeleg
     }
     
     func adsy_nativeAdViewRenderOrRegistSuccess(_ adView: UIView & ADSuyiAdapterNativeAdViewDelegate) {
-        UIApplication.shared.keyWindow!.addSubview(self.backgroundView)
+        //        UIApplication.shared.keyWindow!.addSubview(self.backgroundView)
+        self.presentVC.view.addSubview(self.backgroundView)
+        self.present(self.presentVC, animated: true) {
+        }
         timer = ADSuyiKitTimer.init(timeInterval: 1, target: self, selector: #selector(timerAction(timer:)), repeats: true)
         timer.scheduleImmediately(false)
     }
@@ -141,7 +158,7 @@ class ADSuyiNativeSplashViewController: UIViewController, ADSuyiSDKNativeAdDeleg
     func adsy_nativeAdExposure(_ nativeAd: ADSuyiSDKNativeAd, adView: UIView & ADSuyiAdapterNativeAdViewDelegate) {
         
     }
-
+    
     
     // 自渲染信息流开屏广告样式
     func setUpUnifiedNativeSplashAdView(adview : UIView & ADSuyiAdapterNativeAdViewDelegate) {
@@ -179,8 +196,8 @@ class ADSuyiNativeSplashViewController: UIViewController, ADSuyiSDKNativeAdDeleg
             }
         }
         
-       let adViewY = adHeight/2 - (adWidth - 17 * 2) / 16.0 * 9/2 - 8 - 8;
-
+        let adViewY = adHeight/2 - (adWidth - 17 * 2) / 16.0 * 9/2 - 8 - 8;
+        
         // 设置标题文字（可选，但强烈建议带上）
         let titleLabel = UILabel.init()
         adview.addSubview(titleLabel)
@@ -243,5 +260,5 @@ class ADSuyiNativeSplashViewController: UIViewController, ADSuyiSDKNativeAdDeleg
         adview.addSubview(descLabel)
         descLabel.frame = CGRect.init(x: 17 + 36 + 4, y: height, width: self.view.frame.size.width - 57 - 17 - 20, height: 18)
     }
-
+    
 }

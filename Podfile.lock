@@ -10,21 +10,6 @@ PODS:
   - Ads-CN/BUFoundation (4.2.0.2)
   - Ads-CN/Domestic (4.2.0.2)
   - ADSuyiAliCloudCodeSDK (1.0.5)
-  - ADSuyiGromoreSDK (3.2.0.0.1):
-    - ADSuyiGromoreSDK/ABUAdSDK (= 3.2.0.0.1)
-  - ADSuyiGromoreSDK/ABUAdBaiduAdapter (3.2.0.0.1):
-    - ADSuyiGromoreSDK/ABUAdSDK
-    - BaiduMobAdSDK
-  - ADSuyiGromoreSDK/ABUAdGdtAdapter (3.2.0.0.1):
-    - ADSuyiGromoreSDK/ABUAdSDK
-    - GDTMobSDK
-  - ADSuyiGromoreSDK/ABUAdSDK (3.2.0.0.1):
-    - Ads-CN
-  - ADSuyiGromoreSDK/ABUAdSDKAdapter (3.2.0.0.1):
-    - ADSuyiGromoreSDK/ABUAdSDK
-  - ADSuyiGromoreSDK/ABUAdUnityAdapter (3.2.0.0.1):
-    - ADSuyiGromoreSDK/ABUAdSDK
-    - UnityAds
   - ADSuyiInmobiSDK (7.5.2)
   - ADSuyiKit (0.5.3.12161)
   - ADSuyiLocationManager (0.1.7.11261)
@@ -59,15 +44,6 @@ PODS:
     - ADSuyiLocationManager (~> 0.1.7.0)
     - ADSuyiSDK/core
     - GDTMobSDK (= 4.13.42)
-  - ADSuyiSDK/ADSuyiSDKPlatforms/gromore (3.5.0.01161):
-    - ADSuyiGromoreSDK (= 3.2.0.0.1)
-    - ADSuyiGromoreSDK/ABUAdBaiduAdapter
-    - ADSuyiGromoreSDK/ABUAdGdtAdapter
-    - ADSuyiGromoreSDK/ABUAdSDKAdapter
-    - ADSuyiGromoreSDK/ABUAdUnityAdapter
-    - ADSuyiKit (~> 0.5.3.0)
-    - ADSuyiLocationManager (~> 0.1.7.0)
-    - ADSuyiSDK/core
   - ADSuyiSDK/ADSuyiSDKPlatforms/inmobi (3.5.0.01161):
     - ADSuyiInmobiSDK (= 7.5.2)
     - ADSuyiKit (~> 0.5.3.0)
@@ -120,7 +96,6 @@ PODS:
   - SDWebImage (5.12.3):
     - SDWebImage/Core (= 5.12.3)
   - SDWebImage/Core (5.12.3)
-  - UnityAds (4.0.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -130,7 +105,6 @@ DEPENDENCIES:
   - ADSuyiSDK/ADSuyiSDKPlatforms/bu
   - ADSuyiSDK/ADSuyiSDKPlatforms/cloudcode
   - ADSuyiSDK/ADSuyiSDKPlatforms/gdt
-  - ADSuyiSDK/ADSuyiSDKPlatforms/gromore
   - ADSuyiSDK/ADSuyiSDKPlatforms/inmobi
   - ADSuyiSDK/ADSuyiSDKPlatforms/ks
   - EcookSDK
@@ -141,7 +115,6 @@ SPEC REPOS:
     - ADMobileAdSDK
     - Ads-CN
     - ADSuyiAliCloudCodeSDK
-    - ADSuyiGromoreSDK
     - ADSuyiInmobiSDK
     - ADSuyiKit
     - ADSuyiLocationManager
@@ -157,14 +130,12 @@ SPEC REPOS:
     - MBProgressHUD
     - MJRefresh
     - SDWebImage
-    - UnityAds
     - YYModel
 
 SPEC CHECKSUMS:
   ADMobileAdSDK: 9ca4b1c4d9ae3cfa407f2fdc34d04c67ae836e74
   Ads-CN: 9fe60236f2433ea9091842729ea2c93c3bc84134
   ADSuyiAliCloudCodeSDK: c83c20d28b21d44ef285daf9acaa5db23c594481
-  ADSuyiGromoreSDK: b321257042c591b0f1e977f70418d0d4289df590
   ADSuyiInmobiSDK: ef6ca42f6e9db940c7abf379e2949967e5432c20
   ADSuyiKit: da42b94987ea08fb87588efa59b83ca6990a493f
   ADSuyiLocationManager: 9a4a0ed5941f1aa106a24a1aecbdcb7126a3dceb
@@ -180,9 +151,8 @@ SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
-  UnityAds: 9649e17d2d255f91c0a84e00062a0d07d8fba8a5
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 482d59b9efa46923bf4112d7ba618ca333295d1f
+PODFILE CHECKSUM: 0abf53726295be36655b2bf3cf51cfd8f7434bcb
 
 COCOAPODS: 1.11.2
