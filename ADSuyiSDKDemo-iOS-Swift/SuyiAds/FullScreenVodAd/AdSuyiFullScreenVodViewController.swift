@@ -9,6 +9,10 @@
 import UIKit
 
 class AdSuyiFullScreenVodViewController: UIViewController, ADSuyiSDKFullScreenVodAdDelegate {
+    func adsy_fullScreenVodAdCloseLandingPage(_ fullScreenVodAd: ADSuyiSDKFullScreenVodAd) {
+        
+    }
+    
     func adsy_fullScreenVodAdSucced(toLoad fullScreenVodAd: ADSuyiSDKFullScreenVodAd) {
         print(#function)
     }

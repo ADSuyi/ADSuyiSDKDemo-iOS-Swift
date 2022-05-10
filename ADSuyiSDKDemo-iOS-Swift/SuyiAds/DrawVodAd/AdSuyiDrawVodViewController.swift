@@ -9,6 +9,10 @@
 import UIKit
 
 class AdSuyiDrawVodViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ADSuyiSDKDrawvodAdDelegate {
+    func adsy_drawvodAdCloseLandingPage(_ drawvodAdView: ADSuyiAdapterDrawvodAdView) {
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataArray.count
     }

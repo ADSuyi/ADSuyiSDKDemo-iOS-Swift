@@ -9,6 +9,10 @@
 import UIKit
 
 class AdSuyiInterstitialViewController: UIViewController, ADSuyiSDKIntertitialAdDelegate {
+    func adsy_interstitialAdCloseLandingPage(_ interstitialAd: ADSuyiSDKIntertitialAd) {
+        
+    }
+    
     func adsy_interstitialAdSucced(toLoad interstitialAd: ADSuyiSDKIntertitialAd) {
         print(#function)
         // 3、展示插屏广告

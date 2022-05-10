@@ -18,8 +18,7 @@ target 'ADSuyiSDKDemo-iOS-Swift' do
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/ks'#快手简版
   #pod 'ADSuyiSDK/ADSuyiSDKPlatforms/cloudcode'
 #  pod 'ADSuyiSDK/ADSuyiSDKPlatforms/gromore'
-  #pod 'EcookSDK'
-pod 'TianmuSDK'
+  pod 'EcookSDK'
 #  小说SDK
   #pod 'ADSuyiStarRd'
 
