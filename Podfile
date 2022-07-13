@@ -10,7 +10,7 @@ target 'ADSuyiSDKDemo-iOS-Swift' do
   use_frameworks!
 
   # Pods for ADSuyiSDKDemo-iOS-Swift
-  pod 'ADSuyiSDK', '~>3.6.1.05199'#必选
+  pod 'ADSuyiSDK', '~>3.6.2.06231'#必选
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/tianmu' # 天目  #必选
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/bu' # 穿山甲(头条)
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/gdt' # 优量汇(广点通）
@@ -20,7 +20,7 @@ target 'ADSuyiSDKDemo-iOS-Swift' do
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/mtg'     # Mobvista(汇量)
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/gromore' # gromore
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/inmobi' # Inmobi
-
+  pod 'ADSuyiSDK/ADSuyiSDKPlatforms/jiguang'
   pod 'EcookSDK'#菜谱sdk 未使用不必导入
 #  小说SDK
   #pod 'ADSuyiStarRd'
