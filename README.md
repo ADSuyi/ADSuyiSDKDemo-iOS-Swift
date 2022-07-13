@@ -84,6 +84,7 @@
 | admobile | 3.6.2.06231.2 | 
 | gromore | 3.5.0.0.06231 | 
 | inmobi | 7.5.0.01071 |  
+| jiguang | 5.0.6.06231 |
                   
 
 ## 2.1 采用cocoapods进行SDK的导入
