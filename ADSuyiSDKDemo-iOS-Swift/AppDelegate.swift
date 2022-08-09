@@ -169,7 +169,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
     }
     
     func initADSuyiSDK() {
-        ADSuyiSDK.setLogLevel(ADSuyiKitLogLevel(rawValue: 1 << 3)!)
+        ADSuyiSDK.setLogLevel(.debug)
         ADSuyiSDK.initWithAppId("3437764") { (error) in
 //            if error != nil {
 //                NSLog("SDK 初始化失败:%@",error?.localizedDescription ?? "")
@@ -177,13 +177,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         }
         // 加载开屏
         loadSplash()
-    }
-    func initEcookSDK(){
-        EcookSDKManager.initWithConfig(["appid" : "100602","appkey":"29e1eb7f0710e44be02694e66f4e9272"])
-        EcookSDKManager.intertitialAdPosId = "9535af29514e548fe0"
-        EcookSDKManager.nativeAdPosId = "e9eaffb6b9d97cd813"
-        EcookSDKManager.bannerAdPosId = "9ca1e179e38ca5a35c"
-
     }
     
     // MARK: helper

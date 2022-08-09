@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,7 +31,6 @@
 		820EC828254AA703001C7C88 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EC827254AA703001C7C88 /* BlankViewController.swift */; };
 		824AD25F25C146D600BD1105 /* ADSuyiGroupAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AD25E25C146D600BD1105 /* ADSuyiGroupAdViewController.swift */; };
 		BA099AD327BB92ED00E2DA15 /* AdSuyiNativeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA099AD227BB92ED00E2DA15 /* AdSuyiNativeMainViewController.swift */; };
-		BAB1330B27B4BA400099BCED /* EcookSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB1330A27B4BA400099BCED /* EcookSDK.xcframework */; };
 		BAB1331627B62AC50099BCED /* NativeInterstitialAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB1331527B62AC50099BCED /* NativeInterstitialAdViewController.swift */; };
 		BAEEB97927D201040027685B /* UIViewController+TYTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEEB97727D201040027685B /* UIViewController+TYTopView.m */; };
 		BF279CD8249B130E00C38704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF279CD7249B130E00C38704 /* LaunchScreen.storyboard */; };
@@ -123,7 +122,6 @@
 			files = (
 				82085D9725E894AF00FCE89F /* AppTrackingTransparency.framework in Frameworks */,
 				82085D9925E894BA00FCE89F /* AdSupport.framework in Frameworks */,
-				BAB1330B27B4BA400099BCED /* EcookSDK.xcframework in Frameworks */,
 				CCF1F4684361848E810DD14B /* Pods_ADSuyiSDKDemo_iOS_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

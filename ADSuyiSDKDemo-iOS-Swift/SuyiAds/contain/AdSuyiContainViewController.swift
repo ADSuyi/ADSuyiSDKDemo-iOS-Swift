@@ -79,23 +79,11 @@ class AdSuyiContainViewController: UIViewController {
     }
     
     @objc func ecookBtnClick() {
-        self.navigationController?.navigationBar.isHidden = true
-        let ecookVc = EcookHomeViewController.init();
-        ecookVc.showBackButton = true
-        self.navigationController?.pushViewController(ecookVc, animated: true)
+        
     }
     
     @objc func ecookTabbarClick() {
-        let tabBarVc = UITabBarController.init()
-        let ecookVc = EcookHomeViewController.init()
-        let testVc = UIViewController.init()
-        testVc.tabBarItem.title = "测试"
-        ecookVc.tabBarItem.title = "菜谱"
-        tabBarVc.addChild(ecookVc)
-        tabBarVc.addChild(testVc)
-        self.navigationController?.navigationBar.isHidden = true
-        self.navigationController?.pushViewController(tabBarVc, animated: true)
-        //        }
+        
     }
     
     @objc func novelBtnClick() {
