@@ -80,6 +80,13 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         var cell : UITableViewCell!
         if item is ADSuyiAdapterNativeAdViewDelegate {
             cell = self.mainTableView.dequeueReusableCell(withIdentifier: adTableViewCellInentifier, for: indexPath)
+            
+            for v in cell.contentView.subviews {
+                if (999 == v.tag) {
+                    v.removeFromSuperview()
+                }
+            }
+            
             let obj = item as! UIView
             obj.tag = 999
             cell.contentView.addSubview(obj)
@@ -102,6 +109,9 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         return 44
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(#function)
+    }
     
 
     var mainTableView : UITableView!
