@@ -24,6 +24,13 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
                 }
                 item.adsy_registViews([item])
                 
+                // 广点通视频信息流广告会给mediaView添加事件，点击会出现半屏广告，以下为广点通官方给予的解决方案
+                if(item.adsy_platform() == .GDT
+                   && item.renderType() == .native
+                   && item.data?.shouldShowMediaView == true){
+                    let mediaView = item.adsy_mediaView(forWidth: 0.0)
+                    mediaView?.isUserInteractionEnabled = false
+                }
             }
         }
         
