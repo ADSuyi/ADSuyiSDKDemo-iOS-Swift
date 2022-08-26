@@ -10,7 +10,7 @@ target 'ADSuyiSDKDemo-iOS-Swift' do
   use_frameworks!
 
   # Pods for ADSuyiSDKDemo-iOS-Swift
-  pod 'ADSuyiSDK', '~>3.6.2.06234'#必选
+  pod 'ADSuyiSDK', '~>3.6.5.07281'#必选
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/tianmu' # 天目  #必选
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/jiguang'#极光联盟
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/bu' # 穿山甲(头条)

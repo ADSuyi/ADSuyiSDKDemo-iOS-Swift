@@ -206,7 +206,8 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
     
     func loadNativeAd() {
         if nativeAd == nil {
-            self.nativeAd = ADSuyiSDKNativeAd.init(adSize: CGSize.init(width: self.view.bounds.size.width, height: 10))
+            //建议将高度设置为0
+            self.nativeAd = ADSuyiSDKNativeAd.init(adSize: CGSize.init(width: self.view.bounds.size.width, height: 0))
             self.nativeAd.posId = self.posid
             self.nativeAd.delegate = self
             self.nativeAd.controller = self
