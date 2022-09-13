@@ -15,7 +15,7 @@ class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
     
     let normalView = ADSuyiSkipView.init()
     let ringView = ADSuyiSkipRingView.init()
-    
+    var isReady:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,11 +23,37 @@ class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
         
         self.view.backgroundColor = UIColor.white
         
-        // 加载开屏
-        loadSplash()
+        let loadBtn = UIButton.init()
+        loadBtn.layer.cornerRadius = 10;
+        loadBtn.clipsToBounds = true;
+        loadBtn.backgroundColor = UIColor.white
+        loadBtn.setTitle("加载开屏广告", for: .normal)
+        loadBtn.setTitleColor(UIColor.black, for: .normal)
+        self.view.addSubview(loadBtn)
+        loadBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2-60, width: UIScreen.main.bounds.size.width-60, height: 55)
+        loadBtn.addTarget(self, action: #selector(loadSplash), for: .touchUpInside)
+        
+        let showBtn = UIButton.init()
+        showBtn.layer.cornerRadius = 10
+        showBtn.clipsToBounds = true
+        showBtn.backgroundColor = UIColor.white
+        showBtn.setTitle("展示开屏广告", for: .normal)
+        showBtn.setTitleColor(UIColor.black, for: .normal)
+        self.view.addSubview(showBtn)
+        showBtn.frame = CGRect.init(x: 30, y: UIScreen.main.bounds.size.height/2+20, width: UIScreen.main.bounds.size.width-60, height: 55)
+        showBtn.addTarget(self, action: #selector(showSplash), for: .touchUpInside)
     }
     
-    func loadSplash() {
+    @objc func showSplash() {
+        if isReady  {
+            splash?.show(in: UIApplication.shared.keyWindow!)
+
+        }else {
+            self.view.makeToast("开屏广告未准备完成")
+        }
+    }
+    
+    @objc func loadSplash() {
         // 1、初始化开屏广告对象
         splash = ADSuyiSDKSplashAd.init()
         // 设置代理
@@ -68,10 +94,13 @@ class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
             // 示例2 圆弧跳过
 //            splash?.skipView = ringView;
         }
-        splash?.loadAndShow(in: UIApplication.shared.keyWindow!, withBottomView: bottomView)
+        splash?.load(in: UIApplication.shared.keyWindow!, withBottomView: bottomView)
         
     }
-    
+    func adsy_splashAdSuccess(toLoad splashAd: ADSuyiSDKSplashAd) {
+        print(#function)
+        isReady = true
+    }
     func adsy_splashAdClosed(_ splashAd: ADSuyiSDKSplashAd) {
         print(#function)
         splash = nil
