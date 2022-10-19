@@ -34,12 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         splash?.backgroundColor = UIColor.adsy_get(with: bgImage!, withNewSize: UIScreen.main.bounds.size)
         
         // 4、初始化底部视图
-        var bottomViewHeight:CGFloat = 0
-        if isIPhoneXSeries() {
-            bottomViewHeight = SCREEN_HEIGHT * 0.15
-        } else {
-            bottomViewHeight = SCREEN_HEIGHT - (SCREEN_WIDTH * 960 / 640)
-        }
+        var bottomViewHeight:CGFloat = SCREEN_HEIGHT * 0.15
         
         let bottomView = UIView.init(frame: CGRect.init(x: 0, y: SCREEN_HEIGHT - bottomViewHeight, width: SCREEN_WIDTH, height: bottomViewHeight))
         bottomView.backgroundColor = UIColor.white

@@ -32,24 +32,3 @@ let topSafeAreaHeight = (statusBarHeight - 20)
 //底部的安全距离
 let bottomSafeAreaHeight = (tabBarHeight - 49)
 
-
-// 是否为刘海屏
-func isIPhoneXSeries() ->Bool{
-    var isIPhoneXSeries:Bool = false
-    if UIDevice.current.userInterfaceIdiom != UIUserInterfaceIdiom.phone {
-        return isIPhoneXSeries
-    }
-    
-    if #available(iOS 11.0, *){
-        
-        let safeHeight:CGFloat = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
-        
-        if safeHeight > 0 {
-            isIPhoneXSeries = true
-        }
-    }
-    
-    return isIPhoneXSeries
-    
-}
-
