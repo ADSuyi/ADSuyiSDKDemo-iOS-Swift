@@ -21,6 +21,10 @@ class ADSuyiBannerItem : NSObject {
 }
 
 class ADSuyiBannerViewController: UIViewController, ADSuyiSDKBannerAdViewDelegate {
+    func adsy_bannerViewDidPresent(_ bannerView: ADSuyiSDKBannerAdView) {
+        
+    }
+    
     func adsy_bannerAdCloseLandingPage(_ bannerView: ADSuyiSDKBannerAdView) {
         
     }

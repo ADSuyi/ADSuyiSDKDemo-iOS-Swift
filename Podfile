@@ -17,7 +17,7 @@ target 'ADSuyiSDKDemo-iOS-Swift' do
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/baidu' # 百度
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/ks' # 快手(非内容版本，内容与非内容版本不可同时导入)
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/mtg'     # Mobvista(汇量)
-  #pod 'ADSuyiSDK/ADSuyiSDKPlatforms/gromore' # gromore
+  pod 'ADSuyiSDK/ADSuyiSDKPlatforms/gromore' # gromore
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/inmobi' # Inmobi
   
   pod 'MJRefresh'
