@@ -89,15 +89,18 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
             cell = self.mainTableView.dequeueReusableCell(withIdentifier: adTableViewCellInentifier, for: indexPath)
             
             for v in cell.contentView.subviews {
-                if (999 == v.tag) {
-                    v.removeFromSuperview()
-                }
+                   v.removeFromSuperview()
             }
             
             let obj = item as! UIView
-            obj.tag = 999
             cell.contentView.addSubview(obj)
             
+            //备注：如果是自渲染信息流，建议将关闭按钮添加到和adView同一层级，切勿将关闭按钮添加到adView上 (必要)
+            let tempItem = item as! UIView & ADSuyiAdapterNativeAdViewDelegate
+            if !tempItem.adsy_closeButtonExist() {
+                cell.contentView.addSubview(getCloseButtonWithAdItem(item: tempItem))
+            }
+        
         } else {
             cell = self.mainTableView.dequeueReusableCell(withIdentifier: tableViewCellInentifier, for: indexPath)
             cell.textLabel?.textAlignment = NSTextAlignment.center;
@@ -225,13 +228,6 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         let adHeight:CGFloat = (adWidth - 34.0) / 16.0 * 9.0 + 67 + 38
         adview.frame = CGRect.init(x: 0, y: 0, width: adWidth, height: adHeight)
         
-        // 展示关闭按钮（必要）
-        let closeButton = UIButton()
-        adview.addSubview(closeButton)
-        closeButton.frame = CGRect(x:adWidth-44, y:0, width:44, height:44)
-        closeButton.setImage(UIImage(named: "close"), for: .normal)
-        closeButton.addTarget(adview, action: #selector(adview.adsy_close), for: .touchUpInside)
-        
         // 显示logo图片（必要）
         //优量汇（广点通）会自带logo，不需要添加
         if adview.adsy_platform() != ADSuyiAdapterPlatform.GDT {
@@ -346,13 +342,6 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         
-        // 展示关闭按钮（必要）
-        let closeButton = UIButton()
-        adview.addSubview(closeButton)
-        closeButton.frame = CGRect(x:adWidth-44, y:0, width:44, height:44)
-        closeButton.setImage(UIImage(named: "close"), for: .normal)
-        closeButton.addTarget(adview, action: #selector(adview.adsy_close), for: .touchUpInside)
-        
         // 显示logo图片（必要）
         if adview.adsy_platform() != ADSuyiAdapterPlatform.GDT {
             let logoImage = UIImageView()
@@ -450,13 +439,6 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
         let size:CGSize = titleLabel.sizeThatFits(CGSize.init(width: adWidth - 34.0, height: 999))
         titleLabel.frame = CGRect.init(x: 17, y: adHeight-size.height, width: adWidth - 34.0, height: size.height)
         
-        // 展示关闭按钮（必要）
-        let closeButton = UIButton()
-        adview.addSubview(closeButton)
-        closeButton.frame = CGRect(x:adWidth-44, y:0, width:44, height:44)
-        closeButton.setImage(UIImage(named: "close"), for: .normal)
-        closeButton.addTarget(adview, action: #selector(adview.adsy_close), for: .touchUpInside)
-        
     }
     
     func cleanAllAd() {
@@ -477,6 +459,15 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
     
     deinit {
         self.cleanAllAd()
+    }
+    
+    func getCloseButtonWithAdItem(item:UIView & ADSuyiAdapterNativeAdViewDelegate)->UIButton{
+        let closeButton = UIButton()
+        //按钮位置根据需求自行设置
+        closeButton.frame = CGRect(x:item.mj_w-44, y:0, width:44, height:44)
+        closeButton.setImage(UIImage(named: "close"), for: .normal)
+        closeButton.addTarget(item, action: #selector(item.adsy_close), for: .touchUpInside)
+        return closeButton
     }
 
 }
