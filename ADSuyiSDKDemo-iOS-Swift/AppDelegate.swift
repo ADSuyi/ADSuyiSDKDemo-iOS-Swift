@@ -165,6 +165,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
     
     func initADSuyiSDK() {
         ADSuyiSDK.setLogLevel(.debug)
+        // ADSuyiSDK初始化, 需在主线程初始化
         ADSuyiSDK.initWithAppId("3437764") { (error) in
 //            if error != nil {
 //                NSLog("SDK 初始化失败:%@",error?.localizedDescription ?? "")
