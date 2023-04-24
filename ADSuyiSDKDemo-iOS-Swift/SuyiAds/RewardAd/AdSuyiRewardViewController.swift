@@ -9,6 +9,10 @@
 import UIKit
 
 class AdSuyiRewardViewController: UIViewController, ADSuyiSDKRewardvodAdDelegate {
+    func adsy_rewardvodAdServerDidSucceed(_ rewardvodAd: ADSuyiSDKRewardvodAd, info: [AnyHashable : Any]) {
+        
+    }
+    
     func adsy_rewardvodAdCloseLandingPage(_ rewardvodAd: ADSuyiSDKRewardvodAd) {
         
     }

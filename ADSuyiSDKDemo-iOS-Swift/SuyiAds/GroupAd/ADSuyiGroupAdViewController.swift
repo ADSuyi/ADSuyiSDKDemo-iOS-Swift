@@ -9,6 +9,10 @@
 import UIKit
 
 class ADSuyiGroupAdViewController: UIViewController,ADSuyiSDKNativeAdDelegate,ADSuyiSDKRewardvodAdDelegate {
+    func adsy_rewardvodAdServerDidSucceed(_ rewardvodAd: ADSuyiSDKRewardvodAd, info: [AnyHashable : Any]) {
+        
+    }
+    
     func adsy_rewardvodAdCloseLandingPage(_ rewardvodAd: ADSuyiSDKRewardvodAd) {
         
     }
