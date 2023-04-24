@@ -21,8 +21,8 @@ class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
 
         // Do any additional setup after loading the view.
         
-        self.view.backgroundColor = UIColor.white
-        
+        self.view.backgroundColor = UIColor.init(red: 225/255.0, green: 233/255.0, blue: 239/255.0, alpha: 1)
+
         let loadBtn = UIButton.init()
         loadBtn.layer.cornerRadius = 10;
         loadBtn.clipsToBounds = true;
