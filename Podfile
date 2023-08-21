@@ -19,7 +19,6 @@ target 'ADSuyiSDKDemo-iOS-Swift' do
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/mtg'     # Mobvista(汇量)
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/gromore' # gromore
   pod 'ADSuyiSDK/ADSuyiSDKPlatforms/inmobi' # Inmobi
-  
   pod 'MJRefresh'
 
 end
