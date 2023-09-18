@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ADSuyiSplashVPlusViewController: UIViewController,ADSuyiSDKSplashAdDelegate {
+class ADSuyiSplashVPlusViewController: UIViewController,ADSuyiSDKSplashAdDelegate,ADSuyiSDKSplashAdZoomOutViewDelegate {
 
     var splash: ADSuyiSDKSplashAd?
     let normalView = ADSuyiSkipView.init()
@@ -29,6 +29,8 @@ class ADSuyiSplashVPlusViewController: UIViewController,ADSuyiSDKSplashAdDelegat
         splash = ADSuyiSDKSplashAd.init()
         // 设置代理
         splash?.delegate = self
+        // 设置v+代理
+        splash?.zoomOutViewDelegate = self
         // 2、设置广告位id
         splash?.posId = "73128265daffdd6a1d"
         // 设置广告请求超时时间
@@ -73,5 +75,21 @@ class ADSuyiSplashVPlusViewController: UIViewController,ADSuyiSDKSplashAdDelegat
     func adsy_splashAdFail(toPresentScreen splashAd: ADSuyiSDKSplashAd, failToPresentScreen error: ADSuyiAdapterErrorDefine) {
         print(#function)
         splash = nil
+    }
+    
+    func adsy_splashZoomOutViewDidClick(_ splashAd: ADSuyiSDKSplashAd, splashZoomOutView: UIView & ADSuyiSDKSplashAdZoomOutViewProtocol) {
+        
+    }
+    func adsy_splashZoomOutViewAdDidClose(_ splashAd: ADSuyiSDKSplashAd, splashZoomOutView: UIView & ADSuyiSDKSplashAdZoomOutViewProtocol) {
+        splash = nil
+    }
+    func adsy_splashZoomOutViewAdVideoFinished(_ splashAd: ADSuyiSDKSplashAd, splashZoomOutView: UIView & ADSuyiSDKSplashAdZoomOutViewProtocol) {
+        
+    }
+    func adsy_splashZoomOutViewAdDidPresentFullScreenModal(_ splashAd: ADSuyiSDKSplashAd, splashZoomOutView: UIView & ADSuyiSDKSplashAdZoomOutViewProtocol) {
+        
+    }
+    func adsy_splashZoomOutViewAdDidDismissFullScreenModal(_ splashAd: ADSuyiSDKSplashAd, splashZoomOutView: UIView & ADSuyiSDKSplashAdZoomOutViewProtocol) {
+        
     }
 }
