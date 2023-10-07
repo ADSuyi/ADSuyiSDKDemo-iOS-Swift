@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     private var mainTable:UITableView!
-    private var dataArray: Array<String> = ["开屏广告","开屏V+广告","信息流广告","Banner横幅广告","激励视频","插屏广告","Draw视频","全屏视频","内容组件","组合广告 GroupAd", "快手内容"]
+    private var dataArray: Array<String> = ["开屏广告","信息流广告","Banner横幅广告","激励视频","插屏广告","Draw视频","全屏视频","内容组件","组合广告 GroupAd", "快手内容"]
     private let tableViewCellID = "SimpleTableIdentifier"
     
     override func viewDidLoad() {
@@ -127,36 +127,33 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.navigationController?.pushViewController(ADSuyiSplashViewController.init(), animated: true)
             break
         case 1:
-            self.navigationController?.pushViewController(ADSuyiSplashVPlusViewController.init(), animated: true)
-            break
-        case 2:
             self.navigationController?.pushViewController(AdSuyiNativeMainViewController.init(), animated: true)
             break
-        case 3:
+        case 2:
             self.navigationController?.pushViewController(ADSuyiBannerViewController.init(), animated: true)
             break
-        case 4:
+        case 3:
             self.navigationController?.pushViewController(AdSuyiRewardViewController.init(), animated: true)
             break
-        case 5:
+        case 4:
             self.navigationController?.pushViewController(AdSuyiInterstitialViewController.init(), animated: true)
             break
-        case 6:
+        case 5:
             self.navigationController?.pushViewController(AdSuyiDrawVodViewController.init(), animated: true)
             break
-        case 7:
+        case 6:
             self.navigationController?.pushViewController(AdSuyiFullScreenVodViewController.init(), animated: true)
             break
-        case 8:
+        case 7:
             self.navigationController?.pushViewController(AdSuyiContainViewController.init(), animated: true)
             break
-        case 9:
+        case 8:
             let vc = ADSuyiGroupAdViewController()
             vc.nativePosid = "e9eaffb6b9d97cd813"
             vc.rewardPosid = "47d196ffaaa92ae93c"
             self.navigationController?.pushViewController(vc, animated: true)
             break
-        case 10:
+        case 9:
             let vc = AdSuyiContentViewController()
             self.navigationController?.pushViewController(vc, animated: true)
             break
