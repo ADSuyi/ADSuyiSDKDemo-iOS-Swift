@@ -55,12 +55,6 @@ class ADSuyiSplashVPlusViewController: UIViewController,ADSuyiSDKSplashAdDelegat
         // 5、加载全屏的开屏广告
         // splash?.loadAndShow(in: self.window! , withBottomView: nil)
         // 5、加载带有底部视图的开屏广告
-        if  SetConfigManager.shared().isCustomSkipView{
-            // 示例1 自定义跳过按钮
-            splash?.skipView = normalView
-            // 示例2 圆弧跳过
-//            splash?.skipView = ringView;
-        }
         splash?.loadAndShow(in: UIApplication.shared.keyWindow!, withBottomView: bottomView)
         
     }
