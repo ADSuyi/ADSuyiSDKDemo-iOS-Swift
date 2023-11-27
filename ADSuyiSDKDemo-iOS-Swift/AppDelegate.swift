@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
          *该设置仅会在首次加载开屏广告时，SDK会使用开发者传入的参数进行广告请求，同时获取后台配置文件的广告配置信息缓存到本地（首次请求广告平台广告和获取配置信息时并发进行），后续的开屏广告将按照缓存缓存的后台广告位配置顺序进行开屏广告请求。
          *支持穿山甲、优量汇、快手、百度
          */
-        splash?.setBottomSplashWithSuyiPosid("73128265daffdd6a1d", platformListId: "3827", platform: "ksad", appId: "90010", appKey: nil, platformPosid: "4000000041", renderType: .expressPro)
+        splash?.setBottomSplashWithSuyiPosid("73128265daffdd6a1d", platformListId: "11554", platform: "ksad", appId: "680200071", appKey: nil, platformPosid: "6802000387", renderType: .expressPro)
         // 6、加载全屏的开屏广告
         // splash?.loadAndShow(in: self.window! , withBottomView: nil)
         // 6、加载带有底部视图的开屏广告
