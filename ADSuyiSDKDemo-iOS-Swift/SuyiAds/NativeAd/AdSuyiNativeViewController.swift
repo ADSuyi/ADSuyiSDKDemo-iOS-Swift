@@ -200,6 +200,7 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
     
     @objc func headerRefresh() {
         cleanAllAd()
+        self.nativeAd = nil
         loadNativeAd()
     }
     
