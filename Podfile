@@ -10,12 +10,13 @@ target 'ADSuyiSDKDemo-iOS-Swift' do
   use_frameworks!
 
   # Pods for ADSuyiSDKDemo-iOS-Swift
-  pod 'ADSuyiSDK','~> 3.8.1.01121' # 主SDK 必选
+  pod 'ADSuyiSDK','~> 3.9.0.01301' # 主SDK 必选
 pod 'ADSuyiSDK/ADSuyiSDKPlatforms/tianmu' # 天目  #必选
 pod 'ADSuyiSDK/ADSuyiSDKPlatforms/gdt' # 优量汇(广点通）
 pod 'ADSuyiSDK/ADSuyiSDKPlatforms/baidu' # 百度
 pod 'ADSuyiSDK/ADSuyiSDKPlatforms/ks' # 快手
 pod 'ADSuyiSDK/ADSuyiSDKPlatforms/mtg' # Mobvista(汇量)
+pod 'ADSuyiSDK/ADSuyiSDKPlatforms/jad' # 京媒
 
 # ab二选一
 # a.不需要gromore
@@ -31,7 +32,7 @@ pod 'ADSuyiSDK/ADSuyiSDKPlatforms/bu' # 穿山甲(头条)
 # pod 'CSJMBaiduAdapter',      '5.322.0'
 # pod 'CSJMMintegralAdapter',  '7.3.6.0.2'
 # pod 'CSJMKlevinAdapter',     '2.11.0.211.1'
-# pod 'CSJMSigmobAdapter',     '4.10.0.0'
+# pod 'CSJMSigmobAdapter',     '4.11.1.0'
 
   pod 'MJRefresh'
 
