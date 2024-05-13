@@ -123,12 +123,6 @@ class ADSuyiGroupAdViewController: UIViewController,ADSuyiSDKNativeAdDelegate,AD
                 }
                 item.adsy_registViews([item])
                 item.adsy_platform()
-                //广点通视频信息流广告会给mediaView添加事件，点击会出现半屏广告，以下为广点通官方给予的解决方案
-                if let data = item.data {
-                    if item.adsy_platform() == ADSuyiAdapterPlatform.GDT && item.renderType() == ADSuyiAdapterRenderType.native && data.shouldShowMediaView == true {
-                            item.adsy_mediaView(forWidth: 0.0)?.isUserInteractionEnabled = false
-                    }
-                }
             }
         }
         logString = logString + "获取DL广告成功\n"
