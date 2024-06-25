@@ -17,5 +17,6 @@
 #import "NavigationViewController.h"
 #import "SetConfigManager.h"
 #import <ADSuyiSDK/ADSuyiSDK.h>
+#import <ADSuyiSDK/ADSuyiSDKSplashProAd.h>
 
 #import "UIViewController+TYTopView.h"

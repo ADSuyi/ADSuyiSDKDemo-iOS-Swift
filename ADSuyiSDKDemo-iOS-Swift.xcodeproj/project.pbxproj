@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,7 @@
 		03FC886426462E8B0059037E /* ADSuyiSkipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FC886326462E8B0059037E /* ADSuyiSkipView.swift */; };
 		13CC7B9325DE6FE400D77DE5 /* AdSuyiBaseContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CC7B9225DE6FE400D77DE5 /* AdSuyiBaseContentViewController.swift */; };
 		13CC7B9625DE72ED00D77DE5 /* AdSuyiContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CC7B9525DE72ED00D77DE5 /* AdSuyiContentViewController.swift */; };
+		36557A9B2C2ADD350079D415 /* ADSuyiSplashProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36557A9A2C2ADD350079D415 /* ADSuyiSplashProViewController.swift */; };
 		82085D9725E894AF00FCE89F /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82085D9625E894AF00FCE89F /* AppTrackingTransparency.framework */; };
 		82085D9925E894BA00FCE89F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82085D9825E894BA00FCE89F /* AdSupport.framework */; };
 		820EC824254AA6F1001C7C88 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EC823254AA6F1001C7C88 /* TableViewController.swift */; };
@@ -82,6 +83,7 @@
 		03FC886326462E8B0059037E /* ADSuyiSkipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSuyiSkipView.swift; sourceTree = "<group>"; };
 		13CC7B9225DE6FE400D77DE5 /* AdSuyiBaseContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiBaseContentViewController.swift; sourceTree = "<group>"; };
 		13CC7B9525DE72ED00D77DE5 /* AdSuyiContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSuyiContentViewController.swift; sourceTree = "<group>"; };
+		36557A9A2C2ADD350079D415 /* ADSuyiSplashProViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSuyiSplashProViewController.swift; sourceTree = "<group>"; };
 		57C55753C99071DDCCAAE9C2 /* Pods-ADSuyiSDKDemo-iOS-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSuyiSDKDemo-iOS-Swift.debug.xcconfig"; path = "Target Support Files/Pods-ADSuyiSDKDemo-iOS-Swift/Pods-ADSuyiSDKDemo-iOS-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		82085D9625E894AF00FCE89F /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 		82085D9825E894BA00FCE89F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -198,6 +200,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		36557A992C2ADCC10079D415 /* SplashProAd */ = {
+			isa = PBXGroup;
+			children = (
+				36557A9A2C2ADD350079D415 /* ADSuyiSplashProViewController.swift */,
+			);
+			path = SplashProAd;
+			sourceTree = "<group>";
+		};
 		820EC822254AA66B001C7C88 /* contain */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +282,7 @@
 				BFB4D44E2498D65A00D51D77 /* RewardAd */,
 				BFB4D44B2498789900D51D77 /* BannerAd */,
 				BFB4D44A249877A100D51D77 /* SplashAd */,
+				36557A992C2ADCC10079D415 /* SplashProAd */,
 			);
 			path = SuyiAds;
 			sourceTree = "<group>";
@@ -484,6 +495,7 @@
 				03ED19CE2637F48E00089CF2 /* BannerAdSetTableViewController.m in Sources */,
 				BFEA08BC247E622B001815E3 /* ViewController.swift in Sources */,
 				13CC7B9625DE72ED00D77DE5 /* AdSuyiContentViewController.swift in Sources */,
+				36557A9B2C2ADD350079D415 /* ADSuyiSplashProViewController.swift in Sources */,
 				BF3082E2249A02B800FAC7A1 /* AdSuyiNativeViewController.swift in Sources */,
 				BF3082DC2499AC0500FAC7A1 /* AdSuyiFullScreenVodViewController.swift in Sources */,
 				03ED19CC2637F48E00089CF2 /* SplashSetTableViewController.m in Sources */,

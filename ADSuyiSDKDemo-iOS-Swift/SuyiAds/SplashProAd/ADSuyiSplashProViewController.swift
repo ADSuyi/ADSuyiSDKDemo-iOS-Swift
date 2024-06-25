@@ -1,17 +1,17 @@
 //
-//  ADSuyiSplashViewController.swift
+//  ADSuyiSplashProViewController.swift
 //  ADSuyiSDKDemo-iOS-Swift
 //
-//  Created by 陈坤 on 2020/6/16.
-//  Copyright © 2020 陈坤. All rights reserved.
+//  Created by apple on 2024/6/25.
+//  Copyright © 2024 陈坤. All rights reserved.
 //
 
 import UIKit
 
-class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
+class ADSuyiSplashProViewController: UIViewController, ADSuyiSDKSplashProAdDelegate {
 
     
-    var splash: ADSuyiSDKSplashAd?
+    var splash: ADSuyiSDKSplashProAd?
     
     let normalView = ADSuyiSkipView.init()
     let ringView = ADSuyiSkipRingView.init()
@@ -55,7 +55,7 @@ class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
     
     @objc func loadSplash() {
         // 1、初始化开屏广告对象
-        splash = ADSuyiSDKSplashAd.init()
+        splash = ADSuyiSDKSplashProAd.init()
         // 设置代理
         splash?.delegate = self
         // 2、设置广告位id
@@ -86,21 +86,21 @@ class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
         splash?.load(in: UIApplication.shared.keyWindow!, withBottomView: bottomView)
         
     }
-    func adsy_splashAdSuccess(toLoad splashAd: ADSuyiSDKSplashAd) {
+    func adsy_splashAdSuccess(toLoad splashAd: ADSuyiSDKSplashProAd) {
         print(#function)
         isReady = true
     }
     
-    func adsy_splashAdSkip(_ splashAd: ADSuyiSDKSplashAd) {
+    func adsy_splashAdSkip(_ splashAd: ADSuyiSDKSplashProAd) {
         print(#function)
     }
     
-    func adsy_splashAdClosed(_ splashAd: ADSuyiSDKSplashAd) {
+    func adsy_splashAdClosed(_ splashAd: ADSuyiSDKSplashProAd) {
         print(#function)
         splash = nil
     }
     
-    func adsy_splashAdFail(toPresentScreen splashAd: ADSuyiSDKSplashAd, failToPresentScreen error: ADSuyiAdapterErrorDefine) {
+    func adsy_splashAdFail(toPresentScreen splashAd: ADSuyiSDKSplashProAd, failToPresentScreen error: ADSuyiAdapterErrorDefine) {
         print(#function)
         splash = nil
     }

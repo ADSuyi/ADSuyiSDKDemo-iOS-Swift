@@ -113,6 +113,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         }
     }
     
+    func adsy_splashAdSkip(_ splashAd: ADSuyiSDKSplashAd) {
+        print(#function)
+    }
+    
     func adsy_splashAdClosed(_ splashAd: ADSuyiSDKSplashAd) {
         print(#function)
         splash = nil
