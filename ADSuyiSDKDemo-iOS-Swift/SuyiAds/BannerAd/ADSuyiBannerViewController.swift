@@ -123,7 +123,6 @@ class ADSuyiBannerViewController: UIViewController, ADSuyiSDKBannerAdViewDelegat
         // 2、传入广告位id
         bannerAdView?.posId = posid
         bannerAdView?.tolerateTimeout = 4
-        bannerAdView?.refershTime = SetConfigManager.shared().bannerAdInterval
         if SetConfigManager.shared().bannerAdScenceId != "" {
             bannerAdView?.scenesId = SetConfigManager.shared().bannerAdScenceId
         }
