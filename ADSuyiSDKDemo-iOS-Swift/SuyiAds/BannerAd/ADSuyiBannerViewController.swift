@@ -119,7 +119,6 @@ class ADSuyiBannerViewController: UIViewController, ADSuyiSDKBannerAdViewDelegat
         let height = screensSize.width / rate
         bannerAdView = ADSuyiSDKBannerAdView.init(frame: CGRect.init(x: 0, y: 250, width: screensSize.width, height: height))
         bannerAdView?.delegate = self
-        bannerAdView?.controller = self
         // 2、传入广告位id
         bannerAdView?.posId = posid
         bannerAdView?.tolerateTimeout = 4
@@ -127,8 +126,8 @@ class ADSuyiBannerViewController: UIViewController, ADSuyiSDKBannerAdViewDelegat
             bannerAdView?.scenesId = SetConfigManager.shared().bannerAdScenceId
         }
         self.view.addSubview(bannerAdView!)
-        // 3、加载banner广告
-        bannerAdView?.loadAndShowWithError(nil)
+        // 3、加载并展示；设置控制器，用来弹出落地页，重要
+        bannerAdView?.loadAndShow(self)
     }
     
     func adsy_bannerViewClose(_ bannerView: ADSuyiSDKBannerAdView) {
