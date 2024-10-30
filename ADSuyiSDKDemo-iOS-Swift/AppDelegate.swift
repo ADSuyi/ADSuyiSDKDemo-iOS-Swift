@@ -113,6 +113,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         }
     }
     
+    func adsy_splashAdSuccess(toLoad splashAd: ADSuyiSDKSplashAd) {
+        print(#function)
+        let extInfo = splashAd.adsy_extInfo()
+        print("ecpm=", extInfo?.ecpm ?? "")
+        print("ecpmType=", extInfo?.ecpmType.rawValue ?? 0)
+    }
+    
     func adsy_splashAdSkip(_ splashAd: ADSuyiSDKSplashAd) {
         print(#function)
     }

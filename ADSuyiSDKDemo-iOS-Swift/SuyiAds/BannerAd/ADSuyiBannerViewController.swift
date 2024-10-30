@@ -31,6 +31,9 @@ class ADSuyiBannerViewController: UIViewController, ADSuyiSDKBannerAdViewDelegat
     
     func adsy_bannerViewDidReceived(_ bannerView: ADSuyiSDKBannerAdView) {
         print(#function)
+        let extInfo = bannerView.adsy_extInfo()
+        print("ecpm=", extInfo?.ecpm ?? "")
+        print("ecpmType=", extInfo?.ecpmType.rawValue ?? 0)
     }
     
     func adsy_bannerViewClicked(_ bannerView: ADSuyiSDKBannerAdView) {

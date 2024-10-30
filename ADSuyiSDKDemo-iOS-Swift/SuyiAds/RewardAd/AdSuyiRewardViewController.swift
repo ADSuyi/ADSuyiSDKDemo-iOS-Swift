@@ -26,7 +26,9 @@ class AdSuyiRewardViewController: UIViewController, ADSuyiSDKRewardvodAdDelegate
     }
     
     func adsy_rewardvodAdLoadSuccess(_ rewardvodAd: ADSuyiSDKRewardvodAd) {
-        
+        let extInfo = rewardvodAd.adsy_extInfo()
+        print("ecpm=", extInfo?.ecpm ?? "")
+        print("ecpmType=", extInfo?.ecpmType.rawValue ?? 0)
     }
     
     func adsy_rewardvodAdReady(toPlay rewardvodAd: ADSuyiSDKRewardvodAd) {

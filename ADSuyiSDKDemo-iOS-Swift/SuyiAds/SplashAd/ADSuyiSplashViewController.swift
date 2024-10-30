@@ -88,7 +88,11 @@ class ADSuyiSplashViewController: UIViewController, ADSuyiSDKSplashAdDelegate {
     }
     func adsy_splashAdSuccess(toLoad splashAd: ADSuyiSDKSplashAd) {
         print(#function)
+        let extInfo = splashAd.adsy_extInfo()
+        print("ecpm=", extInfo?.ecpm ?? "")
+        print("ecpmType=", extInfo?.ecpmType.rawValue ?? 0)
         isReady = true
+        self.view.makeToast("开屏广告准备完成")
     }
     
     func adsy_splashAdSkip(_ splashAd: ADSuyiSDKSplashAd) {

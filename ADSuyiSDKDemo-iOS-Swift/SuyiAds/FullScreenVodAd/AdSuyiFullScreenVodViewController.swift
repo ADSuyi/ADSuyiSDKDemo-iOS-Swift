@@ -15,6 +15,9 @@ class AdSuyiFullScreenVodViewController: UIViewController, ADSuyiSDKFullScreenVo
     
     func adsy_fullScreenVodAdSucced(toLoad fullScreenVodAd: ADSuyiSDKFullScreenVodAd) {
         print(#function)
+        let extInfo = fullScreenVodAd.adsy_extInfo()
+        print("ecpm=", extInfo?.ecpm ?? "")
+        print("ecpmType=", extInfo?.ecpmType.rawValue ?? 0)
     }
     
     func adsy_fullScreenVodAdReady(toPlay fullScreenVodAd: ADSuyiSDKFullScreenVodAd) {

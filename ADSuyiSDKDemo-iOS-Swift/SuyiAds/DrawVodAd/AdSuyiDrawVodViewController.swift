@@ -49,6 +49,9 @@ class AdSuyiDrawVodViewController: UIViewController, UITableViewDelegate, UITabl
         // 3、广告视图渲染
         if drawvodAdViewArray.count > 0 {
             for adView:ADSuyiAdapterDrawvodAdView in drawvodAdViewArray {
+                let extInfo = adView.adsy_extInfo()
+                print("ecpm=", extInfo?.ecpm ?? "")
+                print("ecpmType=", extInfo?.ecpmType.rawValue ?? 0)
                 adView.render()
             }
         }

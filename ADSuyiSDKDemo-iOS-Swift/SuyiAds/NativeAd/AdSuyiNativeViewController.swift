@@ -12,6 +12,9 @@ class AdSuyiNativeViewController: UIViewController, UITableViewDelegate, UITable
     func adsy_nativeAdSucess(toLoad nativeAd: ADSuyiSDKNativeAd, adViewArray: [UIView & ADSuyiAdapterNativeAdViewDelegate]) {
         if adViewArray.count > 0{
             for item : UIView&ADSuyiAdapterNativeAdViewDelegate in adViewArray {
+                let extInfo = item.adsy_extInfo()
+                print("ecpm=", extInfo?.ecpm ?? "")
+                print("ecpmType=", extInfo?.ecpmType.rawValue ?? 0)
                 // 判断信息流广告是否为自渲染类型（可选实现） 可仿照所示样式demo实现 如无所需样式则需自行实现
                 // 如果单纯只配置了模版信息流，那么不需要实现，如果配置了自渲染信息流，那么需要实现
                 if item.renderType() == ADSuyiAdapterRenderType.native {

@@ -15,6 +15,9 @@ class AdSuyiInterstitialViewController: UIViewController, ADSuyiSDKIntertitialAd
     
     func adsy_interstitialAdSucced(toLoad interstitialAd: ADSuyiSDKIntertitialAd) {
         print(#function)
+        let extInfo = interstitialAd.adsy_extInfo()
+        print("ecpm=", extInfo?.ecpm ?? "")
+        print("ecpmType=", extInfo?.ecpmType.rawValue ?? 0)
         // 3、展示插屏广告
         isReady = true
         self.view.makeToast("插屏广告准备完成")
