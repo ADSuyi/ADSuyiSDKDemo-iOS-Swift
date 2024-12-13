@@ -13,7 +13,7 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
     var presentVC : UIViewController!
     lazy var BackgroundView = {() -> UIView in
         var view = UIView()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         view.frame = UIScreen.main.bounds
         return view
     }()
@@ -74,14 +74,13 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
     }
     
    @objc func loadNativeAd() {
-       self.removeAllSubviewsFromeSuperView(view: self.adBgView)
-       self.removeAllSubviewsFromeSuperView(view: self.backgroundView)
+       self.nativeAd = nil;
        self.nativeAd = ADSuyiSDKNativeAd.init(adSize: CGSize.init(width: self.view.bounds.size.width, height: 10))
        self.nativeAd.posId = "e9eaffb6b9d97cd813"
        self.nativeAd.delegate = self
        self.nativeAd.controller = self.presentVC
        self.nativeAd.tolerateTimeout = 4
-        self.nativeAd.load(1)
+       self.nativeAd.load(1)
     }
     
     // MARK: - ADSuyiSDKNativeAdDelegate
@@ -93,11 +92,7 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
                 // 如果单纯只配置了模版信息流，那么不需要实现，如果配置了自渲染信息流，那么需要实现
                 if item.renderType() == ADSuyiAdapterRenderType.native {
                     //1、常规样式
-                    setUpUnifiedNativeSplashAdView(adview: item)
-                }else{
-                    item.frame = CGRect.init(x: (self.backgroundView.frame.size.width - item.frame.size.width)/2, y: (self.backgroundView.frame.size.height - item.frame.size.height)/2, width: item.frame.size.width, height: item.frame.size.height)
-                    self.removeAllSubviewsFromeSuperView(view: self.backgroundView)
-                    self.backgroundView.addSubview(item)
+                    setUpUnifiedNativeInterstitialAdView(adview: item)
                 }
                 item.adsy_registViews([item])
                 
@@ -110,6 +105,13 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
     }
     
     func adsy_nativeAdViewRenderOrRegistSuccess(_ adView: UIView & ADSuyiAdapterNativeAdViewDelegate) {
+        if adView.renderType() == ADSuyiAdapterRenderType.native {
+            
+        } else {
+            self.adBgView.frame = CGRect.init(x: (self.backgroundView.frame.size.width - adView.frame.size.width)/2, y: (self.backgroundView.frame.size.height - adView.frame.size.height)/2, width: adView.frame.size.width, height: adView.frame.size.height)
+        }
+        self.adBgView.addSubview(adView)
+        self.backgroundView.addSubview(self.adBgView)
         self.presentVC.view.addSubview(self.backgroundView)
         self.present(self.presentVC, animated: true) {
         }
@@ -124,6 +126,11 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
     }
     
     func adsy_nativeAdClose(_ nativeAd: ADSuyiSDKNativeAd, adView: UIView & ADSuyiAdapterNativeAdViewDelegate) {
+        DispatchQueue.main.async {
+            adView.adsy_unRegistView()
+        }
+        self.removeAllSubviewsFromeSuperView(view: self.adBgView)
+        self.removeAllSubviewsFromeSuperView(view: self.backgroundView)
         closeAd()
     }
     
@@ -133,7 +140,7 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
 
     
     // 自渲染信息流开屏广告样式
-    func setUpUnifiedNativeSplashAdView(adview : UIView & ADSuyiAdapterNativeAdViewDelegate) {
+    func setUpUnifiedNativeInterstitialAdView(adview : UIView & ADSuyiAdapterNativeAdViewDelegate) {
         // 设计的adView实际大小，其中宽度和高度可以自己根据自己的需求设置
         let adWidth:CGFloat = self.backgroundView.frame.size.width - 17 * 2
         let adHeight:CGFloat = adWidth / 16.0 * 9
@@ -196,10 +203,8 @@ class NativeInterstitialAdViewController: UIViewController, ADSuyiSDKNativeAdDel
         descLabel.frame = CGRect.init(x: 0, y: adHeight + 15, width: adWidth, height: 60)
         
         self.adBgView.frame = CGRect.init(x: 17, y: (self.backgroundView.frame.size.height - adBgViewHeight)/2, width: adWidth, height: adBgViewHeight)
-        self.adBgView.addSubview(adview)
         self.adBgView.isUserInteractionEnabled = true
         self.backgroundView.isUserInteractionEnabled = true
-        self.backgroundView.addSubview(self.adBgView)
         
         //设置关闭按钮
         let closeBtnWidth:CGFloat = 40
