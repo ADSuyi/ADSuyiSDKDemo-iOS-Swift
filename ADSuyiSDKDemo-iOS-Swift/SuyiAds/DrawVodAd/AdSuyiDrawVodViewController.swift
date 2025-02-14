@@ -18,13 +18,14 @@ class AdSuyiDrawVodViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.frame.size.height - statusBarHeight
+        return self.view.frame.size.height
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let adView = self.dataArray[indexPath.row]
         adView.tag = 999
         cell.contentView.addSubview(adView)
+        adView.frame = cell.contentView.bounds
         adView.registView()
         
     }
@@ -100,12 +101,22 @@ class AdSuyiDrawVodViewController: UIViewController, UITableViewDelegate, UITabl
         loadDrawvodAd()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
     
     func setUpUI() {
         self.mainTableView = UITableView.init()
         self.mainTableView?.delegate = self
         self.mainTableView?.dataSource = self
-        self.mainTableView?.frame = CGRect.init(origin: CGPoint.init(x: 0, y: tabBarHeight), size: CGSize.init(width: SCREEN_WIDTH, height: SCREEN_HEIGHT - statusBarHeight))
+        self.mainTableView?.frame = view.bounds;
         
         self.mainTableView?.isPagingEnabled = true
         self.mainTableView?.showsVerticalScrollIndicator = false
@@ -128,7 +139,7 @@ class AdSuyiDrawVodViewController: UIViewController, UITableViewDelegate, UITabl
     func loadDrawvodAd() {
         if drawvodAd == nil {
             // 1、初始化沉浸式视频广告对象
-            self.drawvodAd = ADSuyiSDKDrawvodAd.init(size: CGSize.init(width: self.view.frame.size.width, height: self.view.frame.size.height - statusBarHeight))
+            self.drawvodAd = ADSuyiSDKDrawvodAd.init(size: mainTableView?.bounds.size ?? CGSizeZero)
             self.drawvodAd?.posId = "e60e6ad498e1be4906"
             self.drawvodAd?.delegate = self
             self.drawvodAd?.controller = self
@@ -143,4 +154,7 @@ class AdSuyiDrawVodViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationController?.popViewController(animated: true)
     }
 
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
