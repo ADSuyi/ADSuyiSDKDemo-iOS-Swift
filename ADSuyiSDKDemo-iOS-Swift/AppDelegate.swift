@@ -81,38 +81,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         application.endReceivingRemoteControlEvents()
     }
     
-//    MARK:小说SDK后台播放控制
-    
-    override var canBecomeFirstResponder: Bool {
-        return true
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        application.beginReceivingRemoteControlEvents()
-    }
-    
-    override func remoteControlReceived(with event: UIEvent?) {
-        switch event?.subtype {
-        case .remoteControlPlay:
-            ADSuyiSDKContainAd.replay()
-            break
-        case .remoteControlPause:
-            ADSuyiSDKContainAd.pause()
-            break
-        case .remoteControlPreviousTrack:
-            ADSuyiSDKContainAd.last()
-            break
-        case .remoteControlNextTrack:
-            ADSuyiSDKContainAd.next()
-            break
-        case .remoteControlTogglePlayPause:
-            ADSuyiSDKContainAd.smallWindowPause()
-            break
-        default:
-            break
-        }
-    }
-    
     func adsy_splashAdSuccess(toLoad splashAd: ADSuyiSDKSplashAd) {
         print(#function)
         let extInfo = splashAd.adsy_extInfo()
