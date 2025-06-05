@@ -143,7 +143,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ADSuyiSDKSplashAdDelegate
         alertVc.addAction(privacyLink)
         alertVc.addAction(sdkLink)
         window?.rootViewController?.present(alertVc, animated: true, completion: nil)
-        
     }
     
     func openLinkURL(_ linkURL: String) {
